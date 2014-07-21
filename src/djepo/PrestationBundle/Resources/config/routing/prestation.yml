@@ -1,0 +1,30 @@
+prestation:
+    pattern:  /
+    defaults: { _controller: "djepoPrestationBundle:prestation:index" }
+
+prestation_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "djepoPrestationBundle:prestation:show" }
+
+prestation_new:
+    pattern:  /new
+    defaults: { _controller: "djepoPrestationBundle:prestation:new" }
+
+prestation_create:
+    pattern:  /create
+    defaults: { _controller: "djepoPrestationBundle:prestation:create" }
+    requirements: { _method: post }
+
+prestation_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "djepoPrestationBundle:prestation:edit" }
+
+prestation_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "djepoPrestationBundle:prestation:update" }
+    requirements: { _method: post|put }
+
+prestation_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "djepoPrestationBundle:prestation:delete" }
+    requirements: { _method: post|delete }

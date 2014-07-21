@@ -1,0 +1,29 @@
+{% extends "djepoUserBundle::adminlayout.html.twig" %}
+
+{% block meta %} 
+  <meta name="description" content=" compte activé ">
+  <meta name='ROBOTS' content="noindex,nofollow">
+ {% endblock %}
+ {% block title %} {{ parent()   ~' - Confirmation  ' }}  {% endblock %}
+
+{% block navigsite %}
+         <ol class="breadcrumb">
+           <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <li><a  href="{{ path('djepoUser_profile') }}"> Admin </a></li>
+            <li class="active"> Compte activé </li>
+        </ol>
+         
+{% endblock %}
+         
+{% block fos_user_content %}
+     <div class="alert col-sm-12 alert-info"> 
+       {{ 'registration.confirmed'|trans({'%username%': user.username}, 'FOSUserBundle') }}
+     </div>
+    {# {% if app.session is not empty %}
+        {% set targetUrl = app.session.get('_security.target_path') %}
+        {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans({}, 'FOSUserBundle') }}</a></p>{% endif %}
+    {% endif %}
+    #}
+{% endblock fos_user_content %}
+
+ 

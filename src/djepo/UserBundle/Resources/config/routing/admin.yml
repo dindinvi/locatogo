@@ -1,0 +1,30 @@
+admin:
+    pattern:  /
+    defaults: { _controller: "djepoUserBundle:Admin:index" }
+
+admin_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "djepoUserBundle:Admin:show" }
+
+admin_new:
+    pattern:  /new
+    defaults: { _controller: "djepoUserBundle:Admin:new" }
+
+admin_create:
+    pattern:  /create
+    defaults: { _controller: "djepoUserBundle:Admin:create" }
+    requirements: { _method: post }
+
+admin_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "djepoUserBundle:Admin:edit" }
+
+admin_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "djepoUserBundle:Admin:update" }
+    requirements: { _method: post|put }
+
+admin_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "djepoUserBundle:Admin:delete" }
+    requirements: { _method: post|delete }

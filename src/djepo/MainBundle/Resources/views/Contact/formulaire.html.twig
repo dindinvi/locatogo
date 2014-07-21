@@ -1,0 +1,45 @@
+     <div class="text-warning"> {{ form_errors(form) }}<br> </div>
+                    
+	   <div class="row form-group">
+               <div class="col-sm-2 ">{{ form_label(form.nom, null, {'label':'Votre nom', 'label_attr': {'class': ' form-label' } }) }}
+                   <span class="ast"> * </span></div>
+	       <div class="col-sm-7">{{ form_widget(form.nom, { 'attr': {'class': 'form-control' } }) }}</div>
+               <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(form.nom) }} </span></div>
+		      
+	     </div>
+            
+            <div class="row form-group">
+               <div class="col-sm-2 "> <span class="form-label">{{ form_label(form.prenom, "Prénom") }}</span></div>
+	       <div class="col-sm-7">{{ form_widget(form.prenom, { 'attr': {'class': 'form-control' } }) }}</div>
+               <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(form.prenom) }} </span></div>
+		      
+	     </div>
+            
+            <div class="row form-group">
+               <div class="col-sm-2 ">{{ form_label(form.email, "Votre email") }}<span class="ast"> * </span></div>
+	       <div class="col-sm-7">{{ form_widget(form.email, { 'attr': {'class': 'form-control' } })  }}</div>
+               <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(form.email) }} </span></div>
+		      
+	     </div>
+                         
+            <div class="row form-group">
+               <div class="col-sm-2 ">{{ form_label(form.subject, "Titre") }} <span class="ast"> * </span></div>
+	       <div class="col-sm-7">{{ form_widget(form.subject, { 'attr': {'class': 'form-control' } })  }}</div>
+               <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(form.subject) }} </span></div>
+		      
+	     </div>
+            
+             <div class="row form-group">
+               <div class="col-sm-2 ">{{ form_label(form.message, "Message") }}<span class="ast"> * </span></div>
+	       <div class="col-sm-7">{{ form_widget(form.message, { 'attr': {'class': 'form-control' } })  }}</div>
+               <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(form.message) }} </span></div>
+		      
+	     </div>
+             {# include "djepoMainBundle::formCaptcha.html.twig" #}
+              {{ form_rest(form) }}
+        <br>
+	       <div class="row form-group"> 
+                   <div class="col-sm-offset-2 col-sm-2"> <input type="submit" class="btn btn-sm btn-primary btn-block" name="_submit" value="Envoyer" /></div>
+ 
+		 </div> 
+ 

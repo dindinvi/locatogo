@@ -1,0 +1,83 @@
+djepo_calendrier:
+    resource: "@djepoCalendrierBundle/Resources/config/routing.yml"
+    prefix:   /
+
+djepo_prestation:
+    resource: "@djepoPrestationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+djepo_location:
+    resource: "@djepoLocationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+djepo_boot_strap:
+    resource: "@djepoBootStrapBundle/Resources/config/routing.yml"
+ 
+djepo_kick_start:
+    resource: "@djepoKickStartBundle/Resources/config/routing.yml"
+
+djepo_main:
+    resource: "@djepoMainBundle/Resources/config/routing.yml"
+
+djepo_user:
+    resource: "@djepoUserBundle/Resources/config/routing.yml"
+    
+    
+fos_user_security_logout:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+    
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    
+fos_user_registration_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+fos_user_registration_check_email:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+fos_user_registration_confirm:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+fos_user_registration_confirmed:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+    
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile
+    
+fos_user_group:
+    resource: "@FOSUserBundle/Resources/config/routing/group.xml"
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+    
+adesigns_calendar:
+    resource: "@ADesignsCalendarBundle/Resources/config/routing.xml"
+
+    
+_imagine:
+    resource: .
+    type:     imagine    
+
+
+_security_check:
+  pattern:  /login_fb_check
+_security_logout:
+  pattern:  /logout
+#_facebook_secured:
+#  pattern: /secured/
+ #AJOUT1
+_facebook_secured:
+    pattern: /secured/
+    
+    
+# Internal routing 
+
+gregwar_captcha_routing:
+    resource: "@GregwarCaptchaBundle/Resources/config/routing/routing.yml"

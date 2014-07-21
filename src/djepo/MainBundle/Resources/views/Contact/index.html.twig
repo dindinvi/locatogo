@@ -1,0 +1,65 @@
+{# page contact #}
+{% extends "djepoMainBundle::layout.html.twig" %}
+
+{% block title %} {{ parent()  }}  {% endblock %}
+{% block stylesheets %}  
+{{ parent() }}
+
+ {% endblock %}
+
+{% block navigsite %}
+          <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <li class="active">{{ djepo_contact }} </li>
+        </ol>
+ {% endblock %}
+
+{% block my_content %}
+   
+        
+	  <h1 class="page-header">Contactez-nous.</h1> 
+          <div class="row">{# corp body #}
+                 <div class="col-sm-12">
+		<div class="panel-group ">
+                    <h2>Notre équipe est à votre écoute.</h2>
+                    <div class="panel panel-default">
+                      <div class="panel-heading"> 
+                        <h3 class="panel-title">
+                          <a class="accordion-toggle" href="{{ path('djepoMain_contact') ~ '#parmail' }}" data-toggle="collapse"> Par Email</a> 
+                        </h3>
+                      </div>
+                      <div id="parmail" class="panel-collapse collapse in">
+                        <div class="panel-body"> 
+                             <h4>Formulaire de contact</h4>
+                              <form  class="form-horizontal"  action="{{ path('djepoMain_contact') }}" method="post" {{ form_enctype(form) }} >
+                                {% include "djepoMainBundle:Contact:formulaire.html.twig" %}
+                                </form>
+		            </div>
+                      </div>
+                    </div>
+                    
+                    <div class="panel panel-default">
+                      <div class="panel-heading"> 
+                        <h3 class="panel-title">
+                          <a class="accordion-toggle" href="{{ path('djepoMain_contact') ~ '#partel' }}" data-toggle="collapse"> Par téléphone </a> 
+                        </h3>
+                      </div>
+                      <div id="partel" class="panel-collapse collapse">
+                        <div class="panel-body"> 
+                            Si vous avez des questions ou besions de renseignements.
+                         <address>
+                        <strong>Twitter, Inc.</strong><br>
+                        795 Folsom Ave, Suite 600<br>
+                        San Francisco, CA 94107<br>
+                        <abbr title="Phone">Téléphone fixe:</abbr> 00228 XX XX XX XX
+                        <abbr title="PhoneP">Téléphone portable:</abbr> 00228 XX XX XX XX
+                      </address>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+            </div>
+                
+{% endblock %}
+   

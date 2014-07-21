@@ -1,0 +1,64 @@
+{% extends "djepoUserBundle::adminlayout.html.twig" %}
+
+{% block meta %} 
+  <meta name="description" content="Formulaire contact">
+  <meta name='ROBOTS' content="noindex,nofollow">
+ {% endblock %} 
+
+{% block title %} {{ parent()~' - ' ~ 'Formulaire contact'  }}  {% endblock %}
+{% block navigsite %} 
+  <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <li><a  href="{{ path('djepoUser_profile') }}"> Admin </a></li>
+            <li class="active">Formulaire contact</li>
+        </ol>
+{% endblock %} 
+
+{% block principal %}	
+  {{ parent() }} 
+<br>
+<h1>MotsCle list</h1>
+
+  <div class="table-responsive">
+     <table class="table table-bordered table-striped table-condensed">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Robot</th>
+            <th>Keyword</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('motscle_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.titre }}</td>
+            <td>{{ entity.description }}</td>
+            <td>{{ entity.robot }}</td>
+            <td>{{ entity.keyword }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('motscle_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('motscle_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+<ul>
+    <li>
+        <a href="{{ path('motscle_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>
+{% endblock %} 

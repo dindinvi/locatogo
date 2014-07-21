@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd>
+  <duplication lines="49" tokens="120">
+    <file path="C:\wamp\www\locaTogo\src\djepo\UserBundle\Entity\doc\UserType.php" line="3"/>
+    <file path="C:\wamp\www\locaTogo\src\djepo\UserBundle\Form\doc\UserType.php" line="3"/>
+    <codefragment>namespace djepo\UserBundle\Form;
+
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+
+class UserType extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+            -&gt;add('username')
+            -&gt;add('usernameCanonical')
+            -&gt;add('email')
+            -&gt;add('emailCanonical')
+            -&gt;add('enabled')
+            -&gt;add('salt')
+            -&gt;add('password')
+            -&gt;add('lastLogin')
+            -&gt;add('locked')
+            -&gt;add('expired')
+            -&gt;add('expiresAt')
+            -&gt;add('confirmationToken')
+            -&gt;add('passwordRequestedAt')
+            -&gt;add('roles')
+            -&gt;add('credentialsExpired')
+            -&gt;add('credentialsExpireAt')
+            -&gt;add('firstname')
+            -&gt;add('lastname')
+            -&gt;add('facebookId')
+            -&gt;add('dateN')
+            -&gt;add('typeEntite')
+            -&gt;add('telFixe')
+            -&gt;add('telPortable')
+            -&gt;add('fax')
+            -&gt;add('adresse')
+        ;
+    }
+
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver-&gt;setDefaults(array(
+            'data_class' =&gt; 'djepo\UserBundle\Entity\User'
+        ));
+    }
+
+    public function getName()
+    {
+        return 'djepo_userbundle_usertype';
+</codefragment>
+  </duplication>
+  <duplication lines="19" tokens="94">
+    <file path="C:\wamp\www\locaTogo\src\djepo\UserBundle\Form\Type\ProfileUserType.php" line="14"/>
+    <file path="C:\wamp\www\locaTogo\src\djepo\UserBundle\Form\Type\UserType.php" line="13"/>
+    <codefragment>        parent::buildUserForm($builder, $options);
+
+        // add your custom field
+        $builder
+                    -&gt;add('firstname','text', array( 'required' =&gt; false,'label' =&gt; 'Prenom: '))
+                     -&gt;add('lastname','text', array( 'required' =&gt; false,'label' =&gt; 'Nom'))
+                -&gt;add('email', 'repeated', array(// add venant de RegistrationFormType
+                'type' =&gt; 'text',
+                'invalid_message' =&gt; 'Email different .',))
+            -&gt;add('typeEntite', 'choice', array(
+                    'choices'   =&gt; array('Particulier' =&gt; 'Particulier', 'Société' =&gt; 'Société'),
+                    'required'  =&gt; false, 
+                    'label' =&gt; 'type d\'entite',)
+                )
+            -&gt;add('telFixe','text', array( 'required' =&gt; false,'label' =&gt; 'Tel. Fixe '))
+            -&gt;add('telPortable','text', array('required' =&gt; false, 'label' =&gt; 'Tel. Portable '))
+            -&gt;add('fax','text', array( 'required' =&gt; false,'label' =&gt; 'Fax '))
+            -&gt;add('adresse', new AdresseType)
+         ;
+</codefragment>
+  </duplication>
+</pmd-cpd>

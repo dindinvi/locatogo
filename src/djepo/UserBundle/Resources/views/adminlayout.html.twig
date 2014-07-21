@@ -1,0 +1,31 @@
+{# src/djepo/UserBundle/Resources/views/ADMINlayout.html.twig #}
+{% extends "::base.html.twig" %} {# extends "::baseUser.html.twig" #}
+
+{% block title %} {{  parent() }} {% endblock %}
+{% block stylesheets %} {{ parent() }}  {% endblock %}
+ {% block header %} {{ parent() }} {% endblock %}	
+{% block navigsite %} <ol class="breadcrumb">  <li class="active">{{ djepo_home }} </li>  </ol>  {% endblock %} 
+
+{% block principal %}
+ {% for label, flashes in app.session.flashbag.all %}
+ {% if (label == 'fos_user_success')  %}
+              {%   set label='success' %}
+        {% endif %}
+    {% for flash in flashes %}
+          
+         <div class="{% if (label == 'warning' or label == 'danger' or label == 'success')  %} alert alert-{{ label }}  {% else  %} alert alert-info{% endif %}">
+                {{ flash |trans({}, 'djepoUserBundle') }}
+            </div>
+    {% endfor %}
+{% endfor %}
+    {% block fos_user_content %}  {% endblock fos_user_content %} 
+         {% block djepo_content %}  {% endblock djepo_content %} 
+    
+{% endblock %}
+    
+{% block droite %} {% include "djepoMainBundle::menuDroite.html.twig" %} {% endblock %} 							
+{% block pied %} 
+ {{ parent() }} 		
+{% endblock %}
+
+{% block javascripts %} {{ parent() }} {% endblock %}

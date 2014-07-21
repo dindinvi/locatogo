@@ -1,0 +1,73 @@
+{% extends "djepoUserBundle::adminlayout.html.twig" %}
+{% block meta %} 
+	  <meta name="description" content=" MotsCle">
+	  <meta name='ROBOTS' content="noindex,nofollow">
+ {% endblock %} 
+{% block title %} {{ parent()~' - ' ~ ' MotsCle'  }}  {% endblock %}
+{% block navigsite %} 
+          <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <li><a  href="{{ path('djepoUser_profile') }}"> Admin </a></li>
+            <li class="active"> MotsCle </li>
+        </ol>
+          
+{% endblock %}
+
+{% block principal %}	
+       
+  {{ parent() }} 
+<br>
+
+<h1>{{ app.user.username }}: MotsCle</h1>
+
+ <div class="row"> 
+    <div class="col-sm-10 table-responsive">
+          <table class="table table-bordered table-striped table-condensed">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Titre</th>
+            <td>{{ entity.titre }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ entity.description }}</td>
+        </tr>
+        <tr>
+            <th>Robot</th>
+            <td>{{ entity.robot }}</td>
+        </tr>
+        <tr>
+            <th>Keyword</th>
+            <td>{{ entity.keyword }}</td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+      </div>
+ 
+
+    <div class="row">    
+               <ul  class="nav navbar-nav" >
+    <li>
+        <a href="{{ path('motscle') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('motscle_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('motscle_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

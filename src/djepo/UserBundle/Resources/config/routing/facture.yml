@@ -1,0 +1,30 @@
+facture:
+    pattern:  /
+    defaults: { _controller: "djepoUserBundle:facture:index" }
+
+facture_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "djepoUserBundle:facture:show" }
+
+facture_new:
+    pattern:  /new
+    defaults: { _controller: "djepoUserBundle:facture:new" }
+
+facture_create:
+    pattern:  /create
+    defaults: { _controller: "djepoUserBundle:facture:create" }
+    requirements: { _method: post }
+
+facture_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "djepoUserBundle:facture:edit" }
+
+facture_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "djepoUserBundle:facture:update" }
+    requirements: { _method: post|put }
+
+facture_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "djepoUserBundle:facture:delete" }
+    requirements: { _method: post|delete }

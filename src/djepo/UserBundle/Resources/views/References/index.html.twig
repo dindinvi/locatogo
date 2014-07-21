@@ -1,0 +1,51 @@
+{% extends "SdkProjetTravauxBundle::layout.html.twig" %}
+
+{% block navigsite %} <a  href="{{ path('SdkProjetTravaux_accueil') }}"> {{ parent() }} </a> 
+ {{ ' > Réalisations-références-témoignages' }}  {% endblock %} 
+
+{% block principal %}	
+     {# On affiche tous les messages flash #}
+	                        
+	            {% if app.session.hasFlash('blogger-architecte') %}
+		             <br>  <br>
+				    <div class="center" data-role="content"  data-theme="e">
+				       {{ app.session.flash('blogger-architecte') }}
+				    </div>
+				     <br>  <br> 
+			  {% endif %} 
+		  
+   <br> 
+ 		 <div data-role="collapsible-set">
+			<h1> Nos Réalisations.</h1> <br>  				   
+			Vous trouverez dans cette section, quelques exemples de mes réalisations.
+				<br> <br>    <div data-role="collapsible" data-theme="c">
+						<h2> Projets d'architecture</h2>  <br>
+			   </div>
+			  
+		</div> 
+		<br>
+		<div data-role="collapsible-set">
+			<h1> Nos Références.</h1>  <br> 
+			  Vous trouverez dans cette section, quelques exemples de mes réalisations.
+				<br> <br>  
+				 <div data-role="collapsible" data-theme="c">
+				    <h2>Diplôme architecture:Travail personnel de fin d'étude - TPFE</h2>
+					 <br>
+				</div>
+		</div>
+		
+		 <br> <br>
+ 		 <div data-role="collapsible-set">
+			<h1>  Nos Témoignages .</h1>  <br> 	 Vous trouverez dans cette section, quelques exemples de nos Temoignages.
+				<br> <br>  <div data-role="collapsible" data-theme="c">
+						<h2> PUBLICS</h2>
+ 
+					   <br>
+			   </div><br>
+			   <div data-role="collapsible" data-theme="c">
+				   <h2> PRIVEES </h2>
+					
+					<br>
+				</div>
+		</div>
+{% endblock %}

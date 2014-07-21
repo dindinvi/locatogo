@@ -1,0 +1,74 @@
+{# page about #}
+{% extends "djepoMainBundle::layout.html.twig" %}
+{% block title %} {{ parent()~' - ' ~ djepo_about  }}  {% endblock %}
+{% block navigsite %} 
+    <a href="{{ path('djepoMain_accueil') }}"> {{ parent() }} </a>    {{ ' > '~ djepo_about }}
+
+{% endblock %} 
+
+{% block my_content %}	
+  
+ 		 <div>
+			  <h1> Qui nous sommes.</h1> 
+			
+			<div>
+			  <h2> L'entreprise</h2>
+			  {{ websiteName }} est une société de prestation de services dans le domaine immobilier au Togo.
+			  
+			{{ websiteName }} travaille avec une équipe dynamique et expérimentée de professionnels
+			 dans les domaines de la locations de Maisons. <br>Nous vous assistons avant et pendant vos locations.
+			 
+			  </div>
+			 <br>
+			   <div>
+						<h2> Nos missions</h2>
+
+					<ol>
+					<li>Projet de construction : Plan de maison sur mesure ou Extension maison individuelle</li>
+					<li>Réalisation de plans d'éxecutions et de détails</li>
+					<li>Direction de l'execution des travaux</li>
+					<li>Déplacement / Consultation / Conseils</li>
+					<li>Etat des lieux (Appartement / Maison )</li>
+					<li>Diagnostic Technique ou Architectural</li>
+					<li>Estimation de travaux de remise en état</li>
+					<li>Relevé d'un batiment existant</li>
+     			 </ol>
+     			 Pour toutes autres demandes merci de prendre <a href="{{ path('djepoMain_contact') }}" rel="nofollow">contact avec nous</a> .
+					   <br>
+			   </div>
+			   <br> 
+			   <div>
+				   <h2>Nos services</h2>
+					
+				 <ul data-role="listview"  data-inset="true">
+					<li>Service : Plan de Maison sur Mesure</li>
+					<li>Service : Relevé d'État des Lieux</li>
+					<li>Service : Modélisation d'un plan de maison</li>
+					<li>Service : Assistance à l'achat d'un logement</li>
+					<li>Service : Estimation immobilière ( Appartement / Maison )</li>
+     			 </ul>	 <br>
+				</div>
+ 
+	 <br>
+			  <div>
+			  <h2> Nos actualités</h2>
+			  </div>
+		 <br>	  
+			  <div>
+			  <h2> Nos coordonnées</h2>
+				<ul>
+					<li>Adresse : 117, Rue Kouloumi Bè - Hedze </li>
+					<br><li>BP : 3813 </li>	
+					<br><li>Lomé TOGO </li>			 
+				 </ul>
+				
+			   </div>
+			 <br>   
+			   <div>
+				   <h2> Autres Informations</h2>
+					
+				</div>
+		</div>
+{% endblock %}
+
+

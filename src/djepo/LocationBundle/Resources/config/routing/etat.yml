@@ -1,0 +1,30 @@
+etat:
+    pattern:  /
+    defaults: { _controller: "djepoLocationBundle:etat:index" }
+
+etat_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "djepoLocationBundle:etat:show" }
+
+etat_new:
+    pattern:  /new
+    defaults: { _controller: "djepoLocationBundle:etat:new" }
+
+etat_create:
+    pattern:  /create
+    defaults: { _controller: "djepoLocationBundle:etat:create" }
+    requirements: { _method: post }
+
+etat_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "djepoLocationBundle:etat:edit" }
+
+etat_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "djepoLocationBundle:etat:update" }
+    requirements: { _method: post|put }
+
+etat_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "djepoLocationBundle:etat:delete" }
+    requirements: { _method: post|delete }

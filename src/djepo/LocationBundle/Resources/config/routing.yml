@@ -1,0 +1,30 @@
+djepoLocationBundle_etat:
+    resource: "routing/etat.yml"
+    prefix:   /espace-client/etat
+
+djepoLocationBundle_etatDesLieux:
+    resource: "routing/etatDesLieux.yml"
+    prefix:   /espace-client/etatDesLieux
+    
+djepoLocationBundle_evaluation:
+        resource: "routing/evaluation.yml"
+        
+djepoLocationBundle_location:
+        resource: "routing/location.yml"
+        prefix:   /espace-client/reservation
+
+djepoLocationBundle_image:
+        resource: "routing/image.yml"
+        prefix:   /espace-client/image
+        
+djepoLocationBundle_propriete:
+        resource: "routing/propriete.yml"
+        prefix:   /espace-client/propriete
+        
+djepoLocationBundle_proprietaire:
+        resource: "routing/proprietaire.yml"
+        prefix:   /espace-client/proprietaire
+        
+djepoLocationBundle_logement:
+        resource: "routing/logement.yml" 
+              

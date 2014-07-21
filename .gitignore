@@ -1,0 +1,18 @@
+# Symfony directories
+/app/bootstrap*
+/app/logs/*
+*/cache/*
+/web/uploads/*
+/web/bundles/*
+/vendor/*
+
+#netbeans
+/nbproject/*
+
+# Configuration files
+/app/config/parameters.ini
+/app/config/parameters.yml
+/app/config/facebookParameters.ini
+
+# Composer
+composer.phar

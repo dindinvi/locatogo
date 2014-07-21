@@ -1,0 +1,77 @@
+{% extends "djepoUserBundle::adminlayout.html.twig" %}
+{% block meta %} 
+	  <meta name="description" content="Afficher ville">
+	  <meta name='ROBOTS' content="noindex,nofollow">
+ {% endblock %} 
+{% block title %} {{ parent()~' - ' ~ 'Ville'  }}  {% endblock %}
+{% block navigsite %} 
+          <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <li><a  href="{{ path('djepoUser_profile') }}"> Admin </a></li>
+            <li class="active">Afficher ville</li>
+        </ol>
+          
+{% endblock %}
+
+{% block principal %}	
+       
+  {{ parent() }} 
+<br>
+
+<h1>{{ app.user.username }}: Ville</h1>
+
+<div class="row"> 
+    <div class="col-sm-10 table-responsive">
+          <table class="table table-bordered table-striped table-condensed">
+    <tbody>
+         {% if is_granted('ROLE_ADMIN') %}
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        {% endif %}
+        {% if entity.nomVille != ""  %}
+        <tr>
+            <th>Nomville</th>
+            <td>{{ entity.nomVille }}</td>
+        </tr>
+        {% endif %}
+        {% if entity.codeDepartement != ""  %}
+        <tr>
+            <th>Codedepartement</th>
+            <td>{{ entity.codeDepartement }}</td>
+        </tr>
+        {% endif %}
+        {% if entity.libelle  != ""  %}
+         <tr>
+            <th>Libelle</th>
+            <td>{{ entity.libelle }}</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+</div>
+      </div>
+ 
+ 
+   <div class="row">    
+        <ul  class="nav navbar-nav" >
+            <li>
+                <a href="{{ path('ville') }}">
+                    Back to the list
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('ville_edit', { 'id': entity.id }) }}">
+                    Edit
+                </a>
+            </li>
+            <li>
+                <form action="{{ path('ville_delete', { 'id': entity.id }) }}" method="post">
+                    {{ form_widget(delete_form) }}
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        </ul>
+</div>
+{% endblock %}

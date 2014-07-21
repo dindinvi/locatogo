@@ -1,0 +1,30 @@
+reglement:
+    pattern:  /
+    defaults: { _controller: "djepoUserBundle:reglement:index" }
+
+reglement_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "djepoUserBundle:reglement:show" }
+
+reglement_new:
+    pattern:  /new
+    defaults: { _controller: "djepoUserBundle:reglement:new" }
+
+reglement_create:
+    pattern:  /create
+    defaults: { _controller: "djepoUserBundle:reglement:create" }
+    requirements: { _method: post }
+
+reglement_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "djepoUserBundle:reglement:edit" }
+
+reglement_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "djepoUserBundle:reglement:update" }
+    requirements: { _method: post|put }
+
+reglement_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "djepoUserBundle:reglement:delete" }
+    requirements: { _method: post|delete }

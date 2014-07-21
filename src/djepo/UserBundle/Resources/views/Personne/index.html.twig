@@ -1,0 +1,71 @@
+{% extends "djepoUserBundle::adminlayout.html.twig" %}
+
+{% block meta %} 
+  <meta name="description" content="Index Villes">
+  <meta name='ROBOTS' content="noindex,nofollow">
+ {% endblock %} 
+
+{% block title %} {{ parent()~' - ' ~ 'Index Ville'  }}  {% endblock %}
+{% block navigsite %} 
+  <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <li><a  href="{{ path('djepoUser_profile') }}"> Admin </a></li>
+            <li class="active">Villes</li>
+        </ol>
+{% endblock %} 
+
+{% block principal %}	
+  {{ parent() }} 
+<br>
+<h1>Personne list</h1>
+
+  <div class="table-responsive">
+     <table class="table table-bordered table-striped table-condensed">
+    <thead> 
+            <tr>
+                <th>Id</th>
+               <th>Firstname</th>
+               <th>lastname</th> 
+                <th>Daten</th>
+                <th>Typeentite</th>
+                <th>Telfixe</th>
+                <th>Telportable</th>
+                <th>Fax</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('personne_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.firstname }}</td>
+                <td>{{ entity.lastname }}</td>
+                <td>{% if entity.dateN %}{{ entity.dateN|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.typeEntite }}</td>
+                <td>{{ entity.telFixe }}</td>
+                <td>{{ entity.telPortable }}</td>
+                <td>{{ entity.fax }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('personne_show', { 'id': entity.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('personne_edit', { 'id': entity.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+     </div>
+    
+<ul>
+        <li>
+            <a href="{{ path('personne_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

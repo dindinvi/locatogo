@@ -1,0 +1,181 @@
+# src/djepo/UserBundle/Resources/translations/djepoUserBundle.fr.yml
+
+# Security
+"Bad credentials": Pseudo ou mot de passe incorrect
+"The presented password is invalid.": Le mot de passe donné n'est pas correct
+"Your session has timed-out, or you have disabled cookies.": La session a expiré, ou vous avez désactivé les cookies
+
+
+#/change_password/change_password
+
+# Group
+group:
+    edit:
+        submit: Mettre à  jour le groupe
+    show:
+        name: Nom du groupe
+    new:
+        submit: Créer le groupe
+    flash:
+        updated: Le groupe a été mis à  jour
+        created: Le groupe a été crée
+        deleted: Le groupe a été supprimé
+
+security:
+    login:
+        username: "Nom d'utilisateur :"
+        password: "Mot de passe :"
+        remember_me: Se souvenir de moi
+        submit: Connexion
+
+# Profile
+profile:
+    show:
+        username: Nom d'utilisateur
+        email: Adresse e-mail
+    edit:
+        submit: Mettre à  jour
+    flash:
+        updated: Le profil a été mis à  jour
+
+# Password change
+change_password:
+    submit: Modifier le mot de passe
+    flash:
+        success: Le mot de passe a été modifié
+
+# Registration
+registration:
+    check_email: Un e-mail a été envoyé à  l'adresse %email%. Il contient un lien d'activation sur lequel il vous faudra cliquer afin d'activer votre compte.
+    confirmed: Félicitations %username%, votre compte est maintenant activé.
+    back: Retour à  la page d'origine.
+    submit: Enregistrer
+    flash:
+        user_created: L'utilisateur a été créé avec succès
+    email:
+        subject: Bienvenue %username% !
+        message: |
+            Bonjour %username% !
+
+            Pour valider votre compte utilisateur, merci de vous rendre sur %confirmationUrl%
+
+            Cordialement,
+            L'équipe.
+
+
+# Password resetting
+resetting:
+    password_already_requested: Un nouveau mot de passe a déjà  été demandé pour cet utilisateur dans les dernières 24 heures.
+    check_email: Un e-mail a été envoyé à  l'adresse %email%. Il contient un lien sur lequel il vous faudra cliquer afin de réinitialiser votre mot de passe.
+    request:
+        invalid_username: Le Pseudo ou e-mail "%username%" n'existe pas.
+        username: "Pseudo ou e-mail :"
+        submit: Réinitialiser le mot de passe
+    reset:
+        submit: Modifier le mot de passe
+    flash:
+        success: Le mot de passe a été réinitialisé avec succès
+    email:
+        subject: Bienvenue %username% !
+        message: |
+            Bonjour %username% !
+            <br>Vous avez demandé à redéfinir votre mot de passe. 				
+            Pour réinitialiser votre mot de passe, merci de vous rendre sur %confirmationUrl%
+            <br>Ce mail a été envoyé automatiquement, veuillez ne pas y répondre. <br>Si ce mail vous a été envoyé alors que vous n\'en avez pas fait la demande, ne vous inquiétez pas,
+            personne à part vous ne pourra redéfinir votre mot de passe. Cordialement, L'équipe.
+
+# Global strings
+layout:
+    logout: Déconnexion
+    login: Connexion
+    register: Inscription
+    logged_in_as: Connectée en tant que %username%
+
+# Form field labels
+fos_user_group_form_name: "Nom du groupe :"
+
+fos_user_profile_form_user_username: "Nom d'utilisateur :"
+fos_user_profile_form_user_email: "Adresse e-mail :"
+fos_user_profile_form_current: "Mot de passe actuel :"
+fos_user_profile_form_lastname: "Nom  "
+fos_user_profile_form_firstname: "Prenom"
+
+ 
+fos_user_profile_form_lastname: "Nom "
+fos_user_profile_form_firstname: "Prenom"
+fos_user_profile_form_dateN: "Date de naissance"
+fos_user_profile_form_typeEntite: "Type Entite "
+fos_user_profile_form_telFixe: "Tel. fixe"
+fos_user_profile_form_telPortable: "Tel. portable"
+fos_user_profile_form_fax: "faxe"
+
+fos_user_profile_form_adresse_numeroVoie: "numero Voie"
+fos_user_profile_form_adresse_libelleAdd: "libelle"
+fos_user_profile_form_adresse_codePostal: "Code Postal"
+fos_user_profile_form_adresse_ville_nomVille: "Ville"
+fos_user_profile_form_adresse_ville_codeDepartement: "Code departement"
+fos_user_profile_form_adresse_ville_libelle: "Pays:"
+
+fos_user_profile_form_email_first: "e-mail :"
+fos_user_profile_form_email_second: "verification e-mail :"
+ 
+
+fos_user_registration_form_username: "Nom d'utilisateur :"
+fos_user_registration_form_email: "Adresse e-mail :"
+fos_user_registration_form_plainPassword_first: "Mot de passe :"
+fos_user_registration_form_plainPassword_second: "Vérification :"
+# Mes données
+fos_user_registration_form_lastname: "Nom "
+fos_user_registration_form_firstname: "Prenom"
+fos_user_registration_form_dateN: "Date de naissance"
+fos_user_registration_form_typeEntite: "Type Entite "
+fos_user_registration_form_telFixe: "Tel. fixe"
+fos_user_registration_form_telPortable: "Tel. portable"
+fos_user_registration_form_fax: "faxe"
+
+fos_user_registration_form_user_adresse_numeroVoie: "numero Voie"
+fos_user_registration_form_user_adresse_libelleAdd: "libelle"
+fos_user_registration_form_user_adresse_codePostal: "Code Postal"
+fos_user_registration_form_user_adresse_ville_nomVille: "Ville"
+fos_user_registration_form_user_adresse_ville_codeDepartement: "Code departement"
+fos_user_registration_form_user_adresse_ville_libelle: "Pays:"
+
+fos_user_registration_form_email_first: "e-mail :"
+fos_user_registration_form_email_second: "verification e-mail :"
+
+fos_user_resetting_form_new_first: "Nouveau mot de passe :"
+fos_user_resetting_form_new_second: "Vérification :"
+
+fos_user_change_password_form_new_first: "Nouveau mot de passe :"
+fos_user_change_password_form_new_second: "Vérification :"
+fos_user_change_password_form_current: "Mot de passe actuel :"
+
+
+  
+fos_user_registration_form_captcha: "Entrez les 6 caractères"
+
+
+#modification email
+admin:
+    flash:
+        success: Votre modification à été bien prise en compte.
+        warning: Echec de la modification de votre mail
+        danger:  Le email est déjà utilisé par un autre compte.
+
+#modification email
+contact:
+    flash:
+        success: Nous avons le plaisir de vous informer que votre demande  à été bien prise en compte. 
+        warning: Merci de vérifier votre message.
+        
+#modification email
+personne:
+    flash:
+        success: Votre compte a bien ete supprimer.
+        warning: Impossible de supprimer votre compte. 
+        
+#modification user
+user:
+    flash:
+        success: Votre compte a bien ete supprimer.
+        warning: Impossible de supprimer votre compte. 

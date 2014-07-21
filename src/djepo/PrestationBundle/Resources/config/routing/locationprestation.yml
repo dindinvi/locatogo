@@ -1,0 +1,30 @@
+locationprestation:
+    pattern:  /
+    defaults: { _controller: "djepoPrestationBundle:locationPrestation:index" }
+
+locationprestation_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "djepoPrestationBundle:locationPrestation:show" }
+
+locationprestation_new:
+    pattern:  /new
+    defaults: { _controller: "djepoPrestationBundle:locationPrestation:new" }
+
+locationprestation_create:
+    pattern:  /create
+    defaults: { _controller: "djepoPrestationBundle:locationPrestation:create" }
+    requirements: { _method: post }
+
+locationprestation_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "djepoPrestationBundle:locationPrestation:edit" }
+
+locationprestation_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "djepoPrestationBundle:locationPrestation:update" }
+    requirements: { _method: post|put }
+
+locationprestation_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "djepoPrestationBundle:locationPrestation:delete" }
+    requirements: { _method: post|delete }

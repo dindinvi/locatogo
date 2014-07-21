@@ -1,0 +1,24 @@
+<div class="row">
+   
+        <form action="{{ path('fos_user_resetting_send_email') }}"   method="POST"  class="form-horizontal">
+            <div class="panel panel-default">
+               <div class="panel-heading">  Vous devez d'abord taper votre Pseudo ou votre e-mail . </div>
+                <div class="panel-body"> 
+                 <div class="row form-group">
+                      <div class="col-sm-3"> {{ 'resetting.request.username'|trans({}, 'djepoUserBundle') }} <span class="ast"> *</span>  </div>
+                       <div class="col-sm-5"><input type="text" id="username" name="username" class="form-control" /></div>
+                        <div class="col-sm-4">  <div class="ast">   {% if invalid_username is defined %}
+                                    {{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}, 'djepoUserBundle') }} 
+                            {% endif %} </div>
+                        </div>
+                 </div> 
+                 </div>
+            </div>
+                   
+            <div class="col-sm-offset-3 col-sm-4">
+                <input type="submit" class="btn btn-lg btn-primary btn-block" value="{{ 'resetting.request.submit'|trans({}, 'djepoUserBundle') }}" /></div>
+
+            <br> 
+
+        </form>
+ </div>

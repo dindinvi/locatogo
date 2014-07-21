@@ -1,0 +1,31 @@
+formcontact:
+    pattern:  /
+    defaults: { _controller: "djepoMainBundle:formContact:index" }
+
+    
+formcontact_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "djepoMainBundle:formContact:show" }
+
+formcontact_new:
+    pattern:  /new
+    defaults: { _controller: "djepoMainBundle:formContact:new" }
+
+formcontact_create:
+    pattern:  /create
+    defaults: { _controller: "djepoMainBundle:formContact:create" }
+    requirements: { _method: post }
+
+formcontact_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "djepoMainBundle:formContact:edit" }
+
+formcontact_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "djepoMainBundle:formContact:update" }
+    requirements: { _method: post|put }
+
+formcontact_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "djepoMainBundle:formContact:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pmd version="1.5.0" timestamp="2014-03-10T14:42:25+00:00">
+  <file name="C:\wamp\www\locaTogo\src\djepo\BootStrapBundle\DependencyInjection\Configuration.php">
+    <violation beginline="21" endline="21" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$rootNode'.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\BootStrapBundle\DependencyInjection\djepoBootStrapExtension.php">
+    <violation beginline="23" endline="23" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$config'.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\KickStartBundle\DependencyInjection\Configuration.php">
+    <violation beginline="21" endline="21" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$rootNode'.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\KickStartBundle\DependencyInjection\djepoKickStartExtension.php">
+    <violation beginline="23" endline="23" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$config'.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\MainBundle\Controller\AboutController.php">
+    <violation beginline="10" endline="10" rule="UnusedPrivateField" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatefield" priority="3">
+      Avoid unused private fields such as '$motscle'.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\MainBundle\Controller\MotsCleController.php">
+    <violation beginline="24" endline="24" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="46" endline="46" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="79" endline="79" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+    <violation beginline="81" endline="81" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="100" endline="100" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+    <violation beginline="102" endline="102" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="124" endline="124" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+    <violation beginline="126" endline="126" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="156" endline="156" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+    <violation beginline="162" endline="162" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="183" endline="183" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\MainBundle\Controller\formContactController.php">
+    <violation beginline="26" endline="26" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="46" endline="46" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="78" endline="78" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+    <violation beginline="80" endline="80" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="99" endline="99" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+    <violation beginline="101" endline="101" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="123" endline="123" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+    <violation beginline="125" endline="125" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="155" endline="155" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+    <violation beginline="161" endline="161" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="182" endline="182" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\MainBundle\DependencyInjection\Configuration.php">
+    <violation beginline="21" endline="21" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$rootNode'.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\MainBundle\DependencyInjection\djepoMainExtension.php">
+    <violation beginline="23" endline="23" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$config'.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\MainBundle\Entity\MotsCle.php">
+    <violation beginline="22" endline="22" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\MainBundle\Entity\formContact.php">
+    <violation beginline="20" endline="20" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\MainBundle\Form\MotsCleType.php">
+    <violation beginline="11" endline="11" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$options'.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\MainBundle\Form\formContactHandler.php">
+    <violation beginline="13" endline="13" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="18" endline="18" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\MainBundle\Form\formContactType.php">
+    <violation beginline="11" endline="11" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$options'.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\UserBundle\Controller\AdresseController.php">
+    <violation beginline="24" endline="24" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="44" endline="44" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="76" endline="76" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+    <violation beginline="89" endline="89" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="111" endline="111" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+    <violation beginline="113" endline="113" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="135" endline="135" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+    <violation beginline="137" endline="137" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="171" endline="171" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+    <violation beginline="177" endline="177" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="198" endline="198" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\UserBundle\Controller\UserController.php">
+    <violation beginline="23" endline="23" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="43" endline="43" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="75" endline="75" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+    <violation beginline="77" endline="77" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="96" endline="96" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+    <violation beginline="98" endline="98" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="120" endline="120" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+    <violation beginline="122" endline="122" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="152" endline="152" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+    <violation beginline="158" endline="158" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="179" endline="179" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\UserBundle\Controller\VilleController.php">
+    <violation beginline="24" endline="24" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="44" endline="44" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="76" endline="76" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+    <violation beginline="78" endline="78" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="97" endline="97" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+    <violation beginline="99" endline="99" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="121" endline="121" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+    <violation beginline="123" endline="123" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="153" endline="153" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+    <violation beginline="159" endline="159" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="180" endline="180" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\UserBundle\DependencyInjection\Configuration.php">
+    <violation beginline="21" endline="21" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$rootNode'.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\UserBundle\DependencyInjection\djepoUserExtension.php">
+    <violation beginline="23" endline="23" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$config'.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\UserBundle\Entity\Admin.php">
+    <violation beginline="24" endline="24" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\UserBundle\Entity\Adresse.php">
+    <violation beginline="24" endline="24" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\UserBundle\Entity\AdresseRepository.php">
+    <violation beginline="16" endline="16" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$id'.
+    </violation>
+    <violation beginline="16" endline="16" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$user'.
+    </violation>
+    <violation beginline="16" endline="16" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\UserBundle\Entity\User.php">
+    <violation beginline="20" endline="20" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\UserBundle\Entity\Ville.php">
+    <violation beginline="23" endline="23" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $id. Configured minimum length is 3.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\UserBundle\Entity\doc\UserType.php">
+    <violation beginline="11" endline="11" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$options'.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\UserBundle\Form\AdminType.php">
+    <violation beginline="11" endline="11" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$options'.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\UserBundle\Form\AdresseType.php">
+    <violation beginline="11" endline="11" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$options'.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\UserBundle\Form\VilleType.php">
+    <violation beginline="11" endline="11" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$options'.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\UserBundle\Form\adminHandler.php">
+    <violation beginline="14" endline="14" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+    <violation beginline="19" endline="19" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="http://phpmd.org/rules/naming.html#shortvariable" priority="3">
+      Avoid variables with short names like $em. Configured minimum length is 3.
+    </violation>
+  </file>
+  <file name="C:\wamp\www\locaTogo\src\djepo\UserBundle\Form\doc\UserType.php">
+    <violation beginline="11" endline="11" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$options'.
+    </violation>
+  </file>
+</pmd>

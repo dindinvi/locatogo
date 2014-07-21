@@ -1,0 +1,40 @@
+logement:
+    pattern:   /location/
+    defaults: { _controller: "djepoLocationBundle:logement:index" }
+
+logement_gmap:
+    pattern:   /location/localisation
+    defaults: { _controller: "djepoLocationBundle:logement:gMap" }
+    
+logement_show:
+    pattern:   /location/{id}/show
+    defaults: { _controller: "djepoLocationBundle:logement:show" }
+
+logement_logementShow:
+    pattern:   /location/{tLogement}/{ville}/{id}/détail-de-l-Annonce-{libelle}
+    defaults: { _controller: "djepoLocationBundle:logement:logementShow" }
+    
+logement_new:
+    pattern:  /espace-client/location/déposer-une-annonce
+    defaults: { _controller: "djepoLocationBundle:logement:new" }
+
+logement_create:
+    pattern:   /espace-client/create
+    defaults: { _controller: "djepoLocationBundle:logement:create" }
+    requirements: { _method: post }
+
+logement_edit:
+    pattern:   /espace-client/location/{id}/edit
+    defaults: { _controller: "djepoLocationBundle:logement:edit" }
+
+logement_update:
+    pattern:   /espace-client/location/{id}/update
+    defaults: { _controller: "djepoLocationBundle:logement:update" }
+    requirements: { _method: post|put }
+
+logement_delete:
+    pattern:   /espace-client/location/{id}/delete
+    defaults: { _controller: "djepoLocationBundle:logement:delete" }
+    requirements: { _method: post|delete }
+
+ 

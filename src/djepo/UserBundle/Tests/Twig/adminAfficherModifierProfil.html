@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:81/locatogo/web/app_dev.php" />
+<title>adminAfficherModifierProfil</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">adminAfficherModifierProfil</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/locatogo/web/app_dev.php/contact-location-togo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=kwaouvi</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=mon profil</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Modifier le profil</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=fos_user_profile_form_personne_telFixe</td>
+	<td>0621810439</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=fos_user_profile_form_personne_telFixe</td>
+	<td>0621810439</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Mettre à jour']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[7]/div/div</td>
+	<td>Le profil a été mis à&nbsp;&nbsp;jour</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[7]/div/div</td>
+	<td>Le profil a été mis à&nbsp;&nbsp;jour</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

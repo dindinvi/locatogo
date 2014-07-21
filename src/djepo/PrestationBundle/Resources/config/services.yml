@@ -1,0 +1,9 @@
+parameters:
+#    djepo_prestation.example.class: djepo\PrestationBundle\Example
+
+services:
+    djepo_location.prestationTools:
+        class: djepo\LocationBundle\Utils\PrestationTools
+#    djepo_prestation.example:
+#        class: %djepo_prestation.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

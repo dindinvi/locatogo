@@ -1,0 +1,42 @@
+{# page new logement  #}
+{% extends "djepoMainBundle::layout.html.twig" %}
+ 
+{% block meta %} 
+            <meta name="description" content="création d'une annonce de location"> 
+                 <meta name="keywords" content="creation annonce location"> 
+     <meta name='ROBOTS' content='NOINDEX, NOFOLLOW'> 
+         {% endblock %}
+ 
+
+{% block title %} création d'une annonce de location   {% endblock %}
+{% block stylesheets %}   {{ parent() }}  {% endblock %}
+
+{% block navigsite %}
+          <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <li class="active"> création d'une annonce de location </li>
+        </ol>
+ {% endblock %}
+
+{% block my_content %}
+    <h1>logement creation</h1>
+
+   {# <form action="{{ path('logement_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        
+        
+        <p>
+            <button type="submit">Create</button>
+        </p>
+    </form>
+#}
+         {% include "djepoLocationBundle:logement:new_content.html.twig" %}
+         
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('logement') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

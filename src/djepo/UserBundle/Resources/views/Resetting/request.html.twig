@@ -1,0 +1,22 @@
+{% extends "djepoUserBundle::adminlayout.html.twig" %}
+
+{% block meta %} 
+   <meta name="description" content="Modifier mon mot de passe">
+   <meta name='ROBOTS' content="noindex,nofollow">
+  {% endblock %}
+	  
+{% block title %} {{ parent()   ~' - Modifier mon mot de passe ' }}  {% endblock %}
+
+{% block navigsite %}
+     <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}" > {{ djepo_home }} </a> </li>
+            <li><a  href="{{ path('djepoUser_profile') }}"> Admin </a></li>
+            <li class="active">{{ 'Modifier mon mot de passe.' }} </li>
+        </ol> 
+{% endblock %} 
+
+ {% block fos_user_content %}	
+<br> <h1>Changer mon mot de passe</h1>
+ {% include "djepoUserBundle:Resetting:request_content.html.twig" %}
+
+{% endblock  %}

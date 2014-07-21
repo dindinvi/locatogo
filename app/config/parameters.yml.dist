@@ -1,0 +1,17 @@
+parameters:
+    database_driver: pdo_mysql
+    database_host:  ******************
+    database_port: null
+    database_name: *******
+    database_user: *******
+    database_password: ************
+    mailer_transport: gmail
+    mailer_host: smtp.gmail.com
+    mailer_user:  ******************
+    mailer_user_sender:  ******************
+    mailer_password: ******************
+    mailer_sender:  ******************
+    locale: fr
+    secret:  ************************************
+    database_path: null
+    

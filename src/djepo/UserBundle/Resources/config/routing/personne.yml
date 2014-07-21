@@ -1,0 +1,36 @@
+personne:
+    pattern:  /
+    defaults: { _controller: "djepoUserBundle:Personne:index" }
+
+personne_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "djepoUserBundle:Personne:show" }
+
+personne_new:
+    pattern:  /new
+    defaults: { _controller: "djepoUserBundle:Personne:new" }
+
+personne_create:
+    pattern:  /create
+    defaults: { _controller: "djepoUserBundle:Personne:create" }
+    requirements: { _method: post }
+
+personne_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "djepoUserBundle:Personne:edit" }
+
+personne_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "djepoUserBundle:Personne:update" }
+    requirements: { _method: post|put }
+
+personne_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "djepoUserBundle:Personne:delete" }
+    requirements: { _method: post|delete }
+
+personne_showDelete:
+    pattern:  /{id}/showDelete
+    defaults: { _controller: "djepoUserBundle:Personne:showDelete" }
+    requirements:
+        id: \d+

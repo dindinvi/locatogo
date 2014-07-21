@@ -1,0 +1,50 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>loyer</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Dateperception</th>
+                <td>{{ entity.datePerception|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Montantpercu</th>
+                <td>{{ entity.montantPercu }}</td>
+            </tr>
+            <tr>
+                <th>Montantverse</th>
+                <td>{{ entity.montantVerse }}</td>
+            </tr>
+            <tr>
+                <th>Dateversement</th>
+                <td>{{ entity.dateVersement|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('loyer') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('loyer_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('loyer_delete', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

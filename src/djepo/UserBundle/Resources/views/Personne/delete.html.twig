@@ -1,0 +1,79 @@
+{% extends "djepoUserBundle::adminlayout.html.twig" %}
+{% block meta %} 
+	  <meta name="description" content="supprimer compte Personne">
+	  <meta name='ROBOTS' content="noindex,nofollow">
+ {% endblock %} 
+{% block title %} {{ parent()~' - ' ~ 'Ville'  }}  {% endblock %}
+{% block navigsite %} 
+          <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <li><a  href="{{ path('djepoUser_profile') }}"> Admin </a></li>
+            <li class="active">Supprimer compte Client</li>
+        </ol>
+          
+{% endblock %}
+
+{% block fos_user_content %}	
+          <h1>{{ app.user.username }}</h1>
+<div class="row"> 
+    <div class="col-sm-10 table-responsive">
+          <table class="table table-bordered table-striped table-condensed">
+            <tbody>
+             {% if is_granted('ROLE_ADMIN') %}
+                    <tr>
+                    <th>Id</th>
+                    <td>{{ entity.id }}</td>
+                </tr>
+                {% endif %}
+                {% if entity.typeEntite !='' %}
+                <tr>
+                    <th>Type d'entite : </th>
+                    <td>{{ entity.typeEntite }} </td>
+                </tr>
+                {% endif %}
+                <tr>
+                    <th>Nom : </th>
+                    <td>{{ entity.lastname }} </td>
+                </tr>
+                <tr>
+                    <th>Prenom : </th>
+                    <td>{{ entity.firstname }} </td>
+                </tr>
+               {% if entity.telFixe !='' %}
+                <tr>
+                    <th>Tel. fixe : </th>
+                    <td>{{ entity.telFixe }} </td>
+                </tr>{% endif %}
+                 {% if entity.telPortable !='' %}
+                <tr>
+                    <th>Tel. portable : </th>
+                    <td>{{ entity.telPortable }} </td>
+                </tr>{% endif %}
+                  {% if entity.fax  !='' %}
+                <tr>
+                    <th>Fax : </th>
+                    <td>{{ entity.fax }} </td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+
+  </div>
+  </div>
+       <div class="row">
+		 <div class="col-sm-offset-2 col-sm-10">    
+                        <ul  class="nav navbar-nav">
+                                 <li >
+                                      <form action="{{ path('user_delete', { 'id': app.user.id }) }}" method="post">
+                                                <input type="hidden" name="_method" value="DELETE" />
+                                                {{ form_widget(delete_form) }}
+                                                 <button type="submit" class="btn btn-lg btn-primary btn-block">  Supprimer : {{' '~ app.user.username }}</button>
+                                     </form>
+                                 </li>
+                       </ul>
+                </div>
+      </div>
+        
+        
+ 
+{% endblock %}

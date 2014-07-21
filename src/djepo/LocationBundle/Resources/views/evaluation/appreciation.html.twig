@@ -1,0 +1,44 @@
+  
+{% if(  entity == false) %}
+    
+        <a href="{{ path('no_new') }}" rel="nofollow">{{message}} </a>
+
+{% else %}
+
+     {% for e  in entity %} 
+     <div class="row">
+         <div class="col-sm-6">
+                        <b>Auteur:</b> {{'  '~ e.user}} <br>
+                        <b>Date de l'evaluation</b>  {{ '  '~ e.dateEvaluation | date('d/m/Y')  }}
+
+                        <div id='Note1'><!-- 
+                           --><b>Note:</b>
+                           <a  href="#" title="{{e.note}}">☆</a><!-- 
+                           --><a href="#" title="{{e.note}}">☆</a><!-- 
+                           --><a href="#" title="{{e.note}}">☆</a><!-- 
+                           --><a href="#" title="{{e.note}}">☆</a><!-- 
+                           --><a href="#" title="{{e.note}}">☆</a>  
+                        </div>
+                        <div id='Note2'><!-- 
+                           --><b>Situation:</b> 
+                           <a href="#" title="{{e.situation }}">☆</a><!-- 
+                           --><a href="#" title="{{e.situation }}">☆</a><!-- 
+                           --><a href="#" title="{{e.situation }}">☆</a><!-- 
+                           --><a href="#" title="{{e.situation }}">☆</a><!-- 
+                           --><a href="#" title="{{e.situation }}">☆</a>  
+                        </div>
+                        <div id='Note3'><!-- 
+                           --><b>etat Du Bien:</b> 
+                           <a href="#" title="{{e.etatDuBien}}">☆</a><!-- 
+                           --><a href="#" title="{{e.etatDuBien}}">☆</a><!-- 
+                           --><a href="#" title="{{e.etatDuBien}}">☆</a><!-- 
+                           --><a href="#" title="{{e.etatDuBien}}">☆</a><!-- 
+                           --><a href="#" title="{{e.etatDuBien}}">☆</a>  
+                        </div>
+                </div>
+                <div class="col-sm-6">   
+                     <b>Commentaire:</b> {{'  '~ e.commentaire }}
+                </div>
+            </div>
+    {% endfor %}    
+{% endif %} 

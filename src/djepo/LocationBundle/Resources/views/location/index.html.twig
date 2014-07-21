@@ -1,0 +1,47 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>location list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Datelocation</th>
+                <th>Montantloyer</th>
+                <th>Typeloyer</th>
+                <th>Montantcharges</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('location_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{% if entity.dateLocation %}{{ entity.dateLocation|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.montantLoyer }}</td>
+                <td>{{ entity.typeLoyer }}</td>
+                <td>{{ entity.montantCharges }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('location_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('location_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('location_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

@@ -1,0 +1,36 @@
+{% extends "djepoUserBundle::adminlayout.html.twig" %}
+
+{% block meta %} 
+    <meta name="description" content="LocationVacancesTogo.com: formulaire d'inscription"> 
+    <meta name='ROBOTS' content="noindex, nofollow">
+{% endblock %}
+ 
+          
+{% block title %} {{ parent()  ~' - Demande d\'inscription'  }} {% endblock %}		
+{% block navigsite %} 
+        <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}" > {{ djepo_home }} </a> </li>
+            <li class="active">{{ 'Demande d\'inscription.' }} </li>
+        </ol>
+{% endblock %}
+
+{% block fos_user_content %}
+    {% if is_granted('ROLE_USER') %}
+              <br> <div class="alert alert-info"> Vous êtes déjà connecté.</div>
+    {% else %}	
+        <br><br>
+            <h1>Formulaire d'inscription</h1><br>
+           <span> Vous ne possédez pas de compte {{ djepo_home }}? 
+              <br>Voici les explications pour créer un compte en 3 minutes: Remplir le formulaire et cliquer sur "créer mon compte".
+              <br>Un message vous sera automatiquement envoyé dans votre boîte e-mail (courriel). <br><br></span>
+            
+          {% include "djepoUserBundle:Registration:register_content.html.twig" %}
+ 
+    {% endif %}	
+
+{% endblock fos_user_content %}
+
+
+{% block djepo_content %}    {% endblock djepo_content %}
+ 
+ 

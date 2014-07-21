@@ -1,0 +1,33 @@
+no:
+    pattern: /espace-client/evaluation
+    defaults: { _controller: "djepoLocationBundle:evaluation:index" }
+
+no_show:
+    pattern:   /espace-client/evaluation/{id}/show
+    defaults: { _controller: "djepoLocationBundle:evaluation:show" }
+    
+no_showAppreciation:
+    pattern:    /evaluation/logement/{id}
+    defaults: { _controller: "djepoLocationBundle:evaluation:showAppreciation" }
+no_new:
+    pattern:   /espace-client/evaluation/new
+    defaults: { _controller: "djepoLocationBundle:evaluation:new" }
+
+no_create:
+    pattern:   /espace-client/evaluation/create
+    defaults: { _controller: "djepoLocationBundle:evaluation:create" }
+    requirements: { _method: post }
+
+no_edit:
+    pattern:    /espace-client/evaluation/{id}/edit
+    defaults: { _controller: "djepoLocationBundle:evaluation:edit" }
+
+no_update:
+    pattern:   /espace-client/evaluation/{id}/update
+    defaults: { _controller: "djepoLocationBundle:evaluation:update" }
+    requirements: { _method: post|put }
+
+no_delete:
+    pattern:   /espace-client/evaluation/{id}/delete
+    defaults: { _controller: "djepoLocationBundle:evaluation:delete" }
+    requirements: { _method: post|delete }

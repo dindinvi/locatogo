@@ -1,0 +1,51 @@
+{% extends "djepoUserBundle::adminlayout.html.twig" %}
+
+{% block meta %} 
+	 <meta name="description" content="Modifier mon adresse e-mail">
+	 <meta name='ROBOTS' content="noindex,nofollow">
+	  {% endblock %}
+{% block title %} {{ parent()  ~' - Modifier mon adresse e-mail ' }}  {% endblock %}
+ {% block navigsite %} 
+        <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}" > {{ djepo_home }} </a> </li>
+            <li><a  href="{{ path('djepoUser_profile') }}"> Admin </a></li>
+            <li class="active">{{ 'Modifier mon adresse e-mail.' }} </li>
+        </ol>
+{% endblock %}        
+
+{% block fos_user_content %}	
+<br>
+    <h1>Changer mon adresse e-mail</h1>
+
+    <div><p>
+            Vous avez changé d'adresse e-mail ?
+            <br> Vous devez d'abord taper 2 fois le nouvel e-mail que vous souhaitez utiliser.</p>
+<br> 
+  </div>
+<div class="panel panel-default">
+    <div class="panel-heading"> Votre adresse e-mail actuelle est : <B>{{ app.user.email }}</B> </div>
+       <div class="panel-body"> 
+
+            <form class="form-horizontal" action="{{ path('djepoUser_changeMail') }}"  method="post" {{ form_enctype(form) }}>
+
+                         <div class="row form-group">
+                               <div class="col-sm-3">{{ form_label(form.newMail.first, 'Votre nouvel e-mail *') }}</div>
+                               <div class="col-sm-6">{{ form_widget(form.newMail.first, { 'attr': {'class': 'form-control' } }) }}</div>
+                               <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(form.newMail.first) }} </span></div>
+                           </div>
+                           <div class="row form-group">
+                               <div class="col-sm-3">{{ form_label(form.newMail.second, 'Retapez votre e-mail *', { 'label_attr': {'required': 'true' } }) }}</div>
+                               <div class="col-sm-6">{{ form_widget(form.newMail.second, { 'attr': {'class': 'form-control' } }) }}</div>
+                               <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(form.newMail.second) }} </span></div>
+                           </div> 
+                           {{ form_rest(form) }}
+                           <div class="row form-group">
+                               <div class="col-sm-offset-3 col-sm-3">
+                                     <button type="submit">modifier mon adresse e-mail</button>
+                                </div>
+                            </div>
+                   </form>
+                </div>
+</div>
+	  
+{% endblock %}

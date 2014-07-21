@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+SRC_DIR="`pwd`"
+cd "`dirname "$0"`"
+cd "../vendor/mayflower/php-codebrowser/bin"
+BIN_TARGET="`pwd`/phpcb"
+cd "$SRC_DIR"
+"$BIN_TARGET" "$@"

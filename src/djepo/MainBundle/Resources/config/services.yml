@@ -1,0 +1,25 @@
+parameters:
+    outils_admin: admin
+    #outilsImage_adr: locatogo/web
+    map_id: map
+    app_id: MyMapApp
+    
+
+
+services:
+    djepo_main.outils:
+        class: djepo\MainBundle\Utils\Outils
+        arguments: [@session]
+        tags:
+            - { name: twig.extension }        
+        
+    djepo_main.outilsImage:
+        class: djepo\MainBundle\Utils\OutilsImage
+        arguments: [@session, %Width_img%,%Heigh_img%]
+        tags:
+            - { name: twig.extension } 
+            
+    
+        
+    
+

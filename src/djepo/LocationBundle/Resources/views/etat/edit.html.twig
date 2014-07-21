@@ -1,0 +1,70 @@
+{% extends "djepoUserBundle::adminlayout.html.twig" %}
+{% block meta %} 
+ <meta name="description" content="Modifier mes etats">
+ <meta name='ROBOTS' content="noindex,nofollow">
+	  {% endblock %} 
+{% block title %} {{ parent() ~ ' -  Modifier mes etats'  }}  {% endblock %}
+ 
+{% block navigsite %} 
+ 
+<ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <li><a  href="{{ path('djepoUser_profile') }}"> Admin </a></li>
+           <li><a href="{{ path('adresse_show', { 'id':app.user.adresse.id }) }}"> Mes etats </a> </li> 
+            <li class="active">Modifier mes etats. </li>
+        </ol>
+ 
+{% endblock %}
+
+{% block fos_user_content %}	
+  
+    <h1>etat edit</h1>
+
+    <form action="{{ path('etat_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+        <input type="hidden" name="_method" value="PUT" />
+        {{ form_widget(edit_form) }}
+        <div class="panel panel-default">
+                <div class="panel-heading"> <h3>Etats</h3>  </div>
+                <div class="panel-body"> 
+                       <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(edit_form.libelle) }}</div>
+                            <div class="col-sm-7">{{ form_widget(edit_form.libelle, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(edit_form.libelle) }} </span></div>
+                        </div>
+                                
+                            <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(edit_form.etat) }}</div>
+                            <div class="col-sm-7">{{ form_widget(edit_form.etat, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(edit_form.etat) }} </span></div>
+                        </div>
+                          {#   a terminer     
+                           <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(edit_form.codePostal) }}</div>
+                            <div class="col-sm-7">{{ form_widget(edit_form.codePostal, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(edit_form.codePostal) }} </span></div>
+                        </div>       
+                         #}        
+			  	 
+                  </div>
+                </div>    
+        
+        <p>
+            <button type="submit">Edit</button>
+        </p>
+    </form>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('etat') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('etat_delete', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

@@ -1,0 +1,327 @@
+{# page detail logement  #}
+{% extends "djepoMainBundle::layout.html.twig" %}
+ 
+{% block meta %} 
+            <meta name="description" content="{{ entity.propriete.nomPropriete }}"> 
+                 <meta name="keywords" content="{{ 'location de vacance '~ entity.propriete.adresse.ville.nomVille ~ ', louer ' ~ entity.typeImmeuble ~ ' à '~ entity.propriete.adresse.ville.nomVille 
+                 ~' , ' ~ entity.typeImmeuble ~ ' à louer au togo , location de vacance ' ~ entity.typeImmeuble ~ ' à louer au togo , annonce location '~entity.libelle }}"> 
+     <meta name='ROBOTS' content='INDEX, FOLLOW'> 
+         {% endblock %}
+ 
+
+{% block title %} {{ 'Détail de l annonce' ~ entity.libelle }}   {% endblock %}
+{% block stylesheets %} 
+    {{ parent() }}
+<link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.css') }}" /> 
+ 
+{% endblock %}
+{% block header_javascripts %}
+       {{ parent() }}
+ <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+<script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script> 
+
+{% endblock %}
+
+{% block navigsite %}
+          <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <li> <a href="{{ path('logement') }}"> Listes des annonces </a> </li> 
+            <li class="active"> Détail de l'annonce </li>
+        </ol>
+ {% endblock %}
+
+{% block my_content %}
+  <div class="row"> 
+  <div class="col-sm-12">
+      <ul class="nav nav-pills">
+        <li><a href="#DESCRIPTION" rel="nofollow"><span class="glyphicon glyphicon-star"></span> DESCRIPTION</a>  </li>
+        <li><a href="#EQUIPEMENTS" rel="nofollow"><span class="glyphicon glyphicon-star"></span> EQUIPEMENTS</a>  </li> 
+        <li><a href="#DISPONIBILITES" rel="nofollow"><span class="glyphicon glyphicon-list-alt"></span> DISPONIBILITES</a>  </li> 
+       {# <li><a href="#SITUATION" rel="nofollow"><span class="glyphicon glyphicon-star"></span> SITUATION</a>  </li> #}
+        <li><a href="#TARIFS" rel="nofollow"><span class="glyphicon glyphicon-euro"></span> TARIFS </a>  </li> 
+        <li><a href="#proprio" rel="nofollow"> <span class="glyphicon glyphicon-envelope"></span> PROPRIETAIRE</a>  </li>
+      </ul>
+           
+ </div> 
+  <div class="col-sm-12">   <h1 class="header"> {{entity.libelle}}</h1></div>
+  </div>
+
+     <div class="row espace">
+        <div class="col-sm-9">
+            <div class="row">    
+               <div class="col-sm-4">
+                 {% if entity.image.url is not null  %}
+                     {% set liste = twig_affichimage(entity.image.webPath) %}
+                     <button class="btn btn-primary" data-toggle="modal" data-target="#image-1">
+                     <img src="{{ asset(entity.image.webPath) }}" width="{{liste.w}}" height="{{liste.h}}" alt="{{ entity.image.alt }} " class="img-responsive"  />
+                      
+                     </button>
+                         <div class="modal fade"  id="image-1">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                  <h4 class="modal-title">{{ entity.image.alt }} </h4>
+                                </div>
+                                <div class="modal-body">
+                                 <div class=" well">
+                                     <img src="{{ asset(entity.image.webPath) }}" alt="{{ entity.image.alt }}" class="img-responsive" />
+                                </div></div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
+                                </div>
+                              </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                          </div><!-- /.modal -->
+                         {% endif %}  
+                  </div>
+                     <div class="col-sm-4">
+                        {% if entity.image.url2 is not null  %} 
+                            {% set liste = twig_affichimage(entity.image.webPath2) %}
+                                   <!-- Large modal -->
+                          <button class="btn btn-primary" data-toggle="modal" data-target="#image-2">
+                              <img src="{{ asset(entity.image.webPath2) }}" width="{{liste.w}}" height="{{liste.h}}" alt="{{ entity.image.alt2 }}" class="img-responsive" />
+                          </button>
+                             <div class="modal fade"  id="image-2">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                      <h4 class="modal-title">{{ entity.image.alt2 }}</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                      <img src="{{ asset(entity.image.webPath2) }}" alt="{{ entity.image.alt2 }}" class="img-responsive" />
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
+                                    </div>
+                                  </div><!-- /.modal-content -->
+                                </div><!-- /.modal-dialog -->
+                              </div><!-- /.modal -->
+
+                               {% endif %}
+                             </div>
+            <div class="col-sm-4">
+                    {% if entity.image.url3 is not null  %}
+                        {% set liste = twig_affichimage(entity.image.webPath3) %}
+                             <!-- Large modal -->
+           <button class="btn btn-primary" data-toggle="modal" data-target="#image-3">
+               <img src="{{ asset(entity.image.webPath3) }}" width="{{liste.w}}" height="{{liste.h}}" alt="{{ entity.image.alt3 }}" class="img-responsive" />
+           </button>
+                <div class="modal fade"  id="image-3">
+                       <div class="modal-dialog">
+                         <div class="modal-content">
+                           <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                             <h4 class="modal-title">{{ entity.image.alt3 }}</h4>
+                           </div>
+                           <div class="modal-body">
+                             <img src="{{ asset(entity.image.webPath3) }}" alt="{{ entity.image.alt3 }}" class="img-responsive" />
+                           </div>
+                           <div class="modal-footer">
+                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
+                           </div>
+                         </div><!-- /.modal-content -->
+                       </div><!-- /.modal-dialog -->
+                     </div><!-- /.modal -->
+                   {% endif %}
+                </div>
+                         </div>
+                    
+      </div>
+      <div class="col-sm-3"> 
+        <div class="panel panel-default">
+            <div class="panel-heading"> <h3 class="panel-title"> {{ entity.nbEvaluations }}Appréciations  </h3> </div>
+            <div class="panel-body">
+               gerer les evaluation 
+               si pas devaluation mettre 
+               Soyez le premier à laisser une appréciation!
+            </div>
+        </div>
+    </div> 
+  </div>  <div class="clearfix  visible-xs"></div>
+<div class="row">
+      <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a name="DESCRIPTION"></a> <h3 class="panel-title">DESCRIPTION</h3>
+                </div>
+                <div class="panel-body">
+                    <span class="label label-info"> Description Propriete:</span>{{ entity.propriete.nomPropriete}} <br>
+                      {{ entity.propriete.description }} <br> <br>
+                     <span class="label label-info">Ville:</span> {{ entity.propriete.adresse.ville.nomVille}}<br><br>
+                 
+                   <span class="label label-info">Type de logement:</span> {{ entity.typeImmeuble }}<br><br>
+                    <span class="label label-info">Surface :</span> {{ entity.surface }}m<sup>2</sup><br><br>
+                    <span class="label label-info"> Caractéristiques: </span>
+                    {{ entity.nombrePiece }} pièces dont  {{ entity.sejour }} séjour,  {{ entity.chambre }} chambre(s), cuisine,
+                     {{ entity.sbb }} salles de bain<br>  <br>
+                    <span class="label label-info"> Transport:</span> {{ entity.transport }}
+                     
+                     
+                </div>
+            </div>
+          </div>
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                  <a name="EQUIPEMENTS"></a><h3 class="panel-title"> EQUIPEMENTS</h3>
+                </div>
+                <div class="panel-body">
+                    
+                    <dl>
+                        <dt>Multimédia:</dt>
+                          <dd>Magnétoscope, Téléphone, TV </dd>
+                        <dt>Electroménager:</dt>
+                          <dd>Frigidaire/Congélateur</dd>
+                          <dd>Cuisinière, Four, Micro-ondes</dd>
+                          <dd>Ustensiles de cuisines, Vaisselles, Couverts?torchons fournis</dd>
+                          <dd>Fer à repasser</dd>
+                       <dt>Extérieur:</dt>
+                          <dd>Chaisses longues</dd>
+                          <dd>jardin</dd>
+                          <dd>Salon de jardin</dd>
+                          <dd>Terrasse</dd>
+                       <dt>Les petits plus:</dt>
+                        <dd>les lits peuvent être préparés pour votre arrivée</dd>
+                        <dd>les serviettes de toilette et torchons fournis </dd>
+                      </dl>
+                    <br>
+                                          
+                    <div class="well">Certains aménagements sont susceptibles de ne pas être disponibles ou seulement sur demande.<br>
+                        Certains aménagements ou services,comme <b>le ménage de fin de séjour</b>, sont  sujets à suppléments payable sur place.<br>
+                      ...</div>
+                     
+                    
+                    
+                </div>
+            </div>
+          </div>
+  </div>
+              
+  <div class="row">
+      <div class="col-sm-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+             <a name="DISPONIBILITES"></a> <h3 class="panel-title">DISPONIBILITES</h3>
+            </div>
+            <div class="panel-body">
+                         
+              
+              <a class="btn btn-primary" data-toggle="modal" href="{{ path('fullcalendar_loader')}}" data-target="#dispoC"> Contact par Mail  </a>
+                     <div class="modal fade"  id="dispoC">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                 <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                         <h4 class="modal-title">CONSULTER LES DISPONIBILITES</h4>
+                                 </div>
+                                <div class="modal-body"> 
+                                     {#   {{ render(controller("ADesignsCalendarBundle:Calendar:loadCalendar")) }}  #}
+                                     {% include 'ADesignsCalendarBundle::calendar.html.twig' %}  
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
+                               </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal --> 
+              
+              
+              
+              
+              
+              
+              
+              
+            </div>
+        </div>
+      </div>
+   </div>
+
+    <div class="row"> 
+       <div class="col-sm-5"> 
+            <div class="panel panel-default">
+             <div class="panel-heading">
+               <a name="TARIFS"></a> <h3 class="panel-title">TARIFS</h3>
+             </div>
+             <div class="panel-body">
+              <div class="well"> 
+                  <h3><b>Montant location:{{ entity.sejour }} cfa </b></h3><br>
+                  <small> Le paiement est accepté dans la monnaie indiquée ci-dessous à moins d'un accord préalable entre propriétaire et vacancier.</small>
+              
+              </div>   
+              
+             <b>Un acompte non restituable de 30 pour cent du montant total de la location est demandé à la réservation.</b>
+               
+               
+               
+             </div>
+         </div>
+       </div>
+       
+        <div class="col-sm-7"> 
+           <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">CONTACT</h3>
+            </div>
+            <div class="panel-body">
+                 <a name="proprio"></a> Si vous avez des questions ou besions de renseignements.
+                  <address>
+                        <strong>  {{ entity.propriete.proprietaire.personne.typeEntite 
+                        ~' '~  entity.propriete.proprietaire.personne.lastname }}  
+                        </strong><br>
+                         <abbr title="Phone">Téléphone fixe:</abbr> {{ entity.propriete.proprietaire.personne.telFixe }}  <br>
+                         <abbr title="PhoneP">Téléphone portable:</abbr> {{ entity.propriete.proprietaire.personne.telPortable }} <br>
+                          
+                    </address>
+              <a class="btn btn-primary" data-toggle="modal" data-target="#contact"> Contact par Mail  </a>
+                     <div class="modal fade"  id="contact">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                 <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                         <h4 class="modal-title"> Contacter {{' ' ~ entity.propriete.proprietaire.personne.lastname}} </h4>
+                                 </div>
+                                <div class="modal-body"> 
+                                     
+                                         {{ render(controller("djepoMainBundle:Contact:contactLogement",
+                                                                { 'adminOrUser': mailExpression(
+                                                     entity.propriete.proprietaire.personne.getMailSender,
+                                                     'annonce : ' ~ entity.libelle~'_'~ entity.id,
+                                                     entity.propriete.proprietaire.personne.lastname
+                                                      )   } )) }}  
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
+                               </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal --> 
+               
+            </div>
+        </div>
+        
+        </div>
+  </div>
+  <div class="row"> 
+        <div class="col-sm-12">
+            <ul class="nav nav-pills  pull-right">
+              <li><a href="#DESCRIPTION" rel="nofollow"><span class="glyphicon glyphicon-star"></span> DESCRIPTION</a>  </li>
+              <li><a href="#EQUIPEMENTS" rel="nofollow"><span class="glyphicon glyphicon-star"></span> EQUIPEMENTS</a>  </li> 
+              <li><a href="#DISPONIBILITES" rel="nofollow"><span class="glyphicon glyphicon-list-alt"></span> DISPONIBILITES</a>  </li> 
+              <li><a href="#SITUATION" rel="nofollow"><span class="glyphicon glyphicon-star"></span> SITUATION</a>  </li> 
+              <li><a href="{{ path('logement') }}" rel="nofollow">retour aux résultats </a>  </li> 
+
+            </ul>
+
+       </div>  
+  </div>
+   
+{% endblock %}
+{% block  javascripts %}
+       {{ parent() }}
+ {#<script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/jquery/jquery-1.8.2.min.js') }}"></script>#}
+ <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/jquery.fullcalendar.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/calendar-settings.js') }}"></script>
+{% endblock %}

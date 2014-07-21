@@ -1,0 +1,30 @@
+adresse:
+    pattern:  /
+    defaults: { _controller: "djepoUserBundle:Adresse:index" }
+
+adresse_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "djepoUserBundle:Adresse:show" }
+
+adresse_new:
+    pattern:  /new
+    defaults: { _controller: "djepoUserBundle:Adresse:new" }
+
+adresse_create:
+    pattern:  /create
+    defaults: { _controller: "djepoUserBundle:Adresse:create" }
+    requirements: { _method: post }
+
+adresse_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "djepoUserBundle:Adresse:edit" }
+
+adresse_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "djepoUserBundle:Adresse:update" }
+    requirements: { _method: post|put }
+
+adresse_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "djepoUserBundle:Adresse:delete" }
+    requirements: { _method: post|delete }

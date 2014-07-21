@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<project name="locaTogo" default="ci">
+  <property name="workspace" value="." />
+  <property name="sourcedir" value="${workspace}/src" />
+  <property name="builddir" value="${workspace}/app/build" />
+
+  
+    <target name="ci"
+        description="Tâche principale d'intégration continue"
+        depends="clean,qa"
+    />
+
+    <target name="clean" description="Vide les répertoires d'artefacts">
+               <delete dir="${builddir}/api"/>
+               <delete dir="${builddir}/code-browser"/>
+               <delete dir="${builddir}/coverage"/>
+               <delete dir="${builddir}/logs"/>
+               <delete dir="${builddir}/pdepend"/>
+               <delete dir="${builddir}/docs"/>
+               
+                <mkdir dir="${builddir}/api"/>
+                <mkdir dir="${builddir}/code-browser"/>
+                <mkdir dir="${builddir}/coverage"/>
+                <mkdir dir="${builddir}/logs"/>
+                <mkdir dir="${builddir}/pdepend"/>
+                <mkdir dir="${builddir}/docs"/>
+                   
+    </target>
+
+    <target name="qa" description="Lance les outils d'analyse">
+       <phingcall target="pdepend" />
+    <phingcall target="phpmd" />
+    <phingcall target="phpcpd" />
+    <phingcall target="phploc" />
+    <phingcall target="phpcs" />
+    <phingcall target="phpdoc" />
+    <phingcall target="phpunit" />
+    <phingcall target="phpcb" />
+         
+        
+</target>
+
+<target name="pdepend" description="Calculate software metrics using PHP_Depend">
+    <exec executable="pdepend">
+      <arg value="--jdepend-xml=${builddir}/logs/jdepend.xml" />
+      <arg value="--jdepend-chart=${builddir}/pdepend/dependencies.svg" />
+      <arg value="--overview-pyramid=${builddir}/pdepend/overview-pyramid.svg" />
+      <arg path="${sourcedir}" />
+    </exec>
+  </target>
+  
+   <target name="phpmd" description="Perform project mess detection using PHPMD and print human readable output. Intended for usage on the command line before committing.">
+    <exec executable="phpmd">
+         <arg path="${sourcedir}" />
+         <arg value="xml" />
+         <arg value="${workspace}/app/phpmd.xml" />
+         <arg value="--reportfile" />
+         <arg value="${builddir}/logs/pmd.xml" />
+       </exec>
+  </target>
+
+<target name="phpcpd" description="Find duplicate code using PHPCPD">
+    <exec executable="phpcpd">
+      <arg value="--log-pmd" />
+      <arg value="${builddir}/logs/pmd-cpd.xml" />
+      <arg path="${sourcedir}" />
+    </exec>
+  </target>
+  
+ <target name="phploc" description="Measure project size using PHPLOC">
+    <exec executable="phploc">
+    <arg value="--log-csv" />
+    <arg value="${builddir}/logs/phploc.csv" />
+    <arg path="${sourcedir}" />
+    </exec>
+  </target>
+
+  
+   <target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
+    <exec executable="phpcb">
+      <arg value="--log" />
+      <arg path="${builddir}/logs" />
+      <arg value="--source" />
+      <arg path="${sourcedir}" />
+      <arg value="--output" />
+      <arg path="${builddir}/code-browser" />
+    </exec>
+  </target>
+  
+  <target name="phpdoc" description="Generate API documentation using phpDox">
+    <exec executable="phpdoc">
+      <arg line="-d '${sourcedir}' -t '${builddir}/docs' --title='Tempo' " />
+    </exec>
+  </target>
+
+   <target name="phpcs" description="Find coding standard violations using PHP_CodeSniffer and print human readable output. Intended for usage on the command line before committing.">
+    <exec command="phpcs --standard=Symfony2 --report=checkstyle
+      ${sourcedir} > ${builddir}/logs/checkstyle.xml" escape="false" />
+   
+  </target>
+  
+   <target name="phpunit" description="Run unit tests with PHPUnit">
+    <exec executable="phpunit">
+      <arg value="-c" />
+      <arg path="${workspace}/app/phpunit.xml" />
+    </exec>
+  </target>
+</project>

@@ -1,0 +1,20 @@
+parameters:
+#    djepo_calendrier.example.class: djepo\CalendrierBundle\Example
+
+services:
+    djepo_calendrier.dateTools:
+        class: djepo\CalendrierBundle\Utils\DateTools
+        arguments: [@session]
+        tags:
+            - { name: twig.extension }
+            
+    djepo_calendrier.calendrier.listener:
+        class: djepo\CalendrierBundle\EventListener\CalendrierEventListener
+        arguments: [@doctrine.orm.entity_manager, @session, @djepo_calendrier.dateTools]
+        tags:
+            - { name: kernel.event_listener, event: djepo_calendrier.load_events, method: loadCalendrierEvents }      
+        
+#    djepo_calendrier.example:
+#        class: %djepo_calendrier.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+

@@ -1,0 +1,17 @@
+
+  {% block captcha_widget %}
+	 {% spaceless %}
+	     <div class="row form-group">
+			
+                           <div class="col-sm-offset-2 col-sm-10"> <span class="form-label">
+                          {{ form_label(form.captcha, "Entrez les 6 caractères (majuscules ou chiffres) contenus dans l'image") }}
+		          </span> <br></div>
+                          <div class="col-sm-offset-2 col-sm-4"> {{ form_widget(form.captcha, { 'attr': {'class': 'form-control' } })  }}</div>
+		    	<div class="col-sm-3"> <span class="text-warning">  {{ form_errors(form.captcha) }} </span> </div>
+                          
+                        <span class="col-sm-offset-2 col-sm-10">  Si vous êtes dans l'incapacité de lire plusieurs images d'affilée,   <a href="{{ path('djepoMain_contact') }}">contactez-nous.</a></span>
+			
+	  </div>
+					
+       {% endspaceless %}
+{% endblock %}

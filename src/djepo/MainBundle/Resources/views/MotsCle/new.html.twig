@@ -1,0 +1,45 @@
+{% extends "djepoUserBundle::adminlayout.html.twig" %}
+{% if form is defined %}
+ {% form_theme form "djepoMainBundle:Form:fields.html.twig" %} 
+ {% endif %}
+ 
+{% block meta %} 
+ <meta name="description" content="MotsCle">
+ <meta name='ROBOTS' content="noindex,nofollow">
+ {% endblock %} 
+{% block title %} {{ parent() ~ ' -  MotsCle'  }}  {% endblock %}
+ 
+{% block navigsite %} 
+ 
+<ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <li><a  href="{{ path('djepoUser_profile') }}"> Admin </a></li>
+           <li><a href="{{path('motscle') }}"> Mes MotsCles </a> </li> 
+            <li class="active">MotsCle </li>
+        </ol>
+ 
+{% endblock %}
+
+ 
+{% block fos_user_content %}	 
+<div class="panel panel-default">
+            <div class="panel-heading"><h1>{{ app.user.username }} : MotsCle creation</h1> </div>
+                <div class="panel-body">
+                        <form action="{{ path('motscle_create') }}" method="post" {{ form_enctype(form) }}>
+                             {{ form_row(form.titre, {'help': 'test Ajouter des messages'}) }}
+
+                             {{ form_row(form.description) }}
+                             {{ form_row(form.robot) }}
+                             {{ form_row(form.keyword) }}
+
+                            {# form_widget(form) #}
+                            <div class="row form-group">
+                                 <div class="col-sm-offset-2 col-sm-7"> <button type="submit">Create</button> </div> 
+                            </div>
+                        </form>
+                </div>
+        </div>
+<ul class="record_actions">
+    <li>  <a href="{{ path('motscle') }}"> Back to the list </a> </li>
+</ul>
+{% endblock %}

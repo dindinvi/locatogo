@@ -1,0 +1,21 @@
+parameters:
+    map_id: map
+    app_id: MyMapApp
+
+services:
+    djepo_location.locationTools:
+        class: djepo\LocationBundle\Utils\LocationTools
+        arguments: [@session]
+        tags:
+            - { name: twig.extension }
+        
+    djepo_location.GoogleMapAPI:
+        class: djepo\LocationBundle\Utils\GoogleMapAPI
+        arguments: [%map_id%, %app_id%]
+        tags:
+            - { name: twig.extension }
+            
+        
+#    djepo_location.example:
+#        class: %djepo_location.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

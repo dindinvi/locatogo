@@ -1,0 +1,29 @@
+{% extends "djepoUserBundle::adminlayout.html.twig" %}
+{% block meta %} 
+	  <meta name="description" content="afficher mon profil">
+	  <meta name='ROBOTS' content="noindex,nofollow">
+ {% endblock %} 
+{% block title %} {{ parent()~' - ' ~ 'afficher mon profil'  }}  {% endblock %}
+{% block navigsite %} 
+          <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <li><a  href="{{ path('djepoUser_profile') }}"> Admin </a></li>
+            <li class="active">Afficher mon profil </li>
+        </ol>
+          
+{% endblock %}
+
+{% block fos_user_content %}	
+       
+    
+<br>
+<div class="row">
+        <div class="col-sm-7">   
+                <h1>{{ app.user.username }}: afficher mon profil</h1>
+        </div>
+      <div class="col-sm-5 pull-right">	
+           <a href="{{ path('fos_user_profile_edit') }}">  Modifier le profil </a>
+      </div>
+ </div> 
+{% include "djepoUserBundle:Profile:show_content.html.twig" %}
+{% endblock %}

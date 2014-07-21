@@ -1,0 +1,121 @@
+
+<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" >
+        
+    <div class="panel panel-default">
+                <div class="panel-heading"> <h3>Login</h3>  </div>
+                <div class="panel-body"> 
+		       <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.username, 'Pseudo *') }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.username, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(form.username) }} </span></div>
+                        </div>
+                    {#
+                      <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.email, 'mail *') }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.email, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(form.email) }} </span></div>
+                        </div>
+			 #}	 
+                  </div>
+    </div> 
+     
+        <br>
+	 <div class="panel panel-default">
+                <div class="panel-heading"> <h3>Personne</h3>  </div>
+                <div class="panel-body"> 
+                     <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.personne.typeEntite) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.personne.typeEntite, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(form.personne.typeEntite) }} </span></div>
+                        </div>
+                           <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.personne.lastname, 'Nom') }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.personne.lastname, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(form.personne.lastname) }} </span></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.personne.firstname, 'Prénom') }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.personne.firstname, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(form.personne.firstname) }} </span></div>
+                        </div>
+                                
+                         
+                               
+                       <div class="row form-group">
+                            <div class="col-sm-2 ">{{ form_label(form.personne.telFixe) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.personne.telFixe, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(form.personne.telFixe) }} </span></div>
+                        </div>       
+                                 
+			<div class="row form-group">
+                            <div class="col-sm-2 ">{{ form_label(form.personne.telPortable) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.personne.telPortable, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(form.personne.telPortable) }} </span></div>
+                        </div>
+                                
+                           <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.personne.fax) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.personne.fax, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(form.personne.fax) }} </span></div>
+                        </div> 
+                        
+                   </div>
+                </div> 		 
+		
+    
+    <div class="panel panel-default">
+                <div class="panel-heading"> <h3 >Adresse</h3>  </div>
+                <div class="panel-body"> 
+                       <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.personne.adresse.numeroVoie) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.personne.adresse.numeroVoie, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(form.personne.adresse.numeroVoie) }} </span></div>
+                        </div>
+                                
+                            <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.personne.adresse.libelleAdd) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.personne.adresse.libelleAdd, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(form.personne.adresse.libelleAdd) }} </span></div>
+                        </div>
+                                
+                           <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.personne.adresse.codePostal) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.personne.adresse.codePostal, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(form.personne.adresse.codePostal) }} </span></div>
+                        </div>       
+                                 
+			<div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.personne.adresse.ville.nomVille) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.personne.adresse.ville.nomVille, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(form.personne.adresse.ville.nomVille) }} </span></div>
+                        </div>
+                                
+                           <div class="row form-group">
+                            <div class="col-sm-2 ">{{ form_label(form.personne.adresse.ville.libelle) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.personne.adresse.ville.libelle, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(form.personne.adresse.ville.libelle) }} </span></div>
+                        </div> 	 
+                  </div>
+                </div>
+  {#
+  {% if app.user.current_password is not null %}     
+    <div class="panel panel-default">
+                <div class="panel-heading"> <h3 >Pour valider toutes modifications </h3>  </div>
+                <div class="panel-body"> 
+                       <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.current_password) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.current_password, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(form.current_password) }} </span></div>
+                        </div>
+                        </div>
+                </div>
+        {% endif %}
+        #}
+     {{ form_rest(form) }} 
+    
+    <div class="row form-group">
+		 <div class="col-sm-offset-2 col-sm-7">		
+                     <input type="submit"  class="btn btn-lg btn-primary btn-block" value="{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}" />
+		 </div>
+    </div>
+</form>

@@ -1,0 +1,30 @@
+no:
+    pattern:  /
+    defaults: { _controller: "djepoLocationBundle:image:index" }
+
+no_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "djepoLocationBundle:image:show" }
+
+no_new:
+    pattern:  /new
+    defaults: { _controller: "djepoLocationBundle:image:new" }
+
+no_create:
+    pattern:  /create
+    defaults: { _controller: "djepoLocationBundle:image:create" }
+    requirements: { _method: post }
+
+no_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "djepoLocationBundle:image:edit" }
+
+no_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "djepoLocationBundle:image:update" }
+    requirements: { _method: post|put }
+
+no_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "djepoLocationBundle:image:delete" }
+    requirements: { _method: post|delete }

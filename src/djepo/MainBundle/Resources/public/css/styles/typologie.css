@@ -1,0 +1,145 @@
+﻿  html  {
+font-size : 100%;
+}
+body {
+margin : 0;
+font-size : 0.8em;
+font-family : Verdana, Arial, Helvetica, sans-serif, "Times New Roman", Times, serif;
+line-height : 1.25;
+color : black;
+background : white;
+}
+h1, h2, h3, h4, h5, h6 {
+margin : 1em 0 0.5em 0;
+color : blue;
+}
+h1, h2 {
+font-family : Verdana, Arial, Georgia, "Bitstream Vera Serif", Norasi, serif;
+font-weight : normal;
+}
+h1 {
+font-size : 3em;
+font-style : italic;
+}
+h2 {
+font-size : 1.8em;
+}
+h3 {
+font-size : 1.2em;
+}
+h4 {
+font-size : 1em;
+}
+ul, ol {
+margin : 0.75em 0 0.75em 24px;
+padding : 0;
+}
+ul {
+list-style : square;
+}
+li {
+margin : 0;
+padding : 0;
+}
+p {
+margin : 0.75em 0;
+text-indent : 30px;
+text-align : justify;
+}
+p:first-letter {
+font-weight : bold;
+font-size : 1.2em;
+color : black;
+}
+li p, blockquote p {
+margin : 0.5em 0;
+}
+blockquote, q {
+font-size : 1.1em;
+font-style : italic;
+font-family : Georgia, "Bitstream Vera Serif", Norasi, serif;
+}
+blockquote {
+margin : 0.75em 0 0.75em 24px;
+}
+cite {
+font-style : italic;
+}
+a {
+text-decoration : underline;
+}
+a img {
+border : none;
+}
+img {
+border : none;
+}
+em {
+font-style : italic;
+}
+strong {
+font-weight : bold;
+}
+table {
+width : 95%;
+font-size : 0.9em;
+line-height : 1.25;
+color : black;
+background : white;
+}
+.minuscule {
+font-size : xx-small;
+}
+.trespetit {
+font-size : x-small;
+}
+.trespetitRed {
+font-size : x-small;
+color : red;
+}
+.petitRed {
+font-size : small;
+color : red;
+}
+.petit {
+font-size : small;
+}
+.moyen {
+font-size : medium;
+}
+.moyenRed {
+font-size : medium;
+color : red;
+}
+.grand {
+font-size : small;
+font-weight : bold;
+}
+.tresgrand {
+font-size : x-large;
+}
+.supermegagigatresgrand {
+font-size : xx-large;
+}
+.taille {
+font-variant : small-caps;
+}
+.center {
+text-align : center;
+}
+.deco {
+text-decoration : none;
+}
+CHECKBOX, INPUT, RADIO, SELECT {
+font-family : Verdana, Arial, sans-serif;
+font-size : 11px;
+}
+TEXTAREA {
+width : 100%;
+font-family : Verdana, Arial, sans-serif;
+font-size : 11px;
+white-space : pre;
+}
+FORM {
+display : inline;
+} 

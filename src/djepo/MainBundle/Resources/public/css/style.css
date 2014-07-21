@@ -1,0 +1,53 @@
+.container, .libre {
+background-color: white;
+}
+ .navig_prin,.marginHB { 
+     margin-top: 10px;
+}
+ .ast { 
+     color: red;
+}
+ .normal { 
+     color: black;
+}
+.textColor { 
+     color: red;
+}
+ .couleur{  
+   color: orange;    
+}  
+
+nav {
+background-color:#bcd;
+border-radius: 8px;
+padding: 0 !important;
+border: 1px solid #ddd;
+margin: 20px 0;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+background-color: #cde;
+}
+ 
+ .espace{
+    margin-bottom: 10px; 
+ }
+ 
+ // pour javascript
+ .integer_widget{   
+  font-size: 16px;
+  color: red;
+    
+}
+ .integer_widget input[type=text]{
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  height: 300px;
+  width:  500px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box; 
+   
+    
+}
+ 

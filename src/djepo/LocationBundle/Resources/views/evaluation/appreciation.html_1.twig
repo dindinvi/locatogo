@@ -1,0 +1,42 @@
+  
+{% if(  entity == false) %}
+    
+        <a href="{{ path('no_new') }}" rel="nofollow">{{message}} </a>
+
+{% else %}
+
+     {% for e  in entity %} 
+     <div class="row">
+         <div class="col-sm-6">
+                        <b>Auteur:</b> {{'  '~ e.user}} <br>
+                        <b>Date de l'evaluation</b>  {{ '  '~ e.dateEvaluation | date('d/m/Y')  }}
+
+                        <div id='Note1' class="rating"><!-- 
+                           --><b>Note:</b>
+                           <a  href="#{{  e.note }}" title=" Note{{' '~ e.note ~' '}} étoiles">☆</a><!-- 
+                           --><a href="#{{  e.note }}" title=" Note{{' '~ e.note ~' '}} étoiles">☆</a><!-- 
+                           --><a href="#{{  e.note }}" title=" Note{{' '~ e.note ~' '}} étoiles">☆</a><!-- 
+                           --><a href="#{{  e.note }}" title=" Note{{' '~ e.note ~' '}} étoiles">☆</a><!-- 
+                           --><a href="#{{  e.note }}" title=" Note{{' '~ e.note ~' '}} étoiles">☆</a>  
+                        </div>
+                        <div id='Note2' class="rating"><!-- 
+                           --><b>Situation:</b> <a href="#{{  e.situation  }}" title=" situation{{' '~ e.situation  ~' '}} étoiles">☆</a><!-- 
+                           --><a href="#{{  e.situation  }}" title=" situation{{' '~ e.situation  ~' '}} étoiles">☆</a><!-- 
+                           --><a href="#{{  e.situation  }}" title=" situation{{' '~ e.situation  ~' '}} étoiles">☆</a><!-- 
+                           --><a href="#{{  e.situation  }}" title=" situation{{' '~ e.situation  ~' '}} étoiles">☆</a><!-- 
+                           --><a href="#{{  e.situation  }}" title=" situation{{' '~ e.situation  ~' '}} étoiles">☆</a>  
+                        </div>
+                        <div id='Note3' class="rating"><!-- 
+                           --><b>etat Du Bien:</b> <a href="#{{  e.etatDuBien }}" title=" etatDuBien{{' '~ e.etatDuBien ~' '}} étoiles">☆</a><!-- 
+                           --><a href="#{{  e.etatDuBien }}" title=" etatDuBien{{' '~ e.etatDuBien ~' '}} étoiles">☆</a><!-- 
+                           --><a href="#{{  e.etatDuBien }}" title=" etatDuBien{{' '~ e.etatDuBien ~' '}} étoiles">☆</a><!-- 
+                           --><a href="#{{  e.etatDuBien }}" title=" etatDuBien{{' '~ e.etatDuBien ~' '}} étoiles">☆</a><!-- 
+                           --><a href="#{{  e.etatDuBien }}" title=" etatDuBien{{' '~ e.etatDuBien ~' '}} étoiles">☆</a>  
+                        </div>
+                </div>
+                <div class="col-sm-6">   
+                     <b>Commentaire:</b> {{'  '~ e.commentaire }}
+                </div>
+            </div>
+    {% endfor %}    
+{% endif %} 

@@ -1,0 +1,30 @@
+reservation:
+    pattern:  /
+    defaults: { _controller: "djepoLocationBundle:location:index" }
+
+location_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "djepoLocationBundle:location:show" }
+
+location_new:
+    pattern:  /new
+    defaults: { _controller: "djepoLocationBundle:location:new" }
+
+location_create:
+    pattern:  /create
+    defaults: { _controller: "djepoLocationBundle:location:create" }
+    requirements: { _method: post }
+
+location_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "djepoLocationBundle:location:edit" }
+
+location_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "djepoLocationBundle:location:update" }
+    requirements: { _method: post|put }
+
+location_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "djepoLocationBundle:location:delete" }
+    requirements: { _method: post|delete }

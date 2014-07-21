@@ -1,0 +1,19 @@
+
+{% block body -%}
+    <h1>formContact creation</h1>
+
+    <form action="{{ path('formcontact_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button type="submit">Create</button>
+        </p>
+    </form>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('formcontact') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

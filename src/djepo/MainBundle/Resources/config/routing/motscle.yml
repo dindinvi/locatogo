@@ -1,0 +1,30 @@
+motscle:
+    pattern:  /
+    defaults: { _controller: "djepoMainBundle:MotsCle:index" }
+
+motscle_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "djepoMainBundle:MotsCle:show" }
+
+motscle_new:
+    pattern:  /new
+    defaults: { _controller: "djepoMainBundle:MotsCle:new" }
+
+motscle_create:
+    pattern:  /create
+    defaults: { _controller: "djepoMainBundle:MotsCle:create" }
+    requirements: { _method: post }
+
+motscle_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "djepoMainBundle:MotsCle:edit" }
+
+motscle_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "djepoMainBundle:MotsCle:update" }
+    requirements: { _method: post|put }
+
+motscle_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "djepoMainBundle:MotsCle:delete" }
+    requirements: { _method: post|delete }

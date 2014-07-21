@@ -1,0 +1,8 @@
+djepoPrestationBundle_locationprestation:
+        resource: "routing/locationprestation.yml"
+        prefix:   /espace-client/locationprestation
+        
+        
+djepoPrestationBundle_prestation:
+        resource: "routing/prestation.yml"
+        prefix:   /espace-client/prestation

@@ -1,0 +1,12 @@
+{% extends "::base.html.twig" %} {# extends "::baseUser.html.twig" #}
+{% block stylesheets %}  {{ parent() }} {% endblock %}
+{% block header %}    {{ parent() }} {% endblock %}	
+{% block navigsite %} {{ djepo_home }} {% endblock %} 
+{% block principal %}	{% endblock %} 
+{% block droite %}	
+ {% include "djepoMainBundle::menuDroite.html.twig" %}
+{% endblock %} 
+							
+{% block pied %}   {{ parent() }} 	{% endblock %}
+
+{% block javascripts %}		{{ parent() }} {% endblock %}

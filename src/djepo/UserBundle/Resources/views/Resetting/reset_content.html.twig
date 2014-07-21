@@ -1,0 +1,25 @@
+
+<form action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
+<div class="panel panel-default">
+                <div class="panel-heading"> <h3>Entrer nouveau mot de passe</h3>  </div>
+                <div class="panel-body"> 
+		  <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.new.first, 'Mot de passe *', { 'label_attr': {'required': 'true' } }) }}</div>
+                            <div class="col-sm-6">{{ form_widget(form.new.first, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.new.first) }} </span></div>
+                        </div>                    
+                          <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.new.second, 'Vérification *',{ 'attr': {'required': 'required' } }) }}</div>
+                            <div class="col-sm-6">{{ form_widget(form.new.second, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.new.second) }} </span></div>
+                        </div>   
+                        
+                    </div>
+            </div><br>
+                 
+ 
+{{ form_rest(form) }}
+       <div class="col-sm-offset-2 col-sm-4">
+	   <input  class="btn btn-lg btn-primary btn-block"  type="submit" value="{{ 'resetting.reset.submit'|trans({}, 'FOSUserBundle') }}" />
+       </div>  
+</form>

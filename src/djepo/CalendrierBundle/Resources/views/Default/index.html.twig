@@ -1,0 +1,64 @@
+{# {% extends "::base.html.twig" %}
+{% block principal %}
+ #}   
+<div class="periods"> <!-- conteneur general du calendrier -->
+    <div class="year"> {{ year }} </div><!-- pour l année  du calendrier -->
+    <div class="months"> {# affichage des mois en boucle #}
+        <ul>
+         {% for id, m  in months %}
+             {% set monthID = id +1 %} 
+             <li>
+                 <a href="#" id="linkMonth{{ monthID }}">{{ truncable(m) }}</a>
+             </li>
+         {% endfor %}
+        </ul>
+    </div>
+         {% for m, my_days  in dates %} {# affichage / traitement des dates  en boucle #}
+              <div class="month" id="month{{ m }}">
+                 <table class="table">
+                    <thead>
+                         <tr>{# affichage des jour de la semaine #}
+                             {% for d  in days %} 
+                                <th> {{truncable(d) }}</th>
+                            {% endfor %}    
+                       </tr> 
+                  </thead>  
+
+                     <tbody>
+                         <tr> {# d=jour, w=jour de la semaine #}
+                             {% for d, w  in my_days %} 
+                               {% if (d == 1 ) %}
+                                   
+                                        {%  set my_w = w - 1 %}
+                                        {% if(  my_w != 0 ) %}
+                                             <td colspan="{{ my_w }}"></td>
+                                        {% endif %} 
+                               {% endif %}
+                                    <td> {{ d }}</td> 
+                                    <ul class="events"> 
+                                    </ul>
+                                 {% if (w == 7) %}{# si le jour de la semaine == 7 #}
+                                     </tr><tr>
+                                 {% endif %} 
+                            {% endfor %}
+                            {%  set last = calLastValTable(my_days) %}
+                           {% if ( last != 7 ) %} 
+                                     {%  set my = 7 - last  %}
+                                     <td colspan="{{ my }}"></td>
+                           
+                           {% endif %} 
+                       </tr> 
+                  </tbody>  
+
+
+                 </table>
+             </div>
+          
+         {% endfor %}
+       
+</div>
+{#  {% endblock %}#}
+
+{% block javascripts %} {{ parent() }} 
+      <script type="text/javascript" src="{{ asset('bundles/djepocalendrier/js/calendrierJS.js') }}"></script>
+{% endblock %}

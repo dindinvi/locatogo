@@ -1,0 +1,30 @@
+proprietaire:
+    pattern:  /
+    defaults: { _controller: "djepoLocationBundle:proprietaire:index" }
+
+proprietaire_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "djepoLocationBundle:proprietaire:show" }
+
+proprietaire_new:
+    pattern:  /new
+    defaults: { _controller: "djepoLocationBundle:proprietaire:new" }
+
+proprietaire_create:
+    pattern:  /create
+    defaults: { _controller: "djepoLocationBundle:proprietaire:create" }
+    requirements: { _method: post }
+
+proprietaire_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "djepoLocationBundle:proprietaire:edit" }
+
+proprietaire_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "djepoLocationBundle:proprietaire:update" }
+    requirements: { _method: post|put }
+
+proprietaire_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "djepoLocationBundle:proprietaire:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PDepend>
+  <Packages>
+    <Package name="djepo\BootStrapBundle\Controller">
+      <Stats>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>1</Ce>
+        <A>0</A>
+        <I>1</I>
+        <D>0</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\BootStrapBundle\Controller\DefaultController.php">DefaultController</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>Symfony\Bundle\FrameworkBundle\Controller</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+    <Package name="djepo\BootStrapBundle\DependencyInjection">
+      <Stats>
+        <TotalClasses>2</TotalClasses>
+        <ConcreteClasses>2</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>6</Ce>
+        <A>0</A>
+        <I>1</I>
+        <D>0</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\BootStrapBundle\DependencyInjection\Configuration.php">Configuration</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\BootStrapBundle\DependencyInjection\djepoBootStrapExtension.php">djepoBootStrapExtension</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>Symfony\Component\Config</Package>
+        <Package>Symfony\Component\Config\Definition</Package>
+        <Package>Symfony\Component\Config\Definition\Builder</Package>
+        <Package>Symfony\Component\DependencyInjection</Package>
+        <Package>Symfony\Component\DependencyInjection\Loader</Package>
+        <Package>Symfony\Component\HttpKernel\DependencyInjection</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+    <Package name="djepo\BootStrapBundle">
+      <Stats>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>1</Ce>
+        <A>0</A>
+        <I>1</I>
+        <D>0</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\BootStrapBundle\djepoBootStrapBundle.php">djepoBootStrapBundle</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>Symfony\Component\HttpKernel\Bundle</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+    <Package name="djepo\KickStartBundle\Controller">
+      <Stats>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>1</Ce>
+        <A>0</A>
+        <I>1</I>
+        <D>0</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\KickStartBundle\Controller\DefaultController.php">DefaultController</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>Symfony\Bundle\FrameworkBundle\Controller</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+    <Package name="djepo\KickStartBundle\DependencyInjection">
+      <Stats>
+        <TotalClasses>2</TotalClasses>
+        <ConcreteClasses>2</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>6</Ce>
+        <A>0</A>
+        <I>1</I>
+        <D>0</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\KickStartBundle\DependencyInjection\Configuration.php">Configuration</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\KickStartBundle\DependencyInjection\djepoKickStartExtension.php">djepoKickStartExtension</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>Symfony\Component\Config</Package>
+        <Package>Symfony\Component\Config\Definition</Package>
+        <Package>Symfony\Component\Config\Definition\Builder</Package>
+        <Package>Symfony\Component\DependencyInjection</Package>
+        <Package>Symfony\Component\DependencyInjection\Loader</Package>
+        <Package>Symfony\Component\HttpKernel\DependencyInjection</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+    <Package name="djepo\KickStartBundle">
+      <Stats>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>1</Ce>
+        <A>0</A>
+        <I>1</I>
+        <D>0</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\KickStartBundle\djepoKickStartBundle.php">djepoKickStartBundle</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>Symfony\Component\HttpKernel\Bundle</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+    <Package name="djepo\MainBundle\Controller">
+      <Stats>
+        <TotalClasses>5</TotalClasses>
+        <ConcreteClasses>5</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>5</Ce>
+        <A>0</A>
+        <I>1</I>
+        <D>0</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\MainBundle\Controller\AboutController.php">AboutController</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\MainBundle\Controller\ContactController.php">ContactController</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\MainBundle\Controller\IndexController.php">IndexController</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\MainBundle\Controller\MotsCleController.php">MotsCleController</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\MainBundle\Controller\formContactController.php">formContactController</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package></Package>
+        <Package>Symfony\Bundle\FrameworkBundle\Controller</Package>
+        <Package>Symfony\Component\HttpFoundation</Package>
+        <Package>djepo\MainBundle\Entity</Package>
+        <Package>djepo\MainBundle\Form</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+    <Package name="djepo\MainBundle\DependencyInjection">
+      <Stats>
+        <TotalClasses>2</TotalClasses>
+        <ConcreteClasses>2</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>6</Ce>
+        <A>0</A>
+        <I>1</I>
+        <D>0</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\MainBundle\DependencyInjection\Configuration.php">Configuration</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\MainBundle\DependencyInjection\djepoMainExtension.php">djepoMainExtension</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>Symfony\Component\Config</Package>
+        <Package>Symfony\Component\Config\Definition</Package>
+        <Package>Symfony\Component\Config\Definition\Builder</Package>
+        <Package>Symfony\Component\DependencyInjection</Package>
+        <Package>Symfony\Component\DependencyInjection\Loader</Package>
+        <Package>Symfony\Component\HttpKernel\DependencyInjection</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+    <Package name="djepo\MainBundle\Entity">
+      <Stats>
+        <TotalClasses>4</TotalClasses>
+        <ConcreteClasses>4</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>2</Ca>
+        <Ce>1</Ce>
+        <A>0</A>
+        <I>0.33333333333333</I>
+        <D>0.66666666666667</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\MainBundle\Entity\MotsCle.php">MotsCle</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\MainBundle\Entity\MotsCleRepository.php">MotsCleRepository</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\MainBundle\Entity\formContact.php">formContact</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\MainBundle\Entity\formContactRepository.php">formContactRepository</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>Doctrine\ORM</Package>
+      </DependsUpon>
+      <UsedBy>
+        <Package>djepo\MainBundle\Controller</Package>
+        <Package>djepo\MainBundle\Form</Package>
+      </UsedBy>
+    </Package>
+    <Package name="djepo\MainBundle\Form">
+      <Stats>
+        <TotalClasses>3</TotalClasses>
+        <ConcreteClasses>3</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>1</Ca>
+        <Ce>6</Ce>
+        <A>0</A>
+        <I>0.85714285714286</I>
+        <D>0.14285714285714</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\MainBundle\Form\MotsCleType.php">MotsCleType</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\MainBundle\Form\formContactHandler.php">formContactHandler</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\MainBundle\Form\formContactType.php">formContactType</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package></Package>
+        <Package>Doctrine\ORM</Package>
+        <Package>Symfony\Component\Form</Package>
+        <Package>Symfony\Component\HttpFoundation</Package>
+        <Package>Symfony\Component\OptionsResolver</Package>
+        <Package>djepo\MainBundle\Entity</Package>
+      </DependsUpon>
+      <UsedBy>
+        <Package>djepo\MainBundle\Controller</Package>
+      </UsedBy>
+    </Package>
+    <Package name="djepo\MainBundle\Tests\Controller">
+      <Stats>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>1</Ce>
+        <A>0</A>
+        <I>1</I>
+        <D>0</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\MainBundle\Tests\Controller\contactControllerTest.php">contactControllerTest</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>Symfony\Bundle\FrameworkBundle\Test</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+    <Package name="djepo\MainBundle">
+      <Stats>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>1</Ce>
+        <A>0</A>
+        <I>1</I>
+        <D>0</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\MainBundle\djepoMainBundle.php">djepoMainBundle</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>Symfony\Component\HttpKernel\Bundle</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+    <Package name="djepo\UserBundle\Controller">
+      <Stats>
+        <TotalClasses>6</TotalClasses>
+        <ConcreteClasses>6</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>4</Ce>
+        <A>0</A>
+        <I>1</I>
+        <D>0</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\Controller\AdminController.php">AdminController</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\Controller\AdresseController.php">AdresseController</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\Controller\DefaultController.php">DefaultController</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\Controller\UserController.php">UserController</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\Controller\VilleController.php">VilleController</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>Symfony\Bundle\FrameworkBundle\Controller</Package>
+        <Package>Symfony\Component\HttpFoundation</Package>
+        <Package>djepo\UserBundle\Entity</Package>
+        <Package>djepo\UserBundle\Form</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+    <Package name="djepo\UserBundle\DependencyInjection">
+      <Stats>
+        <TotalClasses>2</TotalClasses>
+        <ConcreteClasses>2</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>6</Ce>
+        <A>0</A>
+        <I>1</I>
+        <D>0</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\DependencyInjection\Configuration.php">Configuration</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\DependencyInjection\djepoUserExtension.php">djepoUserExtension</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>Symfony\Component\Config</Package>
+        <Package>Symfony\Component\Config\Definition</Package>
+        <Package>Symfony\Component\Config\Definition\Builder</Package>
+        <Package>Symfony\Component\DependencyInjection</Package>
+        <Package>Symfony\Component\DependencyInjection\Loader</Package>
+        <Package>Symfony\Component\HttpKernel\DependencyInjection</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+    <Package name="djepo\UserBundle\Entity">
+      <Stats>
+        <TotalClasses>8</TotalClasses>
+        <ConcreteClasses>8</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>2</Ca>
+        <Ce>2</Ce>
+        <A>0</A>
+        <I>0.5</I>
+        <D>0.5</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\Entity\Admin.php">Admin</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\Entity\AdminRepository.php">UserRepository</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\Entity\Adresse.php">Adresse</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\Entity\AdresseRepository.php">AdresseRepository</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\Entity\User.php">User</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\Entity\Ville.php">Ville</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\Entity\VilleRepository.php">VilleRepository</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\Entity\doc\UserRepository.php">AdminRepository</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>Doctrine\ORM</Package>
+        <Package>FOS\UserBundle\Entity</Package>
+      </DependsUpon>
+      <UsedBy>
+        <Package>djepo\UserBundle\Controller</Package>
+        <Package>djepo\UserBundle\Form</Package>
+      </UsedBy>
+    </Package>
+    <Package name="djepo\UserBundle\Form">
+      <Stats>
+        <TotalClasses>6</TotalClasses>
+        <ConcreteClasses>6</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>2</Ca>
+        <Ce>5</Ce>
+        <A>0</A>
+        <I>0.71428571428571</I>
+        <D>0.28571428571429</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\Entity\doc\UserType.php">UserType</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\Form\AdminType.php">AdminType</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\Form\AdresseType.php">AdresseType</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\Form\VilleType.php">VilleType</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\Form\adminHandler.php">adminHandler</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\Form\doc\UserType.php">UserType</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>Doctrine\ORM</Package>
+        <Package>Symfony\Component\Form</Package>
+        <Package>Symfony\Component\HttpFoundation</Package>
+        <Package>Symfony\Component\OptionsResolver</Package>
+        <Package>djepo\UserBundle\Entity</Package>
+      </DependsUpon>
+      <UsedBy>
+        <Package>djepo\UserBundle\Controller</Package>
+        <Package>djepo\UserBundle\Form\Type</Package>
+      </UsedBy>
+    </Package>
+    <Package name="djepo\UserBundle\Form\Type">
+      <Stats>
+        <TotalClasses>2</TotalClasses>
+        <ConcreteClasses>2</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>3</Ce>
+        <A>0</A>
+        <I>1</I>
+        <D>0</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\Form\Type\ProfileUserType.php">ProfileUserType</Class>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\Form\Type\UserType.php">UserType</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>FOS\UserBundle\Form\Type</Package>
+        <Package>Symfony\Component\Form</Package>
+        <Package>djepo\UserBundle\Form</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+    <Package name="djepo\UserBundle\Security\User\Provider">
+      <Stats>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>3</Ce>
+        <A>0</A>
+        <I>1</I>
+        <D>0</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\Security\User\Provider\FacebookProvider.php">FacebookProvider</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package></Package>
+        <Package>Symfony\Component\Security\Core\Exception</Package>
+        <Package>Symfony\Component\Security\Core\User</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+    <Package name="djepo\UserBundle">
+      <Stats>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>1</Ce>
+        <A>0</A>
+        <I>1</I>
+        <D>0</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="C:\wamp\www\locaTogo\src\djepo\UserBundle\djepoUserBundle.php">djepoUserBundle</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>Symfony\Component\HttpKernel\Bundle</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+  </Packages>
+  <Cycles/>
+</PDepend>

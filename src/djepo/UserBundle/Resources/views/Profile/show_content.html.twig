@@ -1,0 +1,105 @@
+<div class="panel panel-default">
+                <div class="panel-heading"> <h3 >Identifiant</h3>  </div>
+                <div class="panel-body"> 
+                     <div class="row form-group">
+                            <div class="col-sm-2">{{ 'profile.show.username'|trans({}, 'djepoUserBundle') }}</div>
+                            <div class="col-sm-7">{{ user.username }}</div> 
+                        </div>
+                          {#        
+                            <div class="row form-group">
+                            <div class="col-sm-2">{{ 'profile.show.email'|trans({}, 'djepoUserBundle') }}</div>
+                            <div class="col-sm-7">{{ user.email }}</div>
+                             
+                        </div>
+                     #}
+                          <div class="row form-group">
+                            <div class="col-sm-2">{{ 'fos_user_profile_form_typeEntite'|trans({}, 'djepoUserBundle') }}</div>
+                            <div class="col-sm-7">{{ user.personne.typeEntite  }}</div>
+                             
+                        </div>
+                           <div class="row form-group">
+                            <div class="col-sm-2">{{ 'fos_user_profile_form_lastname'|trans({}, 'djepoUserBundle') }}</div>
+                            <div class="col-sm-7">{{ user.personne.lastname }}</div>
+                            
+                        </div>       
+                                 
+			<div class="row form-group">
+                            <div class="col-sm-2">{{ 'fos_user_profile_form_firstname'|trans({}, 'djepoUserBundle') }}</div>
+                            <div class="col-sm-7">{{ user.personne.firstname }}</div>
+                             
+                        </div>
+                        	 
+                  </div>
+                </div>  
+
+<div class="panel panel-default">
+                <div class="panel-heading"> <h3 >Informations complémentaires</h3>  </div>
+                <div class="panel-body"> 
+                    {#   <div class="row form-group">
+                            <div class="col-sm-2">{{ 'fos_user_profile_form_dateN'|trans({}, 'djepoUserBundle') }}</div>
+                            <div class="col-sm-7">{{ user.personne.dateN }}</div> 
+                        </div>
+                        #}
+                 <div class="row form-group">
+                            <div class="col-sm-2">{{ 'fos_user_profile_form_telFixe'|trans({}, 'djepoUserBundle') }}</div>
+                            <div class="col-sm-7">{{  user.personne.telFixe }}</div>
+                            
+                        </div>       
+                                 
+			<div class="row form-group">
+                            <div class="col-sm-2">{{ 'fos_user_profile_form_telPortable'|trans({}, 'djepoUserBundle') }}</div>
+                            <div class="col-sm-7">{{ user.personne.telPortable  }}</div>
+                             
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-2">{{ 'fos_user_profile_form_fax'|trans({}, 'djepoUserBundle') }} </div>
+                            <div class="col-sm-7">{{ user.personne.fax }}</div>
+                             
+                        </div>        
+                           	 
+                  </div>
+                </div>    
+ 
+<div class="panel panel-default">
+                <div class="panel-heading"> <h3 >Coordonnées</h3>  </div>
+                <div class="panel-body"> 
+                  {% if user.personne.adresse is not null %}  
+                       <div class="row form-group">
+                            <div class="col-sm-2">{{ 'fos_user_profile_form_adresse_numeroVoie'|trans({}, 'djepoUserBundle') }}</div>
+                            <div class="col-sm-7">{% if user.personne.adresse.numeroVoie != '' %} {{user.personne.adresse.numeroVoie}}{% endif %}
+                                </div> 
+                        </div> 
+                            <div class="row form-group">
+                            <div class="col-sm-2">{{  'fos_user_profile_form_adresse_libelleAdd'|trans({}, 'djepoUserBundle') }}</div>
+                            <div class="col-sm-7">{% if user.personne.adresse.libelleAdd is not null %} {{ user.personne.adresse.libelleAdd }}{% endif %}</div>
+                             
+                        </div>
+     
+                           <div class="row form-group">
+                            <div class="col-sm-2">{{ 'fos_user_profile_form_adresse_codePostal'|trans({}, 'djepoUserBundle') }}</div>
+                            <div class="col-sm-7">{{  user.personne.adresse.codePostal}}</div>
+                            
+                        </div>       
+                                 
+			<div class="row form-group">
+                            <div class="col-sm-2">{{ 'fos_user_profile_form_adresse_ville_nomVille'|trans({}, 'djepoUserBundle') }}</div>
+                            <div class="col-sm-7">{{ user.personne.adresse.ville.nomVille }}</div>
+                             
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-2">{{'fos_user_profile_form_adresse_ville_libelle'|trans({}, 'djepoUserBundle') }} </div>
+                            <div class="col-sm-7">{{ user.personne.adresse.ville.libelle }}</div>
+                             
+                        </div> 
+                        {% else %}
+                              <a href="{{ path('fos_user_profile_edit') }}">  Ajouter votre adresse </a>
+                       {% endif %}    	 
+                  </div>
+                </div>   
+
+   <div class="row form-group">
+		 <div class="col-sm-offset-2 col-sm-7">	
+			<a href="{{ path('fos_user_profile_edit') }}">  Modifier le profil </a>
+                 </div>
+   </div> 
+

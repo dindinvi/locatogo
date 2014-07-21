@@ -1,0 +1,20 @@
+{% extends "djepoUserBundle::adminlayout.html.twig" %}
+
+{% block meta %} 
+	 <meta name="description" content="Verifier mon adresse e-mail">
+	 <meta name='ROBOTS' content="noindex,nofollow">
+	  {% endblock %}
+{% block title %} {{ parent()  ~' - Verifier mon adresse e-mail ' }}  {% endblock %}
+ {% block navigsite %} 
+        <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}" > {{ djepo_home }} </a> </li>
+            <li><a  href="{{ path('djepoUser_profile') }}"> Admin </a></li>
+            <li class="active">{{ 'Verifier mon adresse e-mail.' }} </li>
+        </ol>
+{% endblock %}        
+
+ 
+{% block fos_user_content %}
+    <div class="alert col-sm-12 alert-info"> {{ 'registration.check_email'|trans({'%email%': user.email}, 'FOSUserBundle') }}
+    </div>
+{% endblock fos_user_content %}

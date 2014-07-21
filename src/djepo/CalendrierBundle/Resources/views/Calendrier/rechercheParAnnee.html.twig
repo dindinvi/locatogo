@@ -1,0 +1,27 @@
+{#   <form id="form_recherche" action="{{ path('djepo_calendrier_calendrier') }}" method="post">
+                   {{ form_widget(form) }}
+                   <input type="submit" value="Rechercher" />
+           </form>
+               {% include "djepoCalendrierBundle:Calendrier:rechercheParAnnee.html.twig" %} #}
+<div class="loading"></div>
+<script>
+
+        $(".loading").hide();
+        $("#form_recherche").submit(function(){ 
+        $(".loading").show();
+        var motcle = $("#acteurrecherche_annee").val();
+        var DATA = 'annee=' + motcle;
+        $.ajax({
+            type: "POST",
+            url:  "{{ path('logement_show', {id: 1})}}",
+            data: DATA,
+            cache: false,
+            success: function(data){
+               $('#resultats_recherche').html(data);
+               $(".loading").hide();
+            }
+        });    
+        return false;
+    });
+</script>
+ 

@@ -1,0 +1,87 @@
+{# empty Twig template #}
+{% extends "form_div_layout.html.twig" %}
+
+{% block form_row %}
+    {% spaceless %}
+         
+                        <div class=" row form-group {{ errors|length > 0 ? 'has-error' : '' }}">
+                           <div class="col-sm-2">{{ form_label(form) }}</div>
+                            <div class="col-sm-6">{{ form_widget(form) }}</div>
+                            <div class="col-sm-4"> <span class="text-warning">{{ form_errors(form) }}<span></div>
+                        </div>
+         
+    {% endspaceless %}
+{% endblock form_row %}
+        
+{% block choice_widget %}
+    {% if expanded %}
+        <ul class="inputs-list">
+            {% for child in form %}
+                <li>
+                    <label>
+                        {{ form_widget(child) }}
+                        {{ form_label(child) }}
+                    </label>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock choice_widget %}
+
+{% block textarea_widget %}
+    {% set attr = attr|merge({'class': attr.class|default('') ~ ' form-control'}) %}
+    {{ parent() }}
+{% endblock textarea_widget %}
+ 
+{% block form_widget_simple %}
+    {% set attr = attr|merge({'class': attr.class|default('') ~ ' form-control'}) %}
+    {{ parent() }}
+    {% if help is defined %}
+        <span class="help">{{ help }}</span>
+    {% endif %}
+{% endblock form_widget_simple %}
+ 
+{% block form_label %}
+    {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' control-label')|trim}) %}
+         {{ parent() }}
+         {% if required %}
+               <span class="required ast" title="Ce champ est obligatoire">*</span>
+        {% endif %}
+  
+{% endblock form_label %}
+ 
+{# et enfin les erreurs #}
+{#{% block form_errors %}
+    {% spaceless %}
+        {% if errors|length > 0 %}
+            <span class="help-block alert-danger">
+                {% for error in errors %}
+                    {{ error.message }}<br />
+                {% endfor %}
+            </span>
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_errors %}
+#}
+{% block form_errors %}
+    {% spaceless %}
+        {% if errors|length > 0 %}
+            <ul class="help-block alert-danger">
+                {% for error in errors %}
+                    <li>{{
+                            error.messagePluralization is null
+                            ? error.messageTemplate|trans(error.messageParameters, 'validators')
+                            : error.messageTemplate|transchoice(error.messagePluralization,
+                            error.messageParameters, 'validators')
+                    }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_errors %}
+
+
+ 
+ 

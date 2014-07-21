@@ -1,0 +1,58 @@
+imports:
+    - { resource: facebookParameters.ini }
+    
+jms_security_extra:
+    secure_all_services: false
+    expressions: true
+
+security:
+    encoders:
+        #Symfony\Component\Security\Core\User\User: plaintext
+        FOS\UserBundle\Model\UserInterface: sha512
+
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+        #ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+        chain_provider:
+         chain:
+             providers: [fos_userbundle, my_fos_facebook_provider]
+        my_fos_facebook_provider:
+            id: my.facebook.user
+        fos_userbundle:
+            id: fos_user.user_provider.username
+
+    firewalls:        
+        main:
+            pattern: ^/
+            form_login:
+                login_path: /connexion
+                check_path: /login_check
+                provider: fos_userbundle
+                csrf_provider: form.csrf_provider
+            fos_facebook:
+                app_url: %facebookAppUrl%
+                server_url: %facebookServerUrl%
+                check_path: /login_fb_check
+                provider: my_fos_facebook_provider
+            #logout: true
+            anonymous: true
+            logout:
+                path: /logout
+                target: /
+                invalidate_session: false
+                #handlers: ["fos_facebook.logout_handler"]
+
+    access_control:
+        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/connexion$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/inscription, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/espace-client/.*, role: [IS_AUTHENTICATED_FULLY] }
+        
+        # FOS facebook
+        - { path: ^/secured/.*, role: [IS_AUTHENTICATED_FULLY] }
+        - { path: ^/login_check, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/.*, role: [IS_AUTHENTICATED_ANONYMOUSLY] }

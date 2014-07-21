@@ -1,0 +1,20 @@
+
+Fatal error: Uncaught exception 'PHP_CodeSniffer_Exception' with message 'Class PHP_CodeSniffer_CommentParser_ClassCommentParser not found' in C:\wamp\bin\php\php5.4.3\pear\PHP\CodeSniffer\Standards\Symfony2\Sniffs\Commenting\ClassCommentSniff.php on line 19
+
+PHP_CodeSniffer_Exception: Class PHP_CodeSniffer_CommentParser_ClassCommentParser not found in C:\wamp\bin\php\php5.4.3\pear\PHP\CodeSniffer\Standards\Symfony2\Sniffs\Commenting\ClassCommentSniff.php on line 19
+
+Call Stack:
+    0.0008     233320   1. {main}() C:\wamp\bin\php\php5.4.3\phpcs:0
+    0.1654    1433832   2. PHP_CodeSniffer_CLI->process() C:\wamp\bin\php\php5.4.3\phpcs:37
+    0.2031    1495912   3. PHP_CodeSniffer->initStandard() C:\wamp\bin\php\php5.4.3\pear\PHP\CodeSniffer\CLI.php:583
+    0.4996    1515328   4. PHP_CodeSniffer->registerSniffs() C:\wamp\bin\php\php5.4.3\pear\PHP\CodeSniffer.php:549
+    0.5475    1544040   5. include_once('C:\wamp\bin\php\php5.4.3\pear\PHP\CodeSniffer\Standards\Symfony2\Sniffs\Commenting\ClassCommentSniff.php') C:\wamp\bin\php\php5.4.3\pear\PHP\CodeSniffer.php:1147
+
+PHP Fatal error:  Uncaught exception 'PHP_CodeSniffer_Exception' with message 'Class PHP_CodeSniffer_CommentParser_ClassCommentParser not found' in C:\wamp\bin\php\php5.4.3\pear\PHP\CodeSniffer\Standards\Symfony2\Sniffs\Commenting\ClassCommentSniff.php:19
+Stack trace:
+#0 C:\wamp\bin\php\php5.4.3\pear\PHP\CodeSniffer.php(1147): include_once()
+#1 C:\wamp\bin\php\php5.4.3\pear\PHP\CodeSniffer.php(549): PHP_CodeSniffer->registerSniffs(Array, Array)
+#2 C:\wamp\bin\php\php5.4.3\pear\PHP\CodeSniffer\CLI.php(583): PHP_CodeSniffer->initStandard(Array, Array)
+#3 C:\wamp\bin\php\php5.4.3\phpcs(37): PHP_CodeSniffer_CLI->process()
+#4 {main}
+  thrown in C:\wamp\bin\php\php5.4.3\pear\PHP\CodeSniffer\Standards\Symfony2\Sniffs\Commenting\ClassCommentSniff.php on line 19

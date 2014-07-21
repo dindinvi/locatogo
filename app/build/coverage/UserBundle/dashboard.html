@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for C:\wamp\www\locaTogo\src\djepo/UserBundle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/nv.d3.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="../js/html5shiv.js"></script>
+  <script src="../js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="../index.html">C:\wamp\www\locaTogo\src\djepo</a></li>
+        <li><a href="UserBundle.html">UserBundle</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th><div align="left">Class</div></th>
+         <th><div align="right">Coverage</div></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="UserBundle/Form/AdminType.php.html#9">AdminType</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Form/doc/UserType.php.html#9">UserType</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/Ville.php.html#14">Ville</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Form/AdresseType.php.html#9">AdresseType</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Form/Type/ProfileUserType.php.html#10">ProfileUserType</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Form/adminHandler.php.html#10">adminHandler</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Form/VilleType.php.html#9">VilleType</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#13">User</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/AdresseRepository.php.html#13">AdresseRepository</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/VilleController.php.html#16">VilleController</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/UserController.php.html#15">UserController</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/AdresseController.php.html#16">AdresseController</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/AdminController.php.html#15">AdminController</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/DependencyInjection/Configuration.php.html#13">Configuration</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/Adresse.php.html#15">Adresse</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/Admin.php.html#14">Admin</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/DependencyInjection/djepoUserExtension.php.html#15">djepoUserExtension</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Security/User/Provider/FacebookProvider.php.html#13">FacebookProvider</a></td><td><div align="right">18%</div></td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th><div align="left">Class</div></th>
+         <th><div align="right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></div></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="UserBundle/Entity/User.php.html#13">User</a></td><td><div align="right">870</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/AdresseController.php.html#16">AdresseController</a></td><td><div align="right">306</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/VilleController.php.html#16">VilleController</a></td><td><div align="right">240</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/UserController.php.html#15">UserController</a></td><td><div align="right">240</div></td></tr>
+       <tr><td><a href="UserBundle/Security/User/Provider/FacebookProvider.php.html#13">FacebookProvider</a></td><td><div align="right">105</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/AdminController.php.html#15">AdminController</a></td><td><div align="right">56</div></td></tr>
+       <tr><td><a href="UserBundle/Form/adminHandler.php.html#10">adminHandler</a></td><td><div align="right">30</div></td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th><div align="left">Method</div></th>
+         <th><div align="right">Coverage</div></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="UserBundle/Entity/User.php.html#286">User::getTelPortable</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#274">User::setTelPortable</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#263">User::getTelFixe</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#251">User::setTelFixe</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#297">User::setFax</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#309">User::getFax</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/Ville.php.html#59">Ville::setNomVille</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/Ville.php.html#49">Ville::getId</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#324">User::getAdresse</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#315">User::setAdresse</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#240">User::getTypeEntite</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#228">User::setTypeEntite</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#147">User::setFacebookID</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#138">User::getFullName</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#129">User::setLastname</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#121">User::getLastname</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#160">User::getFacebookID</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#168">User::setFBData</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#217">User::getDateN</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#205">User::setDateN</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#191">User::getId</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/Ville.php.html#69">Ville::getNomVille</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/Ville.php.html#80">Ville::setLibelle</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Form/adminHandler.php.html#19">adminHandler::__construct</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Form/VilleType.php.html#27">VilleType::getName</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Form/VilleType.php.html#20">VilleType::setDefaultOptions</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Form/VilleType.php.html#11">VilleType::buildForm</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Form/adminHandler.php.html#27">adminHandler::process</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Form/adminHandler.php.html#46">adminHandler::onSuccess</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Security/User/Provider/FacebookProvider.php.html#84">FacebookProvider::refreshUser</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Security/User/Provider/FacebookProvider.php.html#42">FacebookProvider::loadUserByUsername</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Security/User/Provider/FacebookProvider.php.html#37">FacebookProvider::findUserByFbId</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Security/User/Provider/FacebookProvider.php.html#32">FacebookProvider::supportsClass</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Form/Type/ProfileUserType.php.html#12">ProfileUserType::buildUserForm</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Form/AdresseType.php.html#28">AdresseType::getName</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Form/doc/UserType.php.html#49">UserType::getName</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Form/doc/UserType.php.html#42">UserType::setDefaultOptions</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Form/doc/UserType.php.html#11">UserType::buildForm</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/Ville.php.html#90">Ville::getLibelle</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Form/AdminType.php.html#11">AdminType::buildForm</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Form/AdminType.php.html#21">AdminType::setDefaultOptions</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Form/AdresseType.php.html#21">AdresseType::setDefaultOptions</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Form/AdresseType.php.html#11">AdresseType::buildForm</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Form/AdminType.php.html#28">AdminType::getName</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#113">User::setFirstname</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#105">User::getFirstname</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/UserController.php.html#96">UserController::editAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/UserController.php.html#75">UserController::showAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/UserController.php.html#60">UserController::newAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/UserController.php.html#36">UserController::createAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/UserController.php.html#120">UserController::updateAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/UserController.php.html#152">UserController::deleteAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/VilleController.php.html#61">VilleController::newAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/VilleController.php.html#37">VilleController::createAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/VilleController.php.html#22">VilleController::indexAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/UserController.php.html#179">UserController::createDeleteForm</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/UserController.php.html#21">UserController::indexAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/AdresseController.php.html#198">AdresseController::createDeleteForm</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/AdresseController.php.html#37">AdresseController::createAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/AdresseController.php.html#22">AdresseController::indexAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/AdminController.php.html#97">AdminController::deleteAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/AdminController.php.html#50">AdminController::modifierMailAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/AdresseController.php.html#61">AdresseController::newAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/AdresseController.php.html#76">AdresseController::showAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/AdresseController.php.html#171">AdresseController::deleteAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/AdresseController.php.html#135">AdresseController::updateAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/AdresseController.php.html#111">AdresseController::editAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/VilleController.php.html#76">VilleController::showAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/VilleController.php.html#97">VilleController::editAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/Adresse.php.html#119">Adresse::getCodePostal</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/Adresse.php.html#109">Adresse::setCodePostal</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/Adresse.php.html#99">Adresse::getLibelleAdd</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/Adresse.php.html#89">Adresse::setLibelleAdd</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/Adresse.php.html#125">Adresse::setVille</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/Adresse.php.html#130">Adresse::getVille</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#96">User::unserialize</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#91">User::serialize</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#85">User::__construct</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/AdresseRepository.php.html#16">AdresseRepository::getVerifierAdresse</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/Adresse.php.html#79">Adresse::getNumeroVoie</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/Adresse.php.html#69">Adresse::setNumeroVoie</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/DependencyInjection/Configuration.php.html#18">Configuration::getConfigTreeBuilder</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/VilleController.php.html#180">VilleController::createDeleteForm</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/VilleController.php.html#153">VilleController::deleteAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/VilleController.php.html#121">VilleController::updateAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/DependencyInjection/djepoUserExtension.php.html#20">djepoUserExtension::load</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/Admin.php.html#36">Admin::getId</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/Adresse.php.html#59">Adresse::getId</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/Admin.php.html#49">Admin::getNewMail</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/Admin.php.html#44">Admin::setNewMail</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/AdminController.php.html#21">AdminController::indexAction</a></td><td><div align="right">0%</div></td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th><div align="left">Method</div></th>
+         <th><div align="right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></div></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="UserBundle/Security/User/Provider/FacebookProvider.php.html#42">FacebookProvider::loadUserByUsername</a></td><td><div align="right">56</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#168">User::setFBData</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/AdresseController.php.html#76">AdresseController::showAction</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/VilleController.php.html#153">VilleController::deleteAction</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/VilleController.php.html#121">VilleController::updateAction</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="UserBundle/Form/adminHandler.php.html#27">adminHandler::process</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="UserBundle/Security/User/Provider/FacebookProvider.php.html#84">FacebookProvider::refreshUser</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/UserController.php.html#152">UserController::deleteAction</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/UserController.php.html#120">UserController::updateAction</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/AdresseController.php.html#171">AdresseController::deleteAction</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/AdresseController.php.html#135">AdresseController::updateAction</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/AdminController.php.html#50">AdminController::modifierMailAction</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="UserBundle/Entity/User.php.html#147">User::setFacebookID</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/AdresseController.php.html#37">AdresseController::createAction</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/AdminController.php.html#97">AdminController::deleteAction</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/AdresseController.php.html#111">AdresseController::editAction</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/VilleController.php.html#97">VilleController::editAction</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/AdminController.php.html#21">AdminController::indexAction</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/UserController.php.html#96">UserController::editAction</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/UserController.php.html#36">UserController::createAction</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/VilleController.php.html#37">VilleController::createAction</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/VilleController.php.html#76">VilleController::showAction</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="UserBundle/Controller/UserController.php.html#75">UserController::showAction</a></td><td><div align="right">6</div></td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 2.0.0</a> using <a href="http://php.net/" target="_top">PHP 5.4.3</a> and <a href="http://phpunit.de/">PHPUnit 4.0.2</a> at Mon Mar 10 14:42:29 UTC 2014.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../js/jquery.js" type="text/javascript"></script>
+  <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../js/holder.js" type="text/javascript"></script>
+  <script src="../js/d3.min.js" type="text/javascript"></script>
+  <script src="../js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([17,0,1,0,0,0,0,0,0,0,0,1], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([91,0,0,0,0,0,0,0,0,0,0,2], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.scatter.onlyCircles(false);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,7,"<a href=\"UserBundle\/Controller\/AdminController.php.html#15\">AdminController<\/a>"],[0,17,"<a href=\"UserBundle\/Controller\/AdresseController.php.html#16\">AdresseController<\/a>"],[0,15,"<a href=\"UserBundle\/Controller\/UserController.php.html#15\">UserController<\/a>"],[0,15,"<a href=\"UserBundle\/Controller\/VilleController.php.html#16\">VilleController<\/a>"],[0,1,"<a href=\"UserBundle\/DependencyInjection\/Configuration.php.html#13\">Configuration<\/a>"],[0,1,"<a href=\"UserBundle\/DependencyInjection\/djepoUserExtension.php.html#15\">djepoUserExtension<\/a>"],[0,3,"<a href=\"UserBundle\/Entity\/Admin.php.html#14\">Admin<\/a>"],[0,9,"<a href=\"UserBundle\/Entity\/Adresse.php.html#15\">Adresse<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/AdresseRepository.php.html#13\">AdresseRepository<\/a>"],[0,29,"<a href=\"UserBundle\/Entity\/User.php.html#13\">User<\/a>"],[0,5,"<a href=\"UserBundle\/Entity\/Ville.php.html#14\">Ville<\/a>"],[0,3,"<a href=\"UserBundle\/Form\/doc\/UserType.php.html#9\">UserType<\/a>"],[0,3,"<a href=\"UserBundle\/Form\/AdminType.php.html#9\">AdminType<\/a>"],[0,3,"<a href=\"UserBundle\/Form\/AdresseType.php.html#9\">AdresseType<\/a>"],[0,1,"<a href=\"UserBundle\/Form\/Type\/ProfileUserType.php.html#10\">ProfileUserType<\/a>"],[0,3,"<a href=\"UserBundle\/Form\/VilleType.php.html#9\">VilleType<\/a>"],[0,5,"<a href=\"UserBundle\/Form\/adminHandler.php.html#10\">adminHandler<\/a>"],[18.181818181818,13,"<a href=\"UserBundle\/Security\/User\/Provider\/FacebookProvider.php.html#13\">FacebookProvider<\/a>"],[100,1,"<a href=\"UserBundle\/djepoUserBundle.php.html#7\">djepoUserBundle<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.scatter.onlyCircles(false);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,2,"<a href=\"UserBundle\/Controller\/AdminController.php.html#21\">AdminController::indexAction<\/a>"],[0,3,"<a href=\"UserBundle\/Controller\/AdminController.php.html#50\">AdminController::modifierMailAction<\/a>"],[0,2,"<a href=\"UserBundle\/Controller\/AdminController.php.html#97\">AdminController::deleteAction<\/a>"],[0,1,"<a href=\"UserBundle\/Controller\/AdresseController.php.html#22\">AdresseController::indexAction<\/a>"],[0,2,"<a href=\"UserBundle\/Controller\/AdresseController.php.html#37\">AdresseController::createAction<\/a>"],[0,1,"<a href=\"UserBundle\/Controller\/AdresseController.php.html#61\">AdresseController::newAction<\/a>"],[0,4,"<a href=\"UserBundle\/Controller\/AdresseController.php.html#76\">AdresseController::showAction<\/a>"],[0,2,"<a href=\"UserBundle\/Controller\/AdresseController.php.html#111\">AdresseController::editAction<\/a>"],[0,3,"<a href=\"UserBundle\/Controller\/AdresseController.php.html#135\">AdresseController::updateAction<\/a>"],[0,3,"<a href=\"UserBundle\/Controller\/AdresseController.php.html#171\">AdresseController::deleteAction<\/a>"],[0,1,"<a href=\"UserBundle\/Controller\/AdresseController.php.html#198\">AdresseController::createDeleteForm<\/a>"],[0,1,"<a href=\"UserBundle\/Controller\/UserController.php.html#21\">UserController::indexAction<\/a>"],[0,2,"<a href=\"UserBundle\/Controller\/UserController.php.html#36\">UserController::createAction<\/a>"],[0,1,"<a href=\"UserBundle\/Controller\/UserController.php.html#60\">UserController::newAction<\/a>"],[0,2,"<a href=\"UserBundle\/Controller\/UserController.php.html#75\">UserController::showAction<\/a>"],[0,2,"<a href=\"UserBundle\/Controller\/UserController.php.html#96\">UserController::editAction<\/a>"],[0,3,"<a href=\"UserBundle\/Controller\/UserController.php.html#120\">UserController::updateAction<\/a>"],[0,3,"<a href=\"UserBundle\/Controller\/UserController.php.html#152\">UserController::deleteAction<\/a>"],[0,1,"<a href=\"UserBundle\/Controller\/UserController.php.html#179\">UserController::createDeleteForm<\/a>"],[0,1,"<a href=\"UserBundle\/Controller\/VilleController.php.html#22\">VilleController::indexAction<\/a>"],[0,2,"<a href=\"UserBundle\/Controller\/VilleController.php.html#37\">VilleController::createAction<\/a>"],[0,1,"<a href=\"UserBundle\/Controller\/VilleController.php.html#61\">VilleController::newAction<\/a>"],[0,2,"<a href=\"UserBundle\/Controller\/VilleController.php.html#76\">VilleController::showAction<\/a>"],[0,2,"<a href=\"UserBundle\/Controller\/VilleController.php.html#97\">VilleController::editAction<\/a>"],[0,3,"<a href=\"UserBundle\/Controller\/VilleController.php.html#121\">VilleController::updateAction<\/a>"],[0,3,"<a href=\"UserBundle\/Controller\/VilleController.php.html#153\">VilleController::deleteAction<\/a>"],[0,1,"<a href=\"UserBundle\/Controller\/VilleController.php.html#180\">VilleController::createDeleteForm<\/a>"],[0,1,"<a href=\"UserBundle\/DependencyInjection\/Configuration.php.html#18\">Configuration::getConfigTreeBuilder<\/a>"],[0,1,"<a href=\"UserBundle\/DependencyInjection\/djepoUserExtension.php.html#20\">djepoUserExtension::load<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/Admin.php.html#36\">Admin::getId<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/Admin.php.html#44\">Admin::setNewMail<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/Admin.php.html#49\">Admin::getNewMail<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/Adresse.php.html#59\">Adresse::getId<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/Adresse.php.html#69\">Adresse::setNumeroVoie<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/Adresse.php.html#79\">Adresse::getNumeroVoie<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/Adresse.php.html#89\">Adresse::setLibelleAdd<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/Adresse.php.html#99\">Adresse::getLibelleAdd<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/Adresse.php.html#109\">Adresse::setCodePostal<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/Adresse.php.html#119\">Adresse::getCodePostal<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/Adresse.php.html#125\">Adresse::setVille<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/Adresse.php.html#130\">Adresse::getVille<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/AdresseRepository.php.html#16\">AdresseRepository::getVerifierAdresse<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/User.php.html#85\">User::__construct<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/User.php.html#91\">User::serialize<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/User.php.html#96\">User::unserialize<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/User.php.html#105\">User::getFirstname<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/User.php.html#113\">User::setFirstname<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/User.php.html#121\">User::getLastname<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/User.php.html#129\">User::setLastname<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/User.php.html#138\">User::getFullName<\/a>"],[0,2,"<a href=\"UserBundle\/Entity\/User.php.html#147\">User::setFacebookID<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/User.php.html#160\">User::getFacebookID<\/a>"],[0,5,"<a href=\"UserBundle\/Entity\/User.php.html#168\">User::setFBData<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/User.php.html#191\">User::getId<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/User.php.html#205\">User::setDateN<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/User.php.html#217\">User::getDateN<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/User.php.html#228\">User::setTypeEntite<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/User.php.html#240\">User::getTypeEntite<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/User.php.html#251\">User::setTelFixe<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/User.php.html#263\">User::getTelFixe<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/User.php.html#274\">User::setTelPortable<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/User.php.html#286\">User::getTelPortable<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/User.php.html#297\">User::setFax<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/User.php.html#309\">User::getFax<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/User.php.html#315\">User::setAdresse<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/User.php.html#324\">User::getAdresse<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/Ville.php.html#49\">Ville::getId<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/Ville.php.html#59\">Ville::setNomVille<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/Ville.php.html#69\">Ville::getNomVille<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/Ville.php.html#80\">Ville::setLibelle<\/a>"],[0,1,"<a href=\"UserBundle\/Entity\/Ville.php.html#90\">Ville::getLibelle<\/a>"],[0,1,"<a href=\"UserBundle\/Form\/doc\/UserType.php.html#11\">UserType::buildForm<\/a>"],[0,1,"<a href=\"UserBundle\/Form\/doc\/UserType.php.html#42\">UserType::setDefaultOptions<\/a>"],[0,1,"<a href=\"UserBundle\/Form\/doc\/UserType.php.html#49\">UserType::getName<\/a>"],[0,1,"<a href=\"UserBundle\/Form\/AdminType.php.html#11\">AdminType::buildForm<\/a>"],[0,1,"<a href=\"UserBundle\/Form\/AdminType.php.html#21\">AdminType::setDefaultOptions<\/a>"],[0,1,"<a href=\"UserBundle\/Form\/AdminType.php.html#28\">AdminType::getName<\/a>"],[0,1,"<a href=\"UserBundle\/Form\/AdresseType.php.html#11\">AdresseType::buildForm<\/a>"],[0,1,"<a href=\"UserBundle\/Form\/AdresseType.php.html#21\">AdresseType::setDefaultOptions<\/a>"],[0,1,"<a href=\"UserBundle\/Form\/AdresseType.php.html#28\">AdresseType::getName<\/a>"],[0,1,"<a href=\"UserBundle\/Form\/Type\/ProfileUserType.php.html#12\">ProfileUserType::buildUserForm<\/a>"],[0,1,"<a href=\"UserBundle\/Form\/VilleType.php.html#11\">VilleType::buildForm<\/a>"],[0,1,"<a href=\"UserBundle\/Form\/VilleType.php.html#20\">VilleType::setDefaultOptions<\/a>"],[0,1,"<a href=\"UserBundle\/Form\/VilleType.php.html#27\">VilleType::getName<\/a>"],[0,1,"<a href=\"UserBundle\/Form\/adminHandler.php.html#19\">adminHandler::__construct<\/a>"],[0,3,"<a href=\"UserBundle\/Form\/adminHandler.php.html#27\">adminHandler::process<\/a>"],[0,1,"<a href=\"UserBundle\/Form\/adminHandler.php.html#46\">adminHandler::onSuccess<\/a>"],[100,1,"<a href=\"UserBundle\/Security\/User\/Provider\/FacebookProvider.php.html#22\">FacebookProvider::__construct<\/a>"],[0,1,"<a href=\"UserBundle\/Security\/User\/Provider\/FacebookProvider.php.html#32\">FacebookProvider::supportsClass<\/a>"],[0,1,"<a href=\"UserBundle\/Security\/User\/Provider\/FacebookProvider.php.html#37\">FacebookProvider::findUserByFbId<\/a>"],[0,7,"<a href=\"UserBundle\/Security\/User\/Provider\/FacebookProvider.php.html#42\">FacebookProvider::loadUserByUsername<\/a>"],[0,3,"<a href=\"UserBundle\/Security\/User\/Provider\/FacebookProvider.php.html#84\">FacebookProvider::refreshUser<\/a>"],[100,1,"<a href=\"UserBundle\/djepoUserBundle.php.html#9\">djepoUserBundle::getParent<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

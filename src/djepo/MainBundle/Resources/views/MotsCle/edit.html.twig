@@ -1,0 +1,50 @@
+{% extends "djepoUserBundle::adminlayout.html.twig" %}
+{% if form is defined %}
+ {% form_theme form "djepoMainBundle:Form:fields.html.twig" %} 
+ {% endif %}
+ 
+{% block meta %} 
+ <meta name="description" content="MotsCle">
+ <meta name='ROBOTS' content="noindex,nofollow">
+ {% endblock %} 
+{% block title %} {{ parent() ~ ' -  MotsCle'  }}  {% endblock %}
+ 
+{% block navigsite %} 
+ 
+<ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <li><a  href="{{ path('djepoUser_profile') }}"> Admin </a></li>
+           <li><a href="{{path('motscle') }}"> Mes MotsCle </a> </li> 
+            <li class="active">MotsCle </li>
+        </ol>
+ 
+{% endblock %}
+
+{% block principal %}	
+  {{ parent() }} 
+<br>
+
+<h1>{{ app.user.username }} : MotsCle edit</h1>
+
+<form action="{{ path('motscle_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+     <div class="row form-group">
+	 <div class="col-sm-offset-2 col-sm-7"> <button type="submit">Edit</button> </div> 
+    </div>   
+      
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('motscle') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('motscle_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

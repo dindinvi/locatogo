@@ -1,0 +1,105 @@
+{% extends "djepoUserBundle::adminlayout.html.twig" %}
+
+{% block meta %} 
+	<meta name="description" content="Location: formulaire de connexion">
+	<meta name='ROBOTS' content="noindex, nofollow">
+{% endblock %}
+        
+{% block title %} {{ parent()  ~' - Connexion '  }} {% endblock %}
+
+   {% block stylesheets %} {{ parent() }} {% endblock %}      
+          
+ {% block navigsite %}
+          <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <li class="active">{{ 'Connexion.' }} </li>
+        </ol>
+ {% endblock %}
+
+{% block fos_user_content %}
+
+    {% if is_granted('ROLE_USER') %}
+        <div class="alert alert-info"> Vous êtes déjà connecté. </div>
+   {% else %}  <br>
+        {% if websiteUseFacebookLogin %}
+               {{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();', 'culture': facebookLocale}) }}
+                <script>
+                    function goLogIn(){
+                        window.location = "{{ path('_security_check') }}";
+                    }
+
+                    function onFbInit() {
+                        if (typeof(FB) != 'undefined' && FB != null ) {
+                            FB.Event.subscribe('auth.statusChange', function(response) {
+                                if (response.session || response.authResponse) {
+                                    setTimeout(goLogIn, 500);
+                                } else {
+                                    window.location = "{{ path('_security_logout') }}";
+                                }
+                            });
+                        }
+                    }
+                </script>
+        {% endif %}
+
+<div class="row">
+     <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading"><b>Formulaire de connexion</b></div>
+            <div class="panel-body">
+
+                Vous possédez déjà un compte ? Entrez vos codes dans les espaces suivant :<br /> <br /> 				
+                      {% if error %}  <div class="label label-warning">{{ error|trans([], 'djepoUserBundle') }} </div><br>  {% endif %}
+
+                    <div class="row"> 
+                        <div class="col-sm-offset-2 well col-sm-8">   
+                           <form  action="{{ path("fos_user_security_check") }}" method="post">
+                                <div class="form-group"> 
+                                    <label  class="control-label" for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}  <span class="ast">*</span> </label>
+                                    <input type="text" class="form-control" id="username" name="_username" size="20" value="{{ last_username }}" /><br />
+                                      
+                                      <label class="control-label" for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }} <span class="ast">*</span> </label>
+                                        <input type="password"  class="form-control" id="password" name="_password" /><br />
+                                        
+                                        <label class="control-label" for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+                                         <input type="checkbox" id="remember_me" name="_remember_me" value="on" /> <br /><br />
+
+                                       <input type="submit" class="btn btn-primary btn-block" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+                                       
+                                       <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                                </div>
+                         </form> 
+                       </div>
+                       <div class="col-sm-offset-2"> </div>
+                                          
+                    
+                     <div class="col-sm-offset-2 col-sm-8">
+                        <a href="{{ path('fos_user_inscription_register') }}" rel="nofollow" >Je ne suis pas inscrit !</a>  <br><br /> 
+                        <a href="{{ path('fos_user_resetting_request') }}"  rel="nofollow" >J'ai oublié mon mot de passe !</a><br /> <br /> 
+                     </div>
+                     <div class="col-sm-offset-2"> </div>
+                 </div> 
+         
+                    
+            </div>
+         </div>
+     </div>
+         <div class="col-sm-6"> 
+                <div class="panel panel-default">
+                    <div class="panel-heading"><b>Compte facebook</b></div>
+                    <div class="panel-body">
+                        Vous possédez déjà un compte Facebook? Utilisez le<br>
+                       {% if websiteUseFacebookLogin %}   {{ facebook_login_button({'autologoutlink': false}) }}  {% endif %}
+                    </div>
+             </div>
+
+         </div>
+   </div>
+
+       {% endif %}			
+
+{% endblock fos_user_content %}
+
+{% block javascripts %} {{ parent() }} 
+  <script type="text/javascript" src="{{ asset('bundles/djepouser/js/loginJS.js') }}"></script>
+{% endblock %}

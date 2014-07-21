@@ -1,0 +1,91 @@
+
+<div  class="periods"> <!-- conteneur general du calendrier -->
+    <div class="well"> 
+        Réservations jusqu'en Décembre <b>{{ year }}</b> . Au delà merci de contacter le proprietaire
+    </div><!-- pour l année  du calendrier -->
+    <div class="months">  
+       
+        <table class="table table-bordered ">
+             <tr>
+                    {% for id, m  in months %}
+                            {% set monthID = id +1 %} 
+                            <td class="small">  <a href="#" id="linkMonth{{ monthID }}">{{  m }}</a></td>
+                    {% endfor %}
+             </tr> 
+        </table> 
+       
+    </div>
+         {% for m, my_days  in dates %} {# affichage / traitement des dates  en boucle #}
+              <div class="month" id="month{{ m }}">
+                 <table class="table table-bordered">
+                    <thead>
+                         <tr>{# affichage des jour de la semaine #}
+                             {% for d  in days %} 
+                                <th> {{truncable(d,3) }}</th>
+                            {% endfor %}    
+                       </tr> 
+                  </thead>  
+
+                     <tbody>
+                         <tr> {# d=jour, w=jour de la semaine #}
+                            
+                             {% for d, w  in my_days %} 
+                               {%  set time = myStrToTime(year, m, d) %}  
+                               {% if (d == 1 ) %}
+                                   
+                                        {%  set my_w = w - 1 %}
+                                        {% if(  my_w != 0 ) %}
+                                             <td colspan="{{ my_w }}"></td>
+                                        {% endif %} 
+                               {% endif %}
+                               {% if time < now_date %}
+                                    {% set myClass = "active" %}
+                                {% else %}
+                                        {% set myClass = "libre" %} 
+                                {% endif %}  
+                                {% for ev  in eventsP %} 
+                                     {% if time >= ev.getStartDatetime and time <= ev.getEndDatetime %}
+                                           {% set myClass = "success" %}
+                                      {% endif %}
+                                 {% endfor %}  
+                                        {% if time == now_date %}
+                                            <td> <b>{{ d }}</b> </td> 
+                                        {% else %}
+                                                <td class="{{ myClass }}"> {{ d }} </td> 
+                                         {% endif %}
+                                    
+                                 {% if (w == 7) %}{# si le jour de la semaine == 7 #}
+                                     </tr><tr>
+                                 {% endif %} 
+                            {% endfor %}
+                            {%  set last = calLastValTable(my_days) %}
+                           {% if ( last != 7 ) %} 
+                                     {%  set my = 7 - last  %}
+                                     <td colspan="{{ my }}"></td>
+                           
+                           {% endif %} 
+                       </tr> 
+                  </tbody>  
+
+
+                 </table>
+                 
+             </div>
+          
+         {% endfor %}
+          
+</div>
+<div class="row">
+        <div class="col-sm-5">
+            <table class="table table-bordered ">
+                <tr>  <td width="40%" class="active"> </td> <td width="60%">hors réservations </td> </tr>
+                <tr> <td width="40%" class="success"> </td>  <td width="60%">réservations validées</td> </tr>
+                <tr> <td width="40%" class="libre" > </td> <td width="60%">libre </td> </tr>
+           </table>
+    </div>
+</div>   
+
+             
+      
+{#  {% endblock %}#}
+ 

@@ -1,0 +1,34 @@
+# src/djepo/Main/Resources/config/routing.yml
+  
+djepoMain_accueil:
+    pattern:   /
+    defaults:  { _controller: djepoMainBundle:Index:index }
+    requirements:
+        _method:  GET
+
+djepoMain_contact:
+    pattern:  /contact-location-togo
+    defaults: { _controller: djepoMainBundle:Contact:index }
+    requirements:
+        _method:  GET|POST
+    
+djepoMain_contactlogement:
+    pattern:  /contact-location-togo/proprietaire
+    defaults: { _controller: djepoMainBundle:Contact:contactLogement }
+    requirements:
+        _method:  GET|POST
+        
+djepoMain_about:
+    pattern:  /qui-nous-sommes-togo
+    defaults: { _controller: djepoMainBundle:About:index , format: html }
+    requirements:
+        format: html
+        _method:  GET
+        
+djepoMainBundle_motscle:
+    resource: "routing/motscle.yml"
+    prefix:   /espace-client/motscle
+    
+djepoMainBundle_formcontact:
+        resource: "routing/formcontact.yml"
+        prefix:   /espace-client/formcontact 

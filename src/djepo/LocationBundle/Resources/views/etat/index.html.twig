@@ -1,0 +1,60 @@
+{% extends "djepoUserBundle::adminlayout.html.twig" %}
+
+{% block meta %} 
+	 <meta name="description" content="etat">
+	 <meta name='ROBOTS' content="noindex,nofollow">
+ {% endblock %}
+
+{% block title %}  {{ parent()~' - ' ~ 'Tous les Coordonnées des profils'  }}   {% endblock %}
+ 
+{% block navigsite %}
+          <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <li><a  href="{{ path('djepoUser_profile') }}"> Admin </a></li>
+            <li class="active">Tous les etats </li>
+        </ol>
+ {% endblock %}
+       
+{% block fos_user_content %}
+ 
+    <h1>etat list</h1>
+
+    <div class="table-responsive">
+     <table class="table table-bordered table-striped table-condensed">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>Etat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('etat_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.libelle }}</td>
+                <td>{{ entity.etat }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('etat_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('etat_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+        <ul>
+        <li>
+            <a href="{{ path('etat_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

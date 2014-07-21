@@ -1,0 +1,140 @@
+
+<div class="row">
+<div class="col-sm-12">
+    <br>  <em> <span class="ast"> * </span>tous les Champs sont obligatoires</em> <br><br>				
+    <form id="myForm" class="form-horizontal" action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST">
+	 <!-- Les erreurs g�n�rales du formulaire. -->
+	<div class="panel panel-default">
+                <div class="panel-heading"> <h3>Identifiant</h3>  </div>
+                <div class="panel-body"> 
+		   <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.username, 'Pseudo ') }}<span class="ast">*</span></div>
+                            <div class="col-sm-6"> {{ form_widget(form.username, { 'attr': {'class': 'form-control' } }) }} </div>
+                            <div class="col-sm-4">   <span class="text-warning"> {{ form_errors(form.username) }} </span></div>
+                            
+                        </div>
+			    <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.plainPassword.first, 'Mot de passe ', { 'label_attr': {'required': 'true' } }) }}<span class="ast">*</span></div>
+                            <div class="col-sm-6"> {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-4">   <span class="text-warning"> {{ form_errors(form.plainPassword.first) }} </span></div>
+                        </div>                    
+                          <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.plainPassword.second, 'Vérification',{ 'attr': {'required': 'required' } }) }}<span class="ast">*</span></div>
+                            <div class="col-sm-6"><span class="tooltip"> incorrect</span> {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-4">   <span class="text-warning"> {{ form_errors(form.plainPassword.second) }} </span></div>
+                        </div>   
+                       
+                    </div>
+            </div><br>
+            
+         <div class="panel panel-default">
+                <div class="panel-heading"> <h3>Votre profil</h3>  </div>
+                <div class="panel-body"> 
+                      <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.personne.typeEntite) }}</div>
+                            <div class="col-sm-6"> {{ form_widget(form.personne.typeEntite, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-4">  
+                            <span class="text-warning"> {{ form_errors(form.personne.typeEntite) }} </span></div>
+                        </div> 
+                            <div class="row form-group">
+                                <div class="col-sm-2">{{ form_label(form.personne.lastname, 'Nom') }}<span class="ast">*</span></div>
+                            <div class="col-sm-6"> {{ form_widget(form.personne.lastname, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-4">  
+                            <span class="text-warning"> {{ form_errors(form.personne.lastname) }} </span></div>
+                        </div>
+                        
+		    <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.personne.firstname, 'Prénom') }}<span class="ast">*</span></div>
+                            <div class="col-sm-6"> {{ form_widget(form.personne.firstname, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-4">  
+                                <span class="text-warning"> {{ form_errors(form.personne.firstname) }} </span></div>
+                        </div>
+                                
+                        <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.email.first, 'Votre mail', { 'attr': {'required': 'required' } }) }}<span class="ast">*</span></div>
+                            <div class="col-sm-6"> {{ form_widget(form.email.first, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-4">  <span class="text-warning"> {{ form_errors(form.email.first) }} </span></div>
+                        </div>       
+                        			    
+			 <div class="row form-group">
+                            <div class="col-sm-2 ">{{ form_label(form.email.second, 'Vérification mail', { 'attr': {'required': 'required' } }) }}<span class="ast">*</span></div>
+                            <div class="col-sm-6"> {{ form_widget(form.email.second, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.email.second) }} </span></div>
+                        </div>  
+                    </div>
+            </div><br>
+                 
+                           
+		<div class="panel panel-default">
+                <div class="panel-heading"> <h3 >Adresse</h3>  </div>
+                <div class="panel-body"> 
+                       <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.personne.adresse.numeroVoie) }}</div>
+                            <div class="col-sm-2"> {{ form_widget(form.personne.adresse.numeroVoie, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-8"> <span class="text-warning"> {{ form_errors(form.personne.adresse.numeroVoie) }} </span></div>
+                        </div>
+                                
+                            <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.personne.adresse.libelleAdd) }}</div>
+                            <div class="col-sm-6"> {{ form_widget(form.personne.adresse.libelleAdd, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(form.personne.adresse.libelleAdd) }} </span></div>
+                        </div>
+                                
+                           <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.personne.adresse.codePostal) }}</div>
+                            <div class="col-sm-2"> {{ form_widget(form.personne.adresse.codePostal, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-8"> <span class="text-warning"> {{ form_errors(form.personne.adresse.codePostal) }} </span></div>
+                        </div>       
+                                 
+			<div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.personne.adresse.ville.nomVille) }}</div>
+                            <div class="col-sm-6"> {{ form_widget(form.personne.adresse.ville.nomVille, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-4">   <span class="text-warning"> {{ form_errors(form.personne.adresse.ville.nomVille) }} </span></div>
+                        </div>
+                                
+                           <div class="row form-group">
+                            <div class="col-sm-2 ">{{ form_label(form.personne.adresse.ville.libelle) }}</div>
+                            <div class="col-sm-6">  {{ form_widget(form.personne.adresse.ville.libelle, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.personne.adresse.ville.libelle) }} </span></div>
+                           
+                        </div> 	
+                          
+                  </div>
+                </div> 
+                                 
+		  <br/>
+                 <div class="panel panel-default">
+                <div class="panel-heading"> <h3>Informations complémentaires</h3>  </div>
+                <div class="panel-body"> 
+                       <div class="row form-group">
+                            <div class="col-sm-2 ">{{ form_label(form.personne.telFixe) }}</div>
+                            <div class="col-sm-4">{{ form_widget(form.personne.telFixe, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-6">  <span class="text-warning"> {{ form_errors(form.personne.telFixe) }} </span></div>
+                        </div>       
+                                 
+			<div class="row form-group">
+                            <div class="col-sm-2 ">{{ form_label(form.personne.telPortable) }}</div>
+                            <div class="col-sm-4"> {{ form_widget(form.personne.telPortable, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-6"> <span class="text-warning">{{ form_errors(form.personne.telPortable) }} </span></div>
+                        </div>
+                                
+                           <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(form.personne.fax) }}</div>
+                            <div class="col-sm-4"> 
+                                                  {{ form_widget(form.personne.fax, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-6"> <span class="text-warning"> {{ form_errors(form.personne.fax) }} </span></div>
+                        </div> 
+                        
+                   </div>
+                </div>  <br/><br>
+		 {% include "djepoMainBundle::formCaptcha.html.twig" %}
+              {{ form_rest(form) }} <br>
+            <div class="row form-group">
+                  <div class="col-sm-offset-2 col-sm-7">
+                      <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />  
+                </div>	   
+           </div>
+	</form>
+    </div>
+</div>
+ 

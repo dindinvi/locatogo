@@ -1,0 +1,24 @@
+{% extends "djepoUserBundle::layout.html.twig" %}
+
+    {% block meta %} 
+             <meta name="description" content=" demande de modification de mot de passe">
+             <meta name='ROBOTS' content="noindex,nofollow">
+     {% endblock %}
+     {% block title %} {{ parent()   ~' - Attente confirmation de modification de mot de passe ' }}  {% endblock %}
+
+    {% block navigsite %}
+             <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}" > {{ djepo_home }} </a> </li>
+            <li><a  href="{{ path('djepoUser_profile') }}"> Admin </a></li>
+            <li class="active">Attente confirmation de modification de mot de passe </li>
+        </ol>
+            
+    {% endblock %} 
+
+    {% block fos_user_content %}
+    
+     <div class="alert col-sm-12 alert-info">
+    {{ 'resetting.check_email'|trans({'%email%': email}, 'FOSUserBundle') }} 
+    </div>
+{% endblock %}
+

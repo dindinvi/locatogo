@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% block meta %} 
+                  <meta name="description" content="{{ motscle.description }}">
+                  <meta name="keywords" content="{{ motscle.keyword }}">
+                  <meta name='ROBOTS' content='{{ motscle.robot }}'>
+         {% endblock %}
+            <title>{% block title %}  {% if motscle.titre == '' %} {{ websiteName }}
+                      {% else %} {{ websiteName ~' - '~ motscle.titre }}  {% endif %} 
+                   {% endblock %}
+            </title>
+                  
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('bundles/djepobootstrap/css/bootstrap.css') }}" type="text/css" />	 
+            <link   href="{{asset('bundles/djepomain/css/style.css')}}" type="text/css" rel="stylesheet" >
+            <link rel="stylesheet" href="{{ asset('bundles/djepomain/css/login.css') }}" type="text/css" /> 
+            
+            <style> body { padding-top: 40px; }   </style>
+          {% endblock %}
+        {% block header_javascripts %} 
+             <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+                <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+                <!--[if lt IE 9]>
+                  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+                  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+                <![endif]-->
+        {% endblock %}
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" /> 
+        <link rel="apple-touch-icon" href="{{ asset('bundles/djepobootstrap/images/apple-touch-icon.png') }}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('bundles/djepobootstrap/images/apple-touch-icon-72x72.png') }}" >
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('bundles/djepobootstrap/images/apple-touch-icon-114x114.png') }}" >
+     </head>
+	
+     <body>
+        <div class="container">
+            
+           {% block header %}
+            <div class="row marginHB">
+                 <div class="hidden-xs col-sm-4"> logo PAYEMENT{# logo PAYEMENT #}  </div>
+                <div class="col-sm-offset-4 col-sm-4">  {# header_droite #} 
+                            :::::::::::::::::::::::::::::::::::::::::
+                            <nav class="navbar navbar-inverse  navbar-right">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span> 
+                                            <span class="icon-bar"></span> 
+                                        </button>
+                            
+                            
+                            :::::::::::::::::::::::::::::::::::::::::
+                          {% if is_granted("IS_AUTHENTICATED_FULLY") %} 
+                          <ul class="nav navbar-nav navbar-right">          
+                            <li class="dropdown">
+                                    <a href="{{ path('djepoUser_profile') }}"   rel="nofollow" class="dropdown-toggle" data-toggle="dropdown">{{ app.user.username }} <b class="caret"></b></a>
+                                   <ul class="dropdown-menu">
+                                     <li><a href="{{ path('fos_user_profile_show', { 'id' : app.user.id })  }}">mon profil</a></li>
+                                   <li class="divider"></li>                                   
+                                   <li><a href="">Modifier mes coordonnées</a></li>
+                                   <li><a href="{{ path('djepoUser_changeMail') }}">Modifier mon adresse e-mail</a></li>
+                                        <li><a href="{{ path('fos_user_resetting_request') }}">Modifier mon mot de passe</a></li>
+                                    <li class="divider"></li>
+                                      <li><a href="{{ path('djepoUser_delete')  }}">Supprimer mon compte</a></li>
+                                     <li class="divider"></li>
+                                      <li><a href="">Mes Projets</a></li> 
+                                     <li>{% if is_granted('ROLE_ADMIN') %}<a href="">Administration</a>  {% endif %}</li>
+                                   </ul>
+                                 </li>
+                             <li>  <a href="{{ path('fos_user_security_logout') }}"   rel="nofollow">Déconnexion</a> </li> 
+                         </ul>   
+                            {% else %}
+                                  <nav class="navbar navbar-inverse  navbar-right">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span> 
+                                            <span class="icon-bar"></span> 
+                                        </button>
+                                        <a href="" rel="nofollow"> Sidentifier</a> 
+                                    </div>
+                                    <div class="collapse navbar-collapse">
+                                        <ul class="nav navbar-nav">         
+                                                <li> <a href="{{ path('fos_user_inscription_register') }}"   rel="nofollow"> Inscription</a> </li>
+                                                <li> <a href="{{ path('fos_user_connexion') }}"  rel="nofollow">Connexion</a></li>
+                                         </ul>
+                                   </div>
+                                </nav>
+                            {% endif %}	
+                  
+                 </div>
+            </div>
+                 <div class="clearfix  visible-xs"></div>
+                 <div class="row marginHB">
+                    <div class="col-sm-4"> 
+                          <a href="{{ path('djepoMain_accueil') }}">
+                                <img src="{{ asset('bundles/djepobootstrap/images/logo.jpg') }}" alt="{{websiteName}}" class="img-responsive">  
+                           </a>
+                   </div>
+                    <div class="hidden-xs col-sm-8">  
+                         <a href="{{ path('djepoMain_accueil') }}">
+                                <img src="{{ asset('bundles/djepobootstrap/images/logo.jpg') }}" alt="{{websiteName}}" class="img-responsive pull-right">  
+                          </a>
+                    </div>
+                  </div>
+                 <div class="clearfix  visible-xs"></div>
+                 <div class="row">               
+                        <div class="col-sm-12">
+                                <nav class="navbar navbar-inverse">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                        <a class="navbar-brand" href="">Project name</a>
+                                    </div>
+                                    <div class="collapse navbar-collapse">
+                                        <ul class="nav navbar-nav">
+                                         <li><a href="{{ path('djepoMain_accueil') }}"><b>{{ djepo_home }}</b></a></li>
+                                               <li><a href="{{ path('djepoMain_about') }}"><b>Qui nous sommes</b></a></li>
+                                              <li><a href="{{ path('djepoMain_contact') }}"  rel="nofollow" ><b>Contact</b></a></li>
+                                         </ul>
+                                    </div>
+                                </nav>
+                          </div>
+                     </div>
+         
+             {% endblock %}    
+              
+            <div class="clearfix visible-xs"></div>
+            <div class="row"> 
+                 <div class="col-sm-9">
+                      {% block navigsite %} {% endblock %} 
+                      {% block principal %} {% endblock %} 
+                </div>
+                <div class="col-sm-3">
+                           {% block droite %}  {% include "djepoMainBundle::menuDroite.html.twig" %}    {% endblock %} 
+                </div>
+                
+            </div>
+                <div class="row">
+                    <footer> <p class="text-muted">
+                            {% block pied %} Copyright @ 2012. All rights reserveds.<br> 
+                                    Contact: <a href="">webmaster</a> 
+                        </p> </footer>
+                   {% endblock %}
+                </div>
+        </div>
+        {% block javascripts %}
+              <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+              <script type="text/javascript" src="{{ asset('bundles/djepobootstrap/js/bootstrap.min.js') }}"></script>
+    
+     {#  
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+     #}
+
+      
+{% endblock %}
+    </body>
+</html>

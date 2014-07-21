@@ -1,0 +1,22 @@
+parameters:
+    #form.type.gmap_address.class: djepo\UserBundle\Form\VilleGMapType
+#
+services:
+    djepoUser.registration.form.type:
+        class: djepo\UserBundle\Form\Type\UserType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: fos_user_registration  }
+            
+    sdk_user.profile.form.type:
+        class: djepo\UserBundle\Form\Type\ProfileUserType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: fos_user_profile}
+            
+    #form.type.gmap_address:
+        #class: djepo\UserBundle\Form\VilleGMapType
+        #tags:
+           # - { name: form.type, alias: gmap_address}
+            
+        

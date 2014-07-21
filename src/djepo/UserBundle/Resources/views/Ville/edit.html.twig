@@ -1,0 +1,60 @@
+{% extends "djepoUserBundle::adminlayout.html.twig" %}
+{% block meta %} 
+ <meta name="description" content="Modifier ville">
+ <meta name='ROBOTS' content="noindex,nofollow">
+	  {% endblock %} 
+{% block title %} {{ parent() ~ ' -  Modifier villes'  }}  {% endblock %}
+ 
+{% block navigsite %} 
+ 
+<ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <li><a  href="{{ path('djepoUser_profile') }}"> Admin </a></li>
+           <li><a href="{{ path('ville_show', { 'id':app.user.ville.id }) }}"> Mes coordonnées </a> </li> 
+            <li class="active">Modifier villes. </li>
+        </ol>
+ 
+{% endblock %}
+
+{% block principal %}	
+  {{ parent() }} 
+<br>
+
+<h1>{{ app.user.username }} : Modifier Ville edit</h1>
+
+<form action="{{ path('ville_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+    <div class="panel panel-default">
+                <div class="panel-heading"> <h3 >Adresse</h3>  </div>
+                <div class="panel-body"> 
+                    <div class="row form-group">
+                            <div class="col-sm-2">{{ form_label(edit_form.nomVille) }}</div>
+                            <div class="col-sm-7">{{ form_widget(edit_form.nomVille, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(edit_form.nomVille) }} </span></div>
+                        </div>
+                                
+                           <div class="row form-group">
+                            <div class="col-sm-2 ">{{ form_label(edit_form.libelle) }}</div>
+                            <div class="col-sm-7">{{ form_widget(edit_form.libelle, { 'attr': {'class': 'form-control' } }) }}</div>
+                            <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(edit_form.libelle) }} </span></div>
+                        </div> 	 
+                  </div>
+       </div>    
+    <p>
+        <button type="submit">Edit</button>
+    </p>
+</form>
+
+<ul>
+    <li>
+        <a href="{{ path('ville') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('ville_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

@@ -1,0 +1,11 @@
+
+<div class="row">{# corp body #}
+       <div class="col-sm-offset-1 col-sm-10">
+            <div class=" well">
+                    <h4>Formulaire de contact</h4>
+                    <form  class="form-horizontal"  action="{{ path('djepoMain_contactlogement') }}" method="post" {{ form_enctype(form) }} >
+                    {% include "djepoMainBundle:Contact:formulaire.html.twig" %}
+                    </form>
+            </div>
+      </div> 
+ </div> 

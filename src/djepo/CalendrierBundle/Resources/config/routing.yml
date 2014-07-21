@@ -1,0 +1,12 @@
+djepo_calendrier_homepage:
+    pattern:  /hello/{year}
+    defaults: { _controller: djepoCalendrierBundle:Default:index }
+    
+djepo_calendrier_calendrier:
+    pattern:  /logement/disponibilite
+    defaults: { _controller: djepoCalendrierBundle:Calendrier:calendrier }
+    requirements: 
+        format: html|xml
+        _method: POST
+        
+        
