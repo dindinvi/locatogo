@@ -47,9 +47,9 @@
                         <td>
                             {% if is_granted('ROLE_PROPRIO') %}
                             <ul>
-                                <li>  <a href="{{ path('logement_edit', { 'id': entity.id }) }}">Modifier</a>  </li>
+                                <li>  <a href="{{ path('logement_edit', { 'id': entity.id }) }}">Modifier</a>  </li> 
                                     {%if entity.isActivated is not null %}
-                                         <li> <a href="{{ path('logement_show', { 'id': entity.id }) }}">Afficher</a>  </li>
+                                         <li> <a href="{{ path('logement_show', { 'id': entity.id }) }}">Afficher l'annonce</a>  </li>
                                     {% else %}
                                           <li><a href="{{ path('logement_preview', {'id': entity.id}) }}" title="afficher l 'annonce en vue de la validé">Publier</a></li> 
                                      {% endif %}

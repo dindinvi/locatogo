@@ -42,10 +42,10 @@
                 <td>{{ entity.image.alt }}</td>
                 <td>
                     <ul nav nav-pills>
-                        <li> <a href="{{ path('djepoImg_show', { 'id': entity.image.id }) }}">Afficher l'annonce</a> </li><br />
-                        <li> <a href="{{ path('djepoImg_edit', { 'id': entity.image.id }) }}">Modifier l'annonce </a> </li>
+                        <li> <a href="{{ path('djepoImg_show', { 'id': entity.image.id }) }}">Afficher l'image</a> </li><br />
+                        <li> <a href="{{ path('djepoImg_edit', { 'id': entity.image.id }) }}">Modifier l'image </a> </li>
                        {% if is_granted('ROLE_ADMIN') %}
-                       <br /><li> <a href="#">Vérifer  l' annonce</a> </li>
+                       <br /><li> <a href="#">Vérifer  l' image</a> </li>
                         {% endif %}
                     </ul>
                 </td>

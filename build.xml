@@ -4,7 +4,7 @@ To change this template, choose Tools | Templates
 and open the template in the editor.
 -->
 
-<project name="locaTogo" default="ci">
+<project name="locatogo" default="ci">
   <property name="workspace" value="." />
   <property name="sourcedir" value="${workspace}/src" />
   <property name="builddir" value="${workspace}/app/build" />
