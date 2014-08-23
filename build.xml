@@ -4,9 +4,9 @@ To change this template, choose Tools | Templates
 and open the template in the editor.
 -->
 
-<project name="locatogo" default="ci">
-  <property name="sourcedir" value="src" />
-  <property name="builddir" value="app/build" />
+<project name="TestJenkins" default="ci" basedir="../../..">
+    <property name="source" value="src" />
+ 
 
   
     <target name="ci"
