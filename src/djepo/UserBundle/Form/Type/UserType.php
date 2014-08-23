@@ -9,21 +9,7 @@ use FOS\UserBundle\Form\Type\RegistrationFormType as BaseType;
 
 class UserType extends BaseType
 {
-    /*
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
-        parent::buildForm($builder, $options);
-
-        // Ajoutez vos champs ici, revoil� notre champ *location* :
-		$builder
-                   ->add('email', 'repeated', array(// add venant de RegistrationFormType
-				'type' => 'text',
-				'invalid_message' => 'Email different .',))
-                   ->add('personne', new PersonneType)
-                   ->add('captcha', 'captcha')
-            ;
-    }
-    */
+     
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder

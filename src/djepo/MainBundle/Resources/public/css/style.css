@@ -1,8 +1,19 @@
 .container, .libre {
 background-color: white;
 }
+
+.annonceL {
+background-color:#ddd  ;
+}
+
  .navig_prin,.marginHB { 
      margin-top: 10px;
+}
+ .marginPied { 
+     margin-top: 80px;
+}
+ .marginInter { 
+     margin-top: 40px;
 }
  .ast { 
      color: red;
@@ -16,7 +27,10 @@ background-color: white;
  .couleur{  
    color: orange;    
 }  
-
+.Hcarousel{
+    height:300px;
+    margin-bottom: 15px;
+}
 nav {
 background-color:#bcd;
 border-radius: 8px;

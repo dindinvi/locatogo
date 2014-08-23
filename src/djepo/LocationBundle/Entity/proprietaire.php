@@ -3,8 +3,7 @@
 namespace djepo\LocationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
-//use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert; 
 
 /**
  * proprietaire
@@ -24,23 +23,13 @@ class proprietaire
     private $id;
     
     /**
-* @ORM\OneToOne(targetEntity="djepo\UserBundle\Entity\Personne", cascade={"Persist"})
+* @ORM\OneToOne(targetEntity="djepo\UserBundle\Entity\Personne",  inversedBy="proprietaire", cascade={"Persist","Remove"})
 * @ORM\JoinColumn(nullable=false)
 * @Assert\Valid()
 */
 private $personne;
-
-/**
-     * @var string
-     * @ORM\Column(name="token", type="string", length=255, nullable=true)
-     */
-    private $token;
-    
-    /**
-     * @var string
-     * @ORM\Column(name="typeProprietaire", type="string", length=50, nullable=true)
-     */
-    private $typeProprietaire;
+ 
+   
 
 
     /**
@@ -52,29 +41,8 @@ private $personne;
     {
         return $this->id;
     }
-
-    /**
-     * Set typeProprietaire
-     *
-     * @param string $typeProprietaire
-     * @return proprietaire
-     */
-    public function setTypeProprietaire($typeProprietaire)
-    {
-        $this->typeProprietaire = $typeProprietaire;
-
-        return $this;
-    }
-
-    /**
-     * Get typeProprietaire
-     *
-     * @return string 
-     */
-    public function getTypeProprietaire()
-    {
-        return $this->typeProprietaire;
-    }
+ 
+ 
 
     /**
      * Set user
@@ -99,35 +67,6 @@ private $personne;
         return $this->personne;
     }
     
-    /**
-     * Set token
-     *
-     * @param string $token
-     * @return logement
-     */
-    public function setToken($token)
-    {
-        $this->token = $token;
-
-        return $this;
-    }
-
-    /**
-     * Get token
-     *
-     * @return string 
-     */
-    public function getToken()
-    {
-        return $this->token;
-    }
- 
-      public function setTokenValue()
-    {
-        if(!$this->getToken())
-        {
-           // $this->token = sha1($this->getEmail().rand(11111, 99999));
-        }
-    }
+    
     
 }

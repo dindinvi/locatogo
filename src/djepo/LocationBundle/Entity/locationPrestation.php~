@@ -1,0 +1,195 @@
+<?php
+
+namespace djepo\LocationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * locationPrestation
+ *
+ * @ORM\Table(name="loca_locationPrestation")
+ * @ORM\Entity(repositoryClass="djepo\LocationBundle\Entity\locationPrestationRepository")
+ */
+class locationPrestation
+{
+    
+    /**
+     *@ORM\Id
+    * @ORM\ManyToOne(targetEntity="djepo\LocationBundle\Entity\location", cascade={"Persist"})
+    * 
+    */
+    private $location;
+    
+    /**
+    * @ORM\Id
+    * @ORM\ManyToOne(targetEntity="djepo\LocationBundle\Entity\prestation", cascade={"Persist"}) 
+    */
+    private $prestation;
+    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateDepartPrestation", type="datetime")
+     */
+    private $dateDepartPrestation;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateFinPrestation", type="datetime")
+     */
+    private $dateFinPrestation;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="montant", type="integer")
+     */
+    private $montant;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="commentaire", type="text")
+     */
+    private $commentaire;
+
+ 
+    /**
+     * Set dateDepartPrestation
+     *
+     * @param \DateTime $dateDepartPrestation
+     * @return locationPrestation
+     */
+    public function setDateDepartPrestation($dateDepartPrestation)
+    {
+        $this->dateDepartPrestation = $dateDepartPrestation;
+
+        return $this;
+    }
+
+    /**
+     * Get dateDepartPrestation
+     *
+     * @return \DateTime 
+     */
+    public function getDateDepartPrestation()
+    {
+        return $this->dateDepartPrestation;
+    }
+
+    /**
+     * Set dateFinPrestation
+     *
+     * @param \DateTime $dateFinPrestation
+     * @return locationPrestation
+     */
+    public function setDateFinPrestation($dateFinPrestation)
+    {
+        $this->dateFinPrestation = $dateFinPrestation;
+
+        return $this;
+    }
+
+    /**
+     * Get dateFinPrestation
+     *
+     * @return \DateTime 
+     */
+    public function getDateFinPrestation()
+    {
+        return $this->dateFinPrestation;
+    }
+
+    /**
+     * Set montant
+     *
+     * @param integer $montant
+     * @return locationPrestation
+     */
+    public function setMontant($montant)
+    {
+        $this->montant = $montant;
+
+        return $this;
+    }
+
+    /**
+     * Get montant
+     *
+     * @return integer 
+     */
+    public function getMontant()
+    {
+        return $this->montant;
+    }
+
+    /**
+     * Set commentaire
+     *
+     * @param string $commentaire
+     * @return locationPrestation
+     */
+    public function setCommentaire($commentaire)
+    {
+        $this->commentaire = $commentaire;
+
+        return $this;
+    }
+
+    /**
+     * Get commentaire
+     *
+     * @return string 
+     */
+    public function getCommentaire()
+    {
+        return $this->commentaire;
+    }
+
+    /**
+     * Set location
+     *
+     * @param \djepo\LocationBundle\Entity\location $location
+     * @return locationPrestation
+     */
+    public function setLocation(\djepo\LocationBundle\Entity\location $location)
+    {
+        $this->location = $location;
+
+        return $this;
+    }
+
+    /**
+     * Get location
+     *
+     * @return \djepo\LocationBundle\Entity\location 
+     */
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    /**
+     * Set prestation
+     *
+     * @param \djepo\LocationBundle\Entity\prestation $prestation
+     * @return locationPrestation
+     */
+    public function setPrestation(\djepo\LocationBundle\Entity\prestation $prestation)
+    {
+        $this->prestation = $prestation;
+
+        return $this;
+    }
+
+    /**
+     * Get prestation
+     *
+     * @return \djepo\LocationBundle\Entity\prestation 
+     */
+    public function getPrestation()
+    {
+        return $this->prestation;
+    }
+}

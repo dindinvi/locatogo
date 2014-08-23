@@ -15,17 +15,27 @@ use djepo\LocationBundle\Form\evaluationType;
 class evaluationController extends Controller
 {
     /**
-     * Lists all evaluation entities.
-     *
+     * Lists all evaluation entities if role = admin.
+     * else list of user
      */
     public function indexAction()
     {
+        $user = $this->container->get('security.context')->getToken()->getUser();
+    	if (!is_object($user)) {
+    		throw new AccessDeniedException('Vous n\'êtes pas authentifié.');
+    	}
+        
         $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('djepoLocationBundle:evaluation')->findAll();
-
+         if ( $this->get('security.context')->isGranted('ROLE_ADMIN')) {
+                 $entities = $em->getRepository('djepoLocationBundle:evaluation')->findAll();
+         }
+         else {
+                 $entities = $em->getRepository('djepoLocationBundle:evaluation')->findBy(array('user' => $user->getId()),  null, null);
+         }
+         
         return $this->render('djepoLocationBundle:evaluation:index.html.twig', array(
             'entities' => $entities,
+            'entitiesNbr' =>count($entities),
         ));
     }
 
@@ -44,7 +54,7 @@ class evaluationController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('no_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('eval_show', array('id' => $entity->getId())));
         }
 
         return $this->render('djepoLocationBundle:evaluation:new.html.twig', array(
@@ -59,6 +69,11 @@ class evaluationController extends Controller
      */
     public function newAction()
     {
+       
+         $user = $this->container->get('security.context')->getToken()->getUser();
+    	if (!is_object($user)) {
+    		throw new AccessDeniedException('Vous n\'êtes pas authentifié.');
+    	}
         $entity = new evaluation();
         $form   = $this->createForm(new evaluationType(), $entity);
 
@@ -70,12 +85,15 @@ class evaluationController extends Controller
 
     /**
      * Finds and displays a evaluation entity.
-     *
+     * pas de contraintes particuliers. acces a tous user authentifié
      */
     public function showAction($id)
     {
+        $user = $this->container->get('security.context')->getToken()->getUser();
+    	if (!is_object($user)) {
+    		throw new AccessDeniedException('Vous n\'êtes pas authentifié.');
+    	}
         $em = $this->getDoctrine()->getManager();
-
         $entity = $em->getRepository('djepoLocationBundle:evaluation')->find($id);
 
         if (!$entity) {
@@ -93,29 +111,31 @@ class evaluationController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $message = "Soyez le premier à laisser une appréciation!";
-        $entity = $em->getRepository('djepoLocationBundle:evaluation')
-                                            ->findBy(array('logement' => $id),
-                                            null,
-                                            null);
+        $entity = $em->getRepository('djepoLocationBundle:evaluation') ->findBy(array('logement' => $id), null, null);
         
 
-        if (!$entity) {
-           $entity= false;// throw $this->createNotFoundException('Unable to find evaluation entity.');
-        }
+        if (!$entity) { $entity= false;   }
       return $this->render('djepoLocationBundle:evaluation:appreciation.html.twig', array(
             'entity'    => $entity,
              'message'  => $message));
     }
     /**
      * Displays a form to edit an existing evaluation entity.
-     *
+     *  a gere avec SECURE
      */
     public function editAction($id)
     {
+        $user = $this->container->get('security.context')->getToken()->getUser();
+    	if (!is_object($user)) {
+    		throw new AccessDeniedException('Vous n\'êtes pas authentifié.');
+    	}
+          if (! $this->get('security.context')->isGranted('ROLE_ADMIN')) {              
+            $this->get('session')->getFlashBag()->add('warning', 'editEvaluation.flash.warning');
+            return $this->redirect($this->generateUrl('eval'));
+          }
+                 
         $em = $this->getDoctrine()->getManager();
-
         $entity = $em->getRepository('djepoLocationBundle:evaluation')->find($id);
-
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find evaluation entity.');
         }
@@ -125,7 +145,7 @@ class evaluationController extends Controller
 
         return $this->render('djepoLocationBundle:evaluation:edit.html.twig', array(
             'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -152,7 +172,7 @@ class evaluationController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('no_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('eval_edit', array('id' => $id)));
         }
 
         return $this->render('djepoLocationBundle:evaluation:edit.html.twig', array(
@@ -164,10 +184,19 @@ class evaluationController extends Controller
 
     /**
      * Deletes a evaluation entity.
-     *
+     *  a gere avec SECURE
      */
     public function deleteAction(Request $request, $id)
     {
+        $user = $this->container->get('security.context')->getToken()->getUser();
+    	if (!is_object($user)) {
+    		throw new AccessDeniedException('Vous n\'êtes pas authentifié.');
+    	}
+          if (! $this->get('security.context')->isGranted('ROLE_ADMIN')) {              
+            $this->get('session')->getFlashBag()->add('warning', 'editEvaluation.flash.warning');
+            return $this->redirect($this->generateUrl('eval'));
+          }
+        
         $form = $this->createDeleteForm($id);
         $form->bind($request);
 
@@ -183,7 +212,7 @@ class evaluationController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('no'));
+        return $this->redirect($this->generateUrl('eval'));
     }
 
     /**

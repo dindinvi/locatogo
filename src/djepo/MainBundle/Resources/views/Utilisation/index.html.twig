@@ -1,0 +1,76 @@
+{# page about #}
+{% extends "djepoMainBundle::layout.html.twig" %}
+{% block title %} {{ parent()~' - Mentions légales' }}  {% endblock %}
+{% block navigsite %} 
+<!-- Alternative Style -->
+<ol class="breadcrumb"> 
+	<li><a href="{{ path('djepoMain_accueil') }}"> Acceuil </a></li>
+	<li class="active"> Conditions générales d'utilisation </li>
+ </ol>
+
+{% endblock %} 
+
+{% block my_content %}	
+  <br>
+ 	 <div  class="row">
+             <h1>Conditions générales d'utilisation du service proposé par <b> {{ websiteName }} </b>
+</h1></div>
+
+<p>La présente notice a pour objet de définir les modalités selon lesquelles  {{ websiteName }} met à la disposition des internautes son site Internet www.{{ websiteName }}.com et les conditions selon lesquelles 
+les internautes accèdent et utilisent ce site Internet.
+ <br>Toute connexion au site {{ websiteName }} est subordonnée au respect de la présente notice légale que {{ websiteName }}  
+ se réserve de modifier ou de mettre à jour à tout moment.</p>
+
+<h2>1. Acceptation des conditions de vente.</h2>
+<p>Pour utiliser ce service, vous devez avoir  l'âge légal requis.
+Vous devez  lire et  accepter les présentes conditions dans leur intégralité.
+ Vous ne pouvez utiliser ce service si vous n'avez pas au préalable accepté, sans réserve, ces conditions. </p>
+
+<h2>2. Utilisateur</h2>
+<p>Il s'agit d'une personne physique ou/et morale qui sollicite {{ websiteName }} , notamment via son site Internet, pour le compte de son organisation (société, comité d'entreprise, et autre)
+ou à titre personnel, en tant que particulier.</p>
+
+<h2>3. Objet de la prestation</h2>
+ <p>{{ websiteName }} propose des prestations de services à la demande et au profit de ses clients utilisateurs ayant un projet de voyage </p>
+ 
+<h2>4. Demande client</h2>
+<p>L'accès au service {{ websiteName }} nécessite que vous, l'utilisateur, complétiez de la manière la plus précise, la plus exhaustive, la plus cohérente et réaliste possible le ou les  formulaire(s)  mis à votre disposition. 
+<br>Si les renseignements que vous communiquez par ce biais sont jugés insuffisants ou contradictoires,  {{ websiteName }} 
+ se réserve le droit de vous demander un complément d’information ou de ne pas traiter votre demande en l’état.</p>
+
+<h2>5. Responsabilité</h2>
+<p>La responsabilité de  {{ websiteName }} ne peut être engagée  ni vis à vis du prestataire à l’origine d’une offre de services transmise, ni vis à 
+vis du client amené à contracter avec ce prestataire.</p>
+
+<h2>6. Délivrance du service</h2>
+ <p>Afin de bénéficier de  nos services vous avez juste à remplir  le formulaire de recherche puis à séléctionner les offres de locations. 
+Vous faites ensuite une demande de réservation	  
+ </p> 
+
+<h2>7. Tarifs</h2> 
+<p>Les services de {{ websiteName }} pour les utilisateurs déposant leurs annonces et pour les utilisateurs les consultant.
+				
+<h2>8. Données personnelles</h2>
+<p>Les informations vous concernant que vous seriez amené à transmettre sont enregistrées 
+et traitées en toute confidentialité par  {{ websiteName }} . 
+<br>Ces informations sont soumises aux dispositions de la loi n° 78-17 Informatique et Libertés du 6 janvier 1978. 
+A ce titre, vous disposez d’un droit d’accès, de rectification et de suppression des informations personnelles vous concernant, 
+que vous pouvez exercer à tout moment en nous adressant un courrier électronique à 
+l’adresse suivante : <b>admin@{{ websiteName }}.com </b>.</p>
+
+<h2>9. Propriété intellectuelle</h2>
+<p>Tous les contenus présents sur le site sont protégés, ainsi que tous les droits de propriété intellectuelle qui s'y rapportent. 
+<br>Toute exploitation non autorisée, quelqu'en soit la nature, de tout ou partie de ces contenus est interdite par la loi,
+peut constituer un acte de contrefaçon et faire en conséquence l'objet de poursuites judiciaires.</p>
+
+<h2>10.  Utilisation du site Internet</h2>
+<p>Le site est disponible sur la base d’un service en l’état et n’est accessible qu’en fonction de sa disponibilité.
+<br>  {{ websiteName }}  ne peut en aucun cas être tenu pour responsable si le site se révèle inaccessible lors d’éventuelles opérations de maintenance ou pour toute autre raison technique tels les défauts de configuration, virus informatiques ou anomalies, indépendants de la volonté de  {{ websiteName }} .
+Pour plus d'information sur  {{ websiteName }} , 
+Pour toutes questions merci de  <a href="{{ path('djepoMain_contact') }}" rel="nofollow"> contactez nous </a>.</p>. 
+ 	
+	  
+
+{% endblock %}
+
+

@@ -1,0 +1,61 @@
+{# page new logement  #}
+{% extends "djepoMainBundle::layout.html.twig" %}
+ {% if form is defined %}
+ {% form_theme form "djepoLocationBundle:Form:fields.html.twig" %} 
+ {% endif %}
+ 
+{% block meta %} 
+            <meta name="description" content="création d'une annonce de location"> 
+                 <meta name="keywords" content="creation annonce location"> 
+     <meta name='ROBOTS' content='NOINDEX, NOFOLLOW'> 
+         {% endblock %}
+ 
+
+{% block title %} création d'une annonce de location   {% endblock %}
+{% block stylesheets %}   {{ parent() }}  {% endblock %}
+
+{% block navigsite %}
+          <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <li class="active"> création d'une annonce de location </li>
+        </ol>
+ {% endblock %}
+
+{% block my_content %}
+    <h1>logement creation</h1>
+      <div class="panel panel-success">
+                        <div class="panel-heading text-center"> <b>{{ 'Top 5 d\'une annonce réussie.'| upper }}</b> </div>
+                            <div class="panel-body">
+                                <table class="table table-bordered table-borderless">
+                                    <tr><td>1.  c’est simple, gratuit et plus humain !</td></tr>
+                                     <tr><td>2. Location garantie</td></tr>
+                                     <tr><td>3. Paiement sécurisé </td></tr>
+                                      <tr><td>4. Location garantie</td></tr>
+                                     <tr><td>5. Paiement sécurisé </td></tr>
+                                </table> 
+                            </div>
+
+                        <div class="panel-footer text-center">  
+                              <a  href="{{ path('djepoMain_guideProprietaire') }}"><b>Guide du Propriétaire</b></a> .
+                        </div>
+                  </div>
+ <div class="row">
+    <div class="col-sm-12">
+        <br>  <em> <span class="ast"> * </span>Champs obligatoires</em> <br><br>				
+         <form action="{{ path('logement_create') }}" method="post" {{ form_enctype(form) }}>
+
+             {% include "djepoLocationBundle:logement:new_content.html.twig" %}
+
+                    <div class=" row form-group" >
+                            <div class="col-sm-offset-2 col-sm-7">
+                                <input type="submit" value="Create" /> 
+                          </div>	   
+                     </div>
+         </form>
+    </div>
+</div>
+
+        
+         
+       
+{% endblock %}

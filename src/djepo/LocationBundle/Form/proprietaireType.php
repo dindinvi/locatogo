@@ -14,13 +14,6 @@ class proprietaireType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('typeProprietaire', new typeProprietaireType(), array(
-                            'empty_value' => 'Choisir...',
-                            'required'  => true,
-                          'label' => 'type de proprietaire',
-                        ))
-            
-            ->add('token','hidden')
             ->add('personne', new PersonneType())
         ;
     }

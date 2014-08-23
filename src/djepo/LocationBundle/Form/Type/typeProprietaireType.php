@@ -11,8 +11,8 @@ class typeProprietaireType extends AbstractType
     {
         $resolver->setDefaults(array(
             'choices' => array(
-                'Pu' => 'Public', 
-                'pr' => 'Prive',
+                'Public' => 'Public', 
+                'Prive' => 'Prive',
                 
             )
         ));

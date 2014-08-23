@@ -1,5 +1,8 @@
 {# page new logement  #}
 {% extends "djepoMainBundle::layout.html.twig" %}
+ {% if form is defined %}
+ {% form_theme form "djepoLocationBundle:Form:fields.html.twig" %} 
+ {% endif %}
  
 {% block meta %} 
             <meta name="description" content="création d'une annonce de location"> 
@@ -20,23 +23,39 @@
 
 {% block my_content %}
     <h1>logement creation</h1>
+      <div class="panel panel-success">
+                        <div class="panel-heading text-center"> <b>{{ 'Top 5 d\'une annonce réussie: votre Bien'| upper }}</b> </div>
+                            <div class="panel-body">
+                                <table class="table table-bordered table-borderless">
+                                    <tr><td>1.  Prenez le temps de rédiger votre titre et votre description. Inspirez-vous de nos modèles. </td></tr>
+                                    <tr><td>2.  Fixer votre prix en fonction de votre bien et des tarifs habituellement pratiques dans votre secteur .  </td></tr>
+                                    <tr><td>3.  Avoir un bon relationnel et Être disponible pour le suivi de votre annonce</td></tr>
+                                    <tr><td>4.   </td></tr>
+                                      <tr><td>5.   </td></tr>
+                                </table> 
+                            </div>
 
-   {# <form action="{{ path('logement_create') }}" method="post" {{ form_enctype(form) }}>
-        {{ form_widget(form) }}
+                        <div class="panel-footer text-center">  
+                              <a  href="{{ path('djepoMain_guideProprietaire') }}"><b>Guide du Propriétaire</b></a> .
+                        </div>
+                  </div>
+ <div class="row">
+    <div class="col-sm-12">
+        <br>  <em> <span class="ast"> * </span>Champs obligatoires</em> <br><br>				
+         <form action="{{ path('logement_create') }}" method="post" {{ form_enctype(form) }}>
+
+             {% include "djepoLocationBundle:logement:new_content.html.twig" %}
+                    
+                    <div class=" row form-group" >
+                            <div class="col-sm-offset-3 col-sm-4"> 
+                                <input type="submit" class="btn btn-primary btn-block" value="Créer l'annonce" /> 
+                          </div>	   
+                     </div>
+         </form>
+    </div>
+</div>
+
         
-        
-        <p>
-            <button type="submit">Create</button>
-        </p>
-    </form>
-#}
-         {% include "djepoLocationBundle:logement:new_content.html.twig" %}
          
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('logement') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+       
 {% endblock %}

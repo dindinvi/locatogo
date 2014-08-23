@@ -1,0 +1,111 @@
+<div class="row">   
+    <div class="col-sm-6 well"> 
+        <div class="row  Hcarousel">
+
+                         <div class="col-sm-12">
+                             <div id="carousel" class="carousel slide">
+                                 <div class="carousel-inner">
+                              {% if (totalAnnonces > 0 ) %}
+                                            <div class="item active"> <img src="{{ asset('media/images/location/3_1.jpeg') }}" alt="{{websiteName}}" class="img-responsive"></div>
+                                         {% for entity in entities %}
+                                            <div class="item"> <img src="{{ asset(entity.image.locationPath) }}" alt="{{ entity.image.alt }}" class="img-responsive" /></div>
+                                            {% endfor  %}
+                                {%  else %}
+                                         <div> <img src="{{ asset('media/images/location/3_1.jpeg') }}" alt="{{websiteName}}" class="img-responsive"></div>
+                                 {% endif %}
+                                     </div>
+                             </div>
+                         </div>
+          </div>
+           {% if (totalAnnonces > 0 ) %}
+                    <div class="row"> 
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-success" id="first"> <input type="radio" name="options"><span class="glyphicon glyphicon-fast-backward"></span>  </label>
+                                <label class="btn btn-success" id="previous"> <input type="radio" name="options"><span class="glyphicon  glyphicon-step-backward"></span> </label>
+                                <label class="btn btn-success" id="pause"> <input type="radio" name="options"><span class="glyphicon glyphicon-pause"></span>  </label>
+                                <label class="btn btn-success active" id="play"> <input type="radio" name="options"><span class="glyphicon glyphicon-play"></span>  </label>
+                                <label class="btn btn-success" id="next">
+                                <input type="radio" name="options"><span class="glyphicon glyphicon-step-forward"></span>  </label>
+                                <label class="btn btn-success" id="last"> <input type="radio" name="options"><span class="glyphicon glyphicon-fast-forward"></span>
+                                </label>
+                            </div>
+                            <p><span class="label label-info"></span></p>
+                        </div>
+                    </div>
+         {% endif %}
+  </div>
+                             
+      <div class="col-sm-6"> 
+          <div class="panel panel-success">
+                        <div class="panel-heading text-center"> <b>{{ 'les clés d\'une location réussie'| upper }}</b> </div>
+                            <div class="panel-body"> 
+                                    <table class="table table-bordered table-borderless">
+                                        <tr><td>1. Sélectionnez la location qui correspond le  plus à vos critères </td></tr>
+                                        <tr><td>2. Prenez contact avec le bailleur( mail, télephone). n'hésitez pas à contrôlez l’identité et l’adresse du propriétaire.  </td></tr>
+                                        <tr><td>3. Vérifiez et Signez le contract de location. il doit vous etre envoyer par le proprietaire en 2 exemplaires.  </td></tr>
+                                        <tr><td>4. Effectuez le versement de l'acompte ou des arrhes. utilisez de préference le service propose sur {{ websiteName }}.  </td></tr>
+                                        <tr><td>5. Faites un état des lieux à votre arrivée. Régler le solde du loyer et la caution de garantie.  </td></tr>
+                                        <tr><td>6. Profitez de votre séjour! </td></tr> 
+                                    </table> 
+                                   
+                            </div>
+
+                                <div class="panel-footer text-center">  
+                                      <a href="{{ path('djepoMain_guideVacancier') }}"><b>Guide du Vacancier</b></a> .
+                                </div>
+                    </div> 
+      
+      </div>
+  </div> 
+  
+ <div class="clearfix visible-xs"></div>  
+                             
+            <div class="row marginInter">  
+                <div class="col-sm-6 well"> 
+                      <h3 class=" text-center"><b>L'annonce du Jour</b></h3>
+                        <div class="col-sm-offset-1 col-sm-10 well"> {{'prix'}} </div>
+                        
+                        <div class="col-sm-offset-1 col-sm-10">
+                            <div class="row">   
+                                <div class="col-sm-6">  </div>
+                                 <div class="col-sm-6"> 
+                                      <div class="row">   
+                                        <div class="col-sm-12 "> {{'BREF DESCRIPTION DE L ANNONCE'}} </div>
+                                        <div class="col-sm-12 well"> {{'Détail Annonce'}} </div> 
+                                     </div>
+                                 </div>
+                            </div>
+                         </div>
+                        <div class="col-sm-offset-1 col-sm-10 well"> {{'VILLE'}} </div>
+                  </div>
+                  <div class="col-sm-6">  
+                      <div class="panel panel-success">
+                <div class="panel-heading text-center"> <b>{{ 'Pourquoi réserver sur '~websiteName~' ?' | upper }}</b> </div>
+                    <div class="panel-body">
+                        <table class="table table-bordered table-borderless">
+                                     <tr><td>1. C’est simple, gratuit !</td></tr>
+                                     <tr><td>2. Location garantie sur {{ websiteName }}.</td></tr>
+                                     <tr><td>3. Paiement sécurisé </td></tr>
+                                     <tr><td>4. Guide pour Propriétaire & Vacancier </td></tr>
+                                     <tr><td>5. Documents utiles à télécharger </td></tr>
+                                     <tr><td>4. Des prestations de services pendant vos vacances</td></tr> 
+                        </table>
+                          
+                    </div>
+
+                        <div class="panel-footer text-center">  
+                            <a href="{{ path('djepoMain_contact') }}" rel="nofollow" title="Contactez-nous"><b>Faire de vos vacances un moment inoubliable</b></a> .
+                        </div>
+
+
+            </div> 
+                   
+                         
+          </div>
+     </div> <div class="clearfix visible-xs"></div>     
+ {% if (totalAnnonces > 0 ) %}
+           <h1>Dernières Annonces</h1>
+            {% include "djepoLocationBundle:logement:selection_content.html.twig" %} 
+    {% endif  %}         
+    

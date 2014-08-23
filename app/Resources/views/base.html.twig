@@ -46,94 +46,150 @@
            {% block header %}
             <div class="row marginHB">
                  <div class="hidden-xs col-sm-4"> logo PAYEMENT{# logo PAYEMENT #}  </div>
-                <div class="col-sm-offset-3 col-sm-5">  {# header_droite #} 
-                     <ul class="nav navbar-nav navbar-right"> 
-                                  {% if is_granted("IS_AUTHENTICATED_FULLY") %} 
-                                    <li class="dropdown">
-                                        <a href="{{ path('djepoUser_profile') }}"   rel="nofollow" class="dropdown-toggle" data-toggle="dropdown">{{ app.user.username }} <b class="caret"></b></a>
-                                             <ul class="dropdown-menu">
-                                               <li><a href="{{ path('fos_user_profile_show', { 'id' : app.user.id })  }}">mon profil</a></li>
-                                             <li class="divider"></li>                                   
-                                            
-                                             <li><a href="{{ path('djepoUser_changeMail') }}">Modifier mon adresse e-mail</a></li>
+                <div class="col-sm-offset-1 col-sm-7">  {# header_droite #} 
+                <ul class="nav navbar-nav navbar-right"> 
+                    {% if is_granted("IS_AUTHENTICATED_FULLY") %} 
+                        <li class="dropdown">
+                                <a href="{{ path('djepoUser_profile') }}"   rel="nofollow" class="dropdown-toggle" data-toggle="dropdown">{{ app.user.username }} <b class="caret"></b></a>
+                              <ul class="dropdown-menu">
+                                            <li><b> Mes Données</b></li>   
+                                                  <li><a href="{{ path('fos_user_profile_show', { 'id' : app.user.id })  }}">mon profil</a></li>
+                                                  <li><a href="{{ path('djepoUser_changeMail') }}">Modifier mon adresse e-mail</a></li>
                                                   <li><a href="{{ path('fos_user_resetting_request') }}">Modifier mon mot de passe</a></li>
-                                               {#  <li class="divider"></li>
-                                              <li><a href="{{ path('personne_showDelete', { 'id' : app.user.personne.id}) }}">Supprimer mon compte</a></li> #}
-                                               <li class="divider"></li>
-                                                <li><a href="">Mes Projets</a></li> 
-                                               <li>{% if is_granted('ROLE_ADMIN') %}<a href="">Administration</a>  {% endif %}</li>
-                                             </ul>
-                                   </li>
-                                   <li>  <a href="{{ path('fos_user_security_logout') }}"   rel="nofollow">Déconnexion</a> </li> 
-                                    
-                                 {% else %}
-                                     
-                                     <li><a href="{{ path('fos_user_inscription_register') }}"   rel="nofollow"> Inscription</a> </li>
-                                     <li><a href="{{ path('fos_user_connexion') }}"  rel="nofollow">Connexion</a></li>
-                                    
-                                 {% endif %}	
-                        </ul> 
-                 </div>
+
+                                {% if is_granted('ROLE_ADMIN') %}   
+                                                  <li class="divider"></li>
+                                                 <li><a href="#">Administration</a> </li>
+                                 {% endif %}
+                              </ul>
+                        </li>
+                         {% if is_granted('ROLE_PROPRIO') %}
+                                <li class="dropdown">
+                                        <a href="{{ path('djepoUser_profile') }}"  rel="nofollow" class="dropdown-toggle" data-toggle="dropdown"><b>Espace Propriétaire</b><b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="{{ path('logement_mes_annonces') }}">Mes Annonces en cours</a></li>
+                                            <li><a href="{{ path('reservation_pro') }}">Réservations à confirmer </a></li>
+                                            <li><a href="{{ path('djepoMain_guideProprietaire') }}">Guide du Propriétaire</a></li>
+                                       </ul>
+                                </li>
+                         {% endif %}
+                         
+                         {% if is_granted('ROLE_VACANCIER') %}
+                                <li class="dropdown">
+                                    <a href="{{ path('djepoUser_profile') }}"  rel="nofollow" class="dropdown-toggle" data-toggle="dropdown"><b>Espace Vacancier</b><b class="caret"></b></a>
+                                    <ul class="dropdown-menu">  
+                                          <li><a href="{{ path('reservation_van') }}">Mes locations</a></li>
+                                          <li><a href="{{ path('djepoMain_guideVacancier') }}">Guide du vacancier</a></li>
+                                    </ul>
+                                </li>
+                        {% endif %}
+                             <li>  <a href="{{ path('fos_user_security_logout') }}"   rel="nofollow">Déconnexion</a> </li> 
+
+                    {% else %}
+
+                                <li><a href="{{ path('fos_user_inscription_register') }}"   rel="nofollow"> Inscription</a> </li>
+                                <li><a href="{{ path('fos_user_connexion') }}"  rel="nofollow">Connexion</a></li>
+
+                            {% endif %}	
+                   </ul> 
+            </div>
             </div>
                  <div class="clearfix  visible-xs"></div>
                  <div class="row marginHB">
                     <div class="col-sm-4"> 
                           <a href="{{ path('djepoMain_accueil') }}">
                                 <img src="{{ asset( 'bundles/djepobootstrap/images/logo.jpg' | apply_filter('cga')) }}" alt="{{websiteName}}" class="img-responsive">  
-                         
                           </a>
                    </div>
                     <div class="hidden-xs col-sm-8">  
                          <a href="{{ path('djepoMain_accueil') }}">
                                 <img src="{{ asset('bundles/djepobootstrap/images/logo.jpg') }}" alt="{{websiteName}}" class="img-responsive pull-right">  
-                          </a>
+                        </a>
                     </div>
                   </div>
                  <div class="clearfix  visible-xs"></div>
                  <div class="row">               
-                        <div class="col-sm-12">
-                                <nav class="navbar navbar-inverse">
-                                    <div class="navbar-header">
-                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                            <span class="icon-bar"></span>
-                                            <span class="icon-bar"></span>
-                                            <span class="icon-bar"></span>
-                                        </button>
-                                        <a class="navbar-brand" href="">Project name</a>
-                                    </div>
-                                    <div class="collapse navbar-collapse">
-                                        <ul class="nav navbar-nav">
-                                            <li><a href="{{ path('djepoMain_accueil') }}"><b>{{ djepo_home }}</b></a></li>
-                                            <li><a href="{{ path('djepoMain_about') }}"><b>Qui nous sommes</b></a></li>
-                                            <li><a href="{{ path('djepoMain_contact') }}"  rel="nofollow" ><b>Contact</b></a></li>
-                                         </ul>
-                                    </div>
-                                </nav>
-                          </div>
-                     </div>
+                        
+                    <nav class="navbar navbar-inverse">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="{{ path('djepoMain_accueil') }}"><b>{{ djepo_home }}</b></a>
+                        </div>
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav">
+                              {#  <li><a href="{{ path('djepoMain_accueil') }}"><b>{{ djepo_home }}</b></a></li> #}
+                                  <li><a href="{{ path('search_new') }}"  rel="nofollow" ><b>Trouver une location</b></a></li>
+                                  <li><a href="{{ path('logement_new') }}"  rel="nofollow" ><b> Déposer une annonce</b></a></li>
+                                   <li><a href="#"  rel="nofollow" ><b>Location Voiture</b></a></li>
+                                   <li><a href="{{ path('djepoMain_about') }}"><b>Qui nous sommes</b></a></li>
+                                  <li><a href="{{ path('djepoMain_contact') }}"  rel="nofollow" ><b>Contact</b></a></li> 
+                             </ul>
+                        </div>
+                    </nav>
+                         
+            </div>
          
              {% endblock %}    
               
             <div class="clearfix visible-xs"></div>
             <div class="row"> 
-                 <div class="col-sm-9">
-                      {% block navigsite %} {% endblock %} 
-                     
-                      {% block principal %}
-                      
-                      {% endblock %} 
-                </div>
-                <div class="hidden-xs col-sm-3">
+                 <div class="col-sm-10">
+                        <div class="row"> 
+                            <div class="col-sm-12">  {% block navigsite %} {% endblock %}  </div>
+                           <div class="col-sm-12">  {% block principal %}  {% endblock %}  </div>
+                       </div>
+                 </div>
+                <div class="hidden-xs col-sm-2">
                            {% block droite %}  {% include "djepoMainBundle::menuDroite.html.twig" %}    {% endblock %} 
                 </div>
                 
-            </div>
-                <div class="row">
-                    <footer> <p class="text-muted">
-                            {% block pied %} Copyright @ 2012. All rights reserveds.<br> 
-                                    Contact: <a href="">webmaster</a> 
-                        </p> </footer>
-                   {% endblock %}
+            </div><div class="hr"> </div>
+                <div class="row marginPied">
+                     <div class="well">  
+                            {% block pied %} 
+                                
+                            <table class="table table-bordered">
+                            <tr>
+                                        <td ><h2>Mon compte</h2></td>
+                                        <td > <h2>Information</h2> </td>
+                                        <td  > <h2>Nous suivre</h2></td>
+                             </tr>
+                             <tr>
+                           <td>
+	                           <ul>
+                                    <li><a href="{{ path('fos_user_profile_show') }}" rel="nofollow"> Gérer mon compte </a></li>
+                                    <li><a href="{{ path('djepoUser_changeMail') }}" rel="nofollow">Modifier mon adresse e-mail</a></li>
+                                    <li><a href="{{ path('fos_user_resetting_request') }}" rel="nofollow">Modifier mon mot de passe</a></li>
+
+                                    </ul>
+			    </td>
+                          <td > 
+                               <ul> 	
+                                    <li><a href="{{ path('djepoMain_contact') }}" rel="nofollow" title="Contactez-nous">Contactez-nous</a></li>
+                                     <li><a href="{{ path('djepoMain_utilisation') }}" rel="nofollow" title="Conditions d&#039;utilisation">Conditions d&#039;utilisation</a></li>
+                                     <li><a href="{{ path('djepoMain_about') }}"  rel="nofollow" title="A propos">A propos</a></li>
+
+                               </ul>
+                         </td>
+                         <td>
+                             <ul> {# http://www.facebook.com/pages/Logement-pour-tous/379158648833170?ref=hl" #}
+                                <li class="facebook"><a href="http://www.facebook.com/pages/construction-maison-togo/379158648833170?ref=hl"  target="_blank">Facebook</a></li>	
+                                {#<li class="twitter"><a href=" "><b>(A FAIRE)</b>Twitter</a></li>#}
+                                <li ><a href="http://pinterest.com/pourtous/" target="_blank">pinterest</a></li>
+                                <li ><a href="http://instagram.com/logementpourtous" target="_blank">instagram</a></li>
+                           </ul>
+                        </td>
+                    </tr>
+           </table>
+                              <div class="center">  Copyright @ 2012. All rights reserveds.<br> 
+                                  Contact: <a href="">webmaster</a> </div>
+                            {%endblock %}
+                       </div>
+                   
                 </div>
         </div>
         {% block javascripts %}
@@ -152,3 +208,5 @@
 {% endblock %}
     </body>
 </html>
+
+ 

@@ -1,24 +1,35 @@
-reservation:
-    pattern:  /
-    defaults: { _controller: "djepoLocationBundle:location:index" }
+reservation_pro:
+    pattern:  /Confirmation-reservation
+    defaults: { _controller: "djepoLocationBundle:location:indexPro" }
 
+reservation_van:
+    pattern:  /Consulter-reservation
+    defaults: { _controller: "djepoLocationBundle:location:indexVan" }
+    
 location_show:
     pattern:  /{id}/show
     defaults: { _controller: "djepoLocationBundle:location:show" }
-
+    requirements:
+        id: \d+ 
+        
 location_new:
-    pattern:  /new
+    pattern:  /{id}/new
     defaults: { _controller: "djepoLocationBundle:location:new" }
-
+    requirements:
+        id: \d+ 
+        
 location_create:
     pattern:  /create
     defaults: { _controller: "djepoLocationBundle:location:create" }
     requirements: { _method: post }
+        
 
 location_edit:
     pattern:  /{id}/edit
     defaults: { _controller: "djepoLocationBundle:location:edit" }
-
+    requirements:
+        id: \d+ 
+        
 location_update:
     pattern:  /{id}/update
     defaults: { _controller: "djepoLocationBundle:location:update" }
@@ -28,3 +39,8 @@ location_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "djepoLocationBundle:location:delete" }
     requirements: { _method: post|delete }
+    
+location_confirmer:
+    pattern:   /confirmer/location/{id}
+    defaults: { _controller: "djepoLocationBundle:location:confirmer" }
+    requirements: { _method: post }

@@ -1,20 +1,48 @@
-{% extends '::base.html.twig' %}
+{% extends "djepoMainBundle::layout.html.twig" %}
+   {% if form is defined %}
+ {% form_theme form "djepoLocationBundle:Form:fields.html.twig" %} 
+ {% endif %}
+{% block meta %} 
+    <meta name="description" content="Ajouter vos photos"> 
+    <meta name="keywords" content="Ajouter vos photos"> 
+    <meta name='ROBOTS' content='NOINDEX, NOFOLLOW'> 
+{% endblock %}
+ 
 
-{% block body -%}
-    <h1>image creation</h1>
+{% block title %} Ajouter vos photos   {% endblock %}
+{% block stylesheets %} {{ parent() }}  {% endblock %}
 
-    <form action="{{ path('no_create') }}" method="post" {{ form_enctype(form) }}>
-        {{ form_widget(form) }}
-        <p>
-            <button type="submit">Create</button>
-        </p>
-    </form>
+{% block navigsite %}
+          <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <a href="djepoImg"> Mes photos </a>
+            <li class="active"> Enregistrement d'une image </li>
+        </ol>
+ {% endblock %}
 
+{% block my_content %}
+  {% if is_granted('ROLE_ADMIN') %}
+    <h1>Enregistrement d'une image  </h1>
+   <div class="row">
+       <div class="col-sm-offset-1 col-sm-10">
+            <form action="{{ path('djepoImg_create') }}" method="post" {{ form_enctype(form) }}>
+               {% include "djepoLocationBundle:image:new_content.html.twig" %}{# {{ form_widget(form) }}#}
+               {{ form_rest(form) }} <br>
+               
+               <div class=" row form-group" >
+                            <div class="col-sm-offset-1 col-sm-4"> 
+                                <input type="submit" class="btn btn-primary btn-block" value="Créer l'annonce" /> 
+                          </div>	   
+                     </div>
+           </form>
+       </div>
+ </div>
+{%else %}
+    <span class=" well well-sm">Vous n'avez pas les droits pour accéder à cette page.</span>  
+{%endif %}
         <ul class="record_actions">
     <li>
-        <a href="{{ path('no') }}">
-            Back to the list
-        </a>
+        <a href="{{ path('djepoImg') }}">  Back to the list </a>
     </li>
 </ul>
 {% endblock %}

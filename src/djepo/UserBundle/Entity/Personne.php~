@@ -1,0 +1,78 @@
+<?php
+
+namespace djepo\UserBundle\Entity;
+
+ use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+
+/**
+ * djepo\UserBundle\Entity\Personne
+ *
+ * @ORM\Table(name="loca_personne")
+ * @ORM\Entity(repositoryClass="djepo\UserBundle\Entity\PersonneRepository")
+ */
+class Personne
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    
+    /**
+     *  @ORM\ManyToOne(targetEntity="djepo\UserBundle\Entity\Adresse", cascade={"Persist","Remove"})
+     *  @ORM\JoinColumn(nullable=true)
+     *  @Assert\Valid()
+     */
+    private $adresse;
+    
+    
+    
+    /**
+     *
+     * @ORM\OneToOne(targetEntity="djepo\UserBundle\Entity\User", mappedBy="personne", cascade={"Persist","Remove"})
+     * @Assert\Valid()
+     */
+    private $user;
+    
+    /**
+     * @var datetime $dateN
+     *
+     * @ORM\Column(name="dateN", type="date", nullable=true)
+     * @Assert\DateTime()
+     */
+    private  $dateN;
+
+    /**
+     * @var string $typeEntite
+     *
+     * @ORM\Column(name="typeEntite", type="string", length=12, nullable=true)
+     * @Assert\NotBlank(message="Veuillez selectionner une option ")
+     */
+    private $typeEntite;
+
+    /**
+     * @var string $telFixe
+     * @ORM\Column(name="telFixe", type="string", length=255, nullable=true)
+     *  @Assert\Regex(pattern="/\d/", message="Votre t�l�phone fixe n'est pas valide.")
+     */
+    private $telFixe;
+
+    /**
+     * @var string $telPortable
+     * @ORM\Column(name="telPortable", type="string", length=255, nullable=true)     
+     * @Assert\Regex(pattern="/\d/", message="Votre t�l�phone portable n'est pas valide.")
+     */
+    private $telPortable;
+    
+     
+    /**
+     * @var string $fax     *
+     * @ORM\Column(name="fax", type="string", length=255, nullable=true)
+     * @Assert\Regex(pattern="/\d/", message="Votre fax n'est pas valide.")
+     */
+    private $fax;
+    
+}

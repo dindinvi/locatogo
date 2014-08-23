@@ -1,0 +1,70 @@
+{# page new logement  #}
+{% extends "djepoMainBundle::layout.html.twig" %}
+{# {% if form is defined %}
+ {% form_theme form "djepoLocationBundle:Form:fields.html.twig" %} 
+ {% endif %}
+ #}
+{% block meta %} 
+            <meta name="description" content="Mes annonces en cours"> 
+                 <meta name="keywords" content="Mes annonces en cours"> 
+     <meta name='ROBOTS' content='NOINDEX, NOFOLLOW'> 
+         {% endblock %}
+ 
+
+{% block title %} Mes annonces en cours   {% endblock %}
+{% block stylesheets %}   {{ parent() }}  {% endblock %}
+
+{% block navigsite %}
+          <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <li class="active"> Mes annonces en cours </li>
+        </ol>
+ {% endblock %}
+
+{% block my_content %}
+    <div class="row">
+    <div class="col-sm-11">    
+    <h1>Mes annonces</h1>
+
+    {% if  nbrEntities > 0 %}
+            <table class="table table-condensed table-bordered">
+                <thead>
+                    <tr>
+                       {% if is_granted('ROLE_ADMIN') %} <th>Id</th>{% endif %}
+
+                       <th>Titre de l 'annonce</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for entity in entities %}
+                    <tr>
+                       {% if is_granted('ROLE_ADMIN') %}
+                             <td><a href="{{ path('logement_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                       {% endif %}
+                       
+                        <td>{{ entity.libelle }}</td>
+                        <td>
+                            {% if is_granted('ROLE_PROPRIO') %}
+                            <ul>
+                                <li>  <a href="{{ path('logement_edit', { 'id': entity.id }) }}">Modifier</a>  </li>
+                                    {%if entity.isActivated is not null %}
+                                         <li> <a href="{{ path('logement_show', { 'id': entity.id }) }}">Afficher</a>  </li>
+                                    {% else %}
+                                          <li><a href="{{ path('logement_preview', {'id': entity.id}) }}" title="afficher l 'annonce en vue de la validé">Publier</a></li> 
+                                     {% endif %}
+
+                                </ul>
+                             {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+    {% endif%}
+           <ul>
+           <li> <a href="{{ path('logement_new') }}">  créer une nouvelle annonce </a> </li>
+         </ul>
+    </div>
+  </div>
+ {% endblock %}

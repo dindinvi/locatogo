@@ -15,15 +15,7 @@
  {% endblock %}
        
 {% block fos_user_content %}
-       {# etape 1 
-	  {% if app.session.hasFlash('admin-update') %}
-		<div class="alert col-sm-12 alert-info"> {{ app.session.flash('admin-update') }}  </div>
-	  {% endif %}
-             
-	 {% if app.session.hasFlash('admin-pass') %}
-		<div class="alert col-sm-12 alert-info"> {{ app.session.flash('admin-pass') }}  </div>
-	 {% endif %}	  
-  	#}
+      
 <h1>Index de l'administration</h1>
  Bienvenue dans votre espace membre.<br />		  
 {% include "djepoUserBundle:Admin:adminMenu_content.html.twig" %}

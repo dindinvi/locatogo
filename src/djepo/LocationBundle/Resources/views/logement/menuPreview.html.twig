@@ -1,0 +1,25 @@
+<div class="row"> 
+        <div class="col-sm-3">
+                       <a href="{{ path('logement_edit', { 'id': entity.id }) }}"  rel="nofollow"><button> Modifier l'annonce </button></a>
+         </div>               
+                      
+        <div class="col-sm-3">
+                 <form action="{{ path('logement_publish', { 'id': entity.id }) }}" method="post">
+                           {{ form_widget(publish_form) }}
+                           <button class="btn btn-primary" type="submit">Activer l'annonce</button>
+                </form>
+        </div> 
+       <div class="col-sm-3">
+               <a href="{{ path('logement_mes_annonces') }}">Mes Annonces</a> 
+        </div> 
+        
+        <div class="col-sm-3">            
+                             <form action="{{ path('logement_delete', { 'id': entity.id }) }}" method="post">
+                                <input type="hidden" name="_method" value="DELETE" />
+                                {{ form_widget(delete_form) }}
+                                <button class="btn btn-primary" type="submit">Supprimer l'annonce</button>
+                            </form>
+                     
+        </div>
+        </div>                         
+   

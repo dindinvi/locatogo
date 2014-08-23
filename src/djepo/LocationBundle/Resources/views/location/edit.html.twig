@@ -1,22 +1,59 @@
-{% extends '::base.html.twig' %}
+{% extends "djepoUserBundle::layout.html.twig" %}
+ {% if form is defined %}
+ {% form_theme form "djepoMainBundle:Form:fields.html.twig" %} 
+ {% endif %}
+ 
+{% block meta %} 
+ <meta name="description" content="Modifier mon location">
+ <meta name='ROBOTS' content="noindex,nofollow">
+  {% endblock %} 
+{% block title %} {{ parent() ~ ' -  Modifier mon location'  }}  {% endblock %}
+ 
+{% block navigsite %} 
+ 
+<ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}" rel="nofollow"> {{ djepo_home }} </a> </li>
+            <li><a  href="{{ path('djepoUser_profile') }}" rel="nofollow"> Admin </a></li>
+            {% if app.session.get('selecteur') == 'Pro' %}
+                 <li> <a href="{{ path('reservation_pro') }}" rel="nofollow"> Mes locations </a> </li>
+             {% else %}
+                 <li> <a href="{{ path('reservation_van') }}" rel="nofollow"> Mes locations </a> </li>
+             {% endif %}
+            <li class="active">Modifier </li>
+        </ol>
+ 
+{% endblock %}
 
-{% block body -%}
+{% block fos_user_content %}
     <h1>location edit</h1>
-
-    <form action="{{ path('location_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+ {% if is_granted('ROLE_USER') %}
+    <form action="{{ path('location_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }}>
         <input type="hidden" name="_method" value="PUT" />
-        {{ form_widget(edit_form) }}
-        <p>
-            <button type="submit">Edit</button>
-        </p>
+              
+        {{ form_errors(form) }}
+        {{ form_row(form.dateLocation) }}<br /> 
+        {{ form_row(form.dateFinLocation) }}
+         {{ form_rest(form) }} <br /> 
+           <div class=" row form-group">
+               <div class="col-sm-5">
+                   <input type="submit" class="btn btn-primary btn-block" value="MODIFIER" /> 
+
+               </div>	   
+           </div>
     </form>
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('location') }}">
-            Back to the list
-        </a>
+         
+    {% if app.session.get('selecteur') == 'Pro' %}
+        <a href="{{ path('reservation_pro') }}" rel="nofollow"> Back to the list </a>
+    {% else %}
+       <a href="{{ path('reservation_van') }}" rel="nofollow"> Back to the list </a>
+    {% endif %}
+        
     </li>
+    {% endif  %}
+    {% if is_granted('ROLE_ADMIN') %}
     <li>
         <form action="{{ path('location_delete', { 'id': entity.id }) }}" method="post">
             <input type="hidden" name="_method" value="DELETE" />
@@ -25,4 +62,5 @@
         </form>
     </li>
 </ul>
+  {% endif %} 
 {% endblock %}

@@ -1,0 +1,10 @@
+search_new:
+    pattern:  /Recherche-annonce-location
+    defaults: { _controller: "djepoMainBundle:search:new" }
+
+search_create:
+    pattern:  /Resultats-recherche-annonce             
+    defaults: { _controller: "djepoMainBundle:search:create" }
+    requirements: { _method: post }
+
+

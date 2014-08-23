@@ -6,7 +6,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use djepo\LocationBundle\Entity\image;
+use djepo\LocationBundle\Entity\logement;
+
 use djepo\LocationBundle\Form\imageType;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * image controller.
@@ -16,15 +19,24 @@ class imageController extends Controller
 {
     /**
      * Lists all image entities.
-     *
+     ** @Secure(roles="ROLE_PROPRIO")
      */
     public function indexAction()
     {
+         $user = $this->container->get('security.context')->getToken()->getUser();
+    	if (!is_object($user)) {
+    		throw new AccessDeniedException('Vous n\'êtes pas authentifié.');
+    	}
+        
         $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('djepoLocationBundle:image')->findAll();
-
-        return $this->render('djepoLocationBundle:image:index.html.twig', array(
+         if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {// donc proprio
+             
+              $entities = $em->getRepository('djepoLocationBundle:logement')->getImage($user->getId());
+            }else {
+              $entities =  $em->getRepository('djepoLocationBundle:logement')->getImage();//->getReservationAll();
+            }
+         
+            return $this->render('djepoLocationBundle:image:index.html.twig', array(
             'entities' => $entities,
         ));
     }
@@ -44,7 +56,7 @@ class imageController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('no_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('djepoImg_show', array('id' => $entity->getId())));
         }
 
         return $this->render('djepoLocationBundle:image:new.html.twig', array(
@@ -57,9 +69,10 @@ class imageController extends Controller
      * Displays a form to create a new image entity.
      *
      */
-    public function newAction()
+    public function newAction()//$id, logement $log
     {
         $entity = new image();
+        
         $form   = $this->createForm(new imageType(), $entity);
 
         return $this->render('djepoLocationBundle:image:new.html.twig', array(
@@ -108,7 +121,7 @@ class imageController extends Controller
 
         return $this->render('djepoLocationBundle:image:edit.html.twig', array(
             'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -135,7 +148,7 @@ class imageController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('no_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('djepoImg_edit', array('id' => $id)));
         }
 
         return $this->render('djepoLocationBundle:image:edit.html.twig', array(

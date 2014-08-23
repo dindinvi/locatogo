@@ -34,7 +34,7 @@ class OutilsImage  extends \Twig_Extension  {
         /*
         * Twig va exécuter cette méthode pour savoir quelle(s) fonction(s)ajoute notre service
         */
-        public function getFunctions() {
+         public  function getFunctions() {
             return array(
                     'twig_affichimage' => new \Twig_Function_Method($this, 'redimAffichage'),
                     'twig_fcttexteimage' => new \Twig_Function_Method($this, 'fcttexteimage')
@@ -165,7 +165,7 @@ return array('w'=>$W,
 // $redimOK = fctredimimage(120,80,'reppicto/','monpicto.jpg','repimage/','monimage.jpg');
 // if ($redimOK == 1) { echo 'Redimensionnement OK !'; }
 // -----------------------------------------------------------------------------------------------------
-function fctredimimage($W_max, $H_max, $rep_Dst, $img_Dst, $rep_Src, $img_Src) {
+static public function fctredimimage($W_max, $H_max, $rep_Dst, $img_Dst, $rep_Src, $img_Src) {
 // ------------------------------------------------------------------
 $condition = 0;
 // Si certains parametres ont pour valeur '' :

@@ -27,6 +27,14 @@ class evaluation
 * @Assert\Valid()   
 */
 private $user;
+
+   /**
+* @ORM\OneToOne(targetEntity="djepo\LocationBundle\Entity\location",inversedBy="evaluation", cascade={"Persist"})
+* @ORM\JoinColumn(nullable=false)
+* @Assert\Valid()   
+*/
+private $location;
+
     /**
 * @ORM\ManyToOne(targetEntity="djepo\LocationBundle\Entity\logement", inversedBy="evaluations", cascade={"Persist"})
 * @ORM\JoinColumn(nullable=false)
@@ -35,16 +43,13 @@ private $user;
 private $logement;
 
     /**
-     * @var integer
-     *@Assert\Regex(pattern="/\D/", message="Votre note n'est pas valide.")
-     * @Assert\Max(5)
+     * @var integer 
      * @ORM\Column(name="note", type="integer")
      */
     private $note;
 
     /**
      * @var string
-     * @Assert\Regex(pattern="/\d/", message="commentaire.")
      * @ORM\Column(name="commentaire", type="text")
      */
     private $commentaire;
@@ -261,5 +266,16 @@ private $logement;
     {
         $nbEvaluation = $this->getLogement()->getNbEvaluations();
         $this->getLogement()->setNbEvaluations($nbEvaluation-1);
+    }
+    
+     public function getLocation()
+    {
+        return $this->location;
+    } 
+    
+    public function setLocation(\djepo\LocationBundle\Entity\location $location)
+    {
+        $this->location = $location; 
+        return $this;
     }
 }

@@ -1,230 +1,243 @@
-<div class="row">
-<div class="col-sm-12">
-    <br>  <em> <span class="ast"> * </span>tous les Champs sont obligatoires</em> <br><br>				
-     <form action="{{ path('logement_create') }}" method="post" {{ form_enctype(form) }}>
-	
-         <div class="panel panel-default">
+<div class="panel panel-default">
             
-                <div class="panel-heading"> <h3>Annonce</h3>  </div>
+                <div class="panel-heading"> <h3>Votre annonce</h3>  </div>
                 <div class="panel-body"> 
-		   <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.libelle, 'Titre ') }}<span class="ast">*</span></div>
-                            <div class="col-sm-5">{{ form_widget(form.libelle, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.libelle) }} </span></div>
-                        </div>
-			    <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.propriete.description, 'description ') }}<span class="ast">*</span></div>
-                            <div class="col-sm-5">{{ form_widget(form.propriete.description, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.propriete.description) }} </span></div>
-                        </div>                    
-                                                
-                        <div class="row form-group">
-                            <div class="col-sm-3 ">{{ form_label(form.propriete.proprietaire.personne.telFixe, 'Tél. fixe') }}</div>
-                            <div class="col-sm-3">{{ form_widget(form.propriete.proprietaire.personne.telFixe, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-6"> <span class="text-warning"> {{ form_errors(form.propriete.proprietaire.personne.telFixe) }} </span></div>
-                        </div>       
-                                 
-			<div class="row form-group">
-                            <div class="col-sm-3 ">{{ form_label(form.propriete.proprietaire.personne.telPortable, 'Tél. portable') }}<span class="ast">*</span></div>
-                            <div class="col-sm-3">{{ form_widget(form.propriete.proprietaire.personne.telPortable, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-6"> <span class="text-warning"> {{ form_errors(form.propriete.proprietaire.personne.telPortable) }} </span></div>
-                        </div>
-                                
-                           <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.propriete.proprietaire.personne.fax) }}</div>
-                            <div class="col-sm-3">{{ form_widget(form.propriete.proprietaire.personne.fax, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-6"> <span class="text-warning"> {{ form_errors(form.propriete.proprietaire.personne.fax) }} </span></div>
-                        </div>
+		    <div class=" row form-group" >
+                           <div class="col-sm-3">{{ form_label(form.libelle, 'Titre ') }}</div>
+                            <div class="col-sm-9"><span class="ast"> {{ form_errors(form.libelle) }}</span>{{ form_widget(form.libelle, { 'help': 'Utilisez des mots-clés dans votre titre(Ex:Villa meuble, jardin etc..)'} ) }}</div>
+                             
+                    </div><div class=" row form-group"> 
+                        <div class="col-sm-3"> {{ form_label(form.propriete.description, 'description ') }}</div>
+                            <div class="col-sm-9"><span class="ast"> {{ form_errors(form.propriete.description) }} </span>
+                                    {{ form_widget(form.propriete.description,
+                                    {'help':'Votre petite annonce doit être précise. C\' est la lé pour avoir plus de visites et de contacts '}) }}</div>
+                             
+                         </div>
                         
+                         <div class=" row form-group">
+                                <div class="col-sm-3">{{ form_label(form.propriete.typepropriete, 'Propriete : ') }}</div>
+                                    <div class="col-sm-4"> <span class="ast"> {{ form_errors(form.propriete.typepropriete) }} </span>{{ form_widget(form.propriete.typepropriete) }}</div>
+
+
+                               <div class="col-sm-1">{{ form_label(form.typeImmeuble, 'Biens ') }}</div>
+                                    <div class="col-sm-4"><span class="ast"> {{ form_errors(form.typeImmeuble) }}{{ form_widget(form.typeImmeuble) }}</div>
+
+                        </div>
+                          
+                         <div class=" row form-group" >
+                             <div class="col-sm-3">{{ form_label(form.montantloyer, 'Prix : ') }}</div>
+                                    <div class="col-sm-2"> <span class="ast"> {{ form_errors(form.montantloyer) }} </span>{{ form_widget(form.montantloyer, {'help': 'Entrez le prix de la location en CFA '}) }}</div>
+                         </div>
+                        <div class=" row form-group" >
+                        <div class="col-sm-3 ">{{ form_label(form.propriete.proprietaire.personne.telFixe, 'Tél. fixe') }}</div>
+                            <div class="col-sm-9"> <span class="ast"> {{ form_errors(form.propriete.proprietaire.personne.telFixe) }} </span>{{ form_widget(form.propriete.proprietaire.personne.telFixe, {'help': 'Entrez un numéro de téléphone sans espace et point entre les chiffres. '}) }}</div>
+                            
+                        </div>
+                         <div class=" row form-group" >
+                        <div class="col-sm-3 ">{{ form_label(form.propriete.proprietaire.personne.telPortable, 'Tél. portable') }}<span class="ast">*</span></div>
+                            <div class="col-sm-9"> <span class="ast"> {{ form_errors(form.propriete.proprietaire.personne.telPortable) }} </span>{{ form_widget(form.propriete.proprietaire.personne.telPortable, {'help': 'Entrez un numéro de téléphone sans espace et point entre les chiffres. '})  }}</div>
+                           
+                        </div>s
                     </div>
          </div>                           
-                                    
-                                    
-                     <div class="panel panel-default">
-                <div class="panel-heading"> <h3 >Adresse du bien</h3>  </div>
-                <div class="panel-body"> 
-                       <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.propriete.adresse.numeroVoie, 'voie') }}<span class="ast">*</span></div>
-                            <div class="col-sm-2">{{ form_widget(form.propriete.adresse.numeroVoie, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-9"> <span class="text-warning"> {{ form_errors(form.propriete.adresse.numeroVoie) }} </span></div>
-                        </div>
-                                
-                            <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.propriete.adresse.libelleAdd, 'Libelle voie') }}<span class="ast">*</span></div>
-                            <div class="col-sm-5">{{ form_widget(form.propriete.adresse.libelleAdd, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.propriete.adresse.libelleAdd) }} </span></div>
-                        </div>
-                                
-                           <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.propriete.adresse.codePostal) }}</div>
-                            <div class="col-sm-3">{{ form_widget(form.propriete.adresse.codePostal, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-6"> <span class="text-warning"> {{ form_errors(form.propriete.adresse.codePostal) }} </span></div>
-                        </div>       
-                                 
-			 <div class="row form-group">
-                                        <div class="col-sm-3">{{ form_label(form.propriete.adresse.ville.nomVille, 'Ville') }}<span class="ast">*</span></div>
-                                        <div class="col-sm-5">{{ form_widget(form.propriete.adresse.ville.nomVille, { 'attr': {'class': 'form-control' } }) }}</div>
-                                        <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.propriete.adresse.ville.nomVille) }} </span></div>
-                                    </div>   
-                           <div class="row form-group">
-                            <div class="col-sm-3 ">{{ form_label(form.propriete.adresse.ville.libelle) }}<span class="ast">*</span></div>
-                            <div class="col-sm-5">{{ form_widget(form.propriete.adresse.ville.libelle, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.propriete.adresse.ville.libelle) }} </span></div>
-                        </div> 	 
-                  </div>
-                </div>                
-            <br>
-         
+        <br />
          <div class="panel panel-default">
                 <div class="panel-heading"> <h3>Informations complémentaires</h3>  </div>
                 <div class="panel-body"> 
                         
-                    <div class="row">
-                        <div class="col-sm-6">
-                                <div class="row form-group">
-                                    <div class="col-sm-5">{{ form_label(form.nombrePiece, 'nombre de pièces: ') }}<span class="ast">*</span></div>
-                                    <div class="col-sm-7">
-                                        <span class="text-warning"> {{ form_errors(form.nombrePiece) }} </span>
-                                        {{ form_widget(form.nombrePiece, { 'attr': {'class': 'form-control' } }) }}
-                                    </div>
-                                </div>
-                          </div>
-                       
-                        <div class="col-sm-6">
-                        <div class="row form-group">
-                            <div class="col-sm-5">{{ form_label(form.surface, 'Surface en m2  ') }}<span class="ast">*</span></div>
-                            <div class="col-sm-7"><span class="text-warning"> {{ form_errors(form.surface) }}
-                                {{ form_widget(form.surface, { 'attr': {'class': 'form-control' } }) }}
-                            </div>
-                               
-                        </div>
-                        </div>
-                     </div>  
-                        
-                        <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.chambre, 'nombre de chambre: ') }}<span class="ast">*</span></div>
-                            <div class="col-sm-2">{{ form_widget(form.chambre, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-7"> <span class="text-warning"> {{ form_errors(form.chambre) }} </span></div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.sejour, 'nombre de séjour: ') }}<span class="ast">*</span></div>
-                            <div class="col-sm-2">{{ form_widget(form.sejour, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-7"> <span class="text-warning"> {{ form_errors(form.sejour) }} </span></div>
-                        </div>
-                          <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.sbb, 'nombre de salle de bains: ') }}<span class="ast">*</span></div>
-                            <div class="col-sm-2">{{ form_widget(form.sbb, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-7"> <span class="text-warning"> {{ form_errors(form.sbb) }} </span></div>
-                        </div>
-                         <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.cuisine, 'nombre de cuisine: ') }}<span class="ast">*</span></div>
-                            <div class="col-sm-2">{{ form_widget(form.cuisine, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-7"> <span class="text-warning"> {{ form_errors(form.cuisine) }} </span></div>
-                        </div>
-                         <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.montantloyer, 'Prix : ') }}<span class="ast">*</span></div>
-                            <div class="col-sm-2">{{ form_widget(form.montantloyer, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-7"> <span class="text-warning"> {{ form_errors(form.montantloyer) }} </span></div>
-                        </div>
-                        
-                        
-                        <div class="row form-group">
-                           <div class="col-sm-3">{{ form_label(form.typeImmeuble, 'Type de logement ') }}<span class="ast">*</span></div>
-                            <div class="col-sm-5">{{ form_widget(form.typeImmeuble, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.typeImmeuble) }} </span></div>
+                   
+                       <h3>Nombre de: </h3>
                          
-                        </div>
+                        <div class=" row form-group">
+                        <div class="col-sm-offset-1 col-sm-2">{{ form_label(form.nombrePiece, 'Pièces: ') }}  </div>
+                           <div class="col-sm-3"><span class="ast"> {{ form_errors(form.nombrePiece) }} </span> {{ form_widget(form.nombrePiece ) }}  </div>
+                         
+                         <div class="col-sm-offset-1 col-sm-2">{{ form_label(form.chambre, 'Chambre: ') }}</div>
+                            <div class="col-sm-3"> <span class="ast"> {{ form_errors(form.chambre) }} {{ form_widget(form.chambre) }}</div>
+                             
+                       </div>
+                         <div class=" row form-group" >
+                        <div class="col-sm-offset-1 col-sm-2">{{ form_label(form.sejour, 'Séjour: ') }}</div>
+                            <div class="col-sm-3"><span class="ast"> {{ form_errors(form.sejour) }} </span>{{ form_widget(form.sejour) }}</div>
+                          
                         
-                   </div>
+                            <div class="col-sm-offset-1 col-sm-2">{{ form_label(form.sbb, 'Salle de bains: ') }}</div>
+                            <div class="col-sm-3"><span class="ast"> {{ form_errors(form.sbb) }} {{ form_widget(form.sbb) }}</div>
+                            
+                        </div>
+                         <div class=" row form-group" >
+                        <div class="col-sm-offset-1 col-sm-2">{{ form_label(form.cuisine, 'Cuisine: ') }}</div>
+                            <div class="col-sm-3"><span class="ast"> {{ form_errors(form.cuisine) }} {{ form_widget(form.cuisine) }}</div>
+                            
+                           <div class="col-sm-offset-1 col-sm-2">{{ form_label(form.surface, 'Surface en m2  ') }}</div>
+                            <div class="col-sm-3"><span class="ast"> {{ form_errors(form.surface) }}
+                                {{ form_widget(form.surface) }}
+                            </div>
+                           </div>
+                  </div>
                 </div> 
-         
-         
-         
-         <div class="panel panel-default">
+                            <br />
+       <div class="panel panel-default">
+                <div class="panel-heading"> <h3 >Adresse du bien </h3>  </div>
+                <div class="panel-body"> 
+                    
+                         <div class=" row form-group" >
+                    
+                    <div class="col-sm-3">{{ form_label( form.propriete.adresse.numeroVoie,'N° ' ) }}  
+                                                   {{ form_label( form.propriete.adresse.libelleAdd, ' et libellé de la voie' ) }}
+                            </div>
+                            <div class="col-sm-3"><span class="ast"> 
+                                    {{ form_errors(form.propriete.adresse.numeroVoie) }}</span>{{ form_widget(form.propriete.adresse.numeroVoie, {'help': 'Numéro'}) }}</div>
+                            <div class="col-sm-6"><span class="ast"> {{ form_errors(form.propriete.adresse.libelleAdd) }}  </span>
+                                {{ form_widget(form.propriete.adresse.libelleAdd) }}</div>
+                            
+                         
+                       </div>
+                         <div class=" row form-group" >
+                             <div class="col-sm-3">{{ form_label(form.propriete.adresse.codePostal,'codePostal ' ) }}  
+                                 {{ form_label(form.propriete.adresse.ville.nomVille,' et Ville') }}<span class="ast">*</span>
+                            </div>
+                            <div class="col-sm-3"><span class="ast"> 
+                                    {{ form_errors(form.propriete.adresse.codePostal) }}</span>{{form_widget(form.propriete.adresse.codePostal) }}</div>
+                            <div class="col-sm-6"><span class="ast">  {{ form_errors(form.propriete.adresse.ville.nomVille) }} </span>
+                                {{ form_widget(form.propriete.adresse.ville.nomVille) }}</div>
+                            
+                            </div>
+                         <div class=" row form-group" >
+                          <div class="col-sm-3 ">{{ form_label(form.propriete.adresse.ville.libelle,'Pays') }}<span class="ast">*</span></div>
+                            <div class="col-sm-9"><span class="ast"> {{ form_errors(form.propriete.adresse.ville.libelle) }} </span>{{ form_widget(form.propriete.adresse.ville.libelle) }}</div>
+                             
+                        </div>	 
+                  </div>
+                </div>    
+             <br>
+         <div class="panel panel-success">
+                        <div class="panel-heading text-center"> <b>{{ 'Top 5 d\'une annonce réussie: Vos photos'| upper }}</b> </div>
+                            <div class="panel-body">
+                                <table class="table table-bordered table-borderless">
+                                    <tr><td>1.  Optimiser vos images, avec un logiciel de retouche d'image, pour une plus grande visibilité </td></tr>
+                                    <tr><td>2.   Largeur minimun acceptée: <b>{{ min_Width }}px </b> & Largeur maximun acceptée: <b>{{ max_Width }}px</b>  </td></tr>
+                                    <tr><td>3.   hauteur minimun acceptée: <b>{{ min_Height }}px </b> & hauteur maximun acceptée:<b> {{ max_Height }}px.</b>  </td></tr>
+                                    <tr><td>4.  taille maximun acceptée: <b>{{ max_Size }}px</b></td></tr>
+                                    <tr><td>5.  Choisissez un fichier image valide. Extensions acceptees : .jpg , .jpeg , .png </td></tr>
+                                </table> 
+                            </div>
+
+                        <div class="panel-footer text-center">  
+                              <a  href="{{ path('djepoMain_guideProprietaire') }}"><b>Guide du Propriétaire</b></a> .
+                        </div>
+                  </div>
+    <div class="panel panel-default">
             
                 <div class="panel-heading"> <h3>Photo 1 </h3>  </div>
                 <div class="panel-body"> 
-		   <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.image.file1, 'photo 1') }}<span class="ast">*</span></div>
-                            <div class="col-sm-5">{{ form_widget(form.image.file1, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.image.file1) }} </span></div>
-                        </div>
-			    <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.image.url, 'titre ', { 'label_attr': {'required': 'true' } }) }}<span class="ast">*</span></div>
-                            <div class="col-sm-5">{{ form_widget(form.image.url, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.image.url) }} </span></div>
-                        </div>                    
-                          <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.image .alt, 'description succint') }}<span class="ast">*</span></div>
-                            <div class="col-sm-5">{{ form_widget(form.image .alt, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.image.alt) }} </span></div>
-                        </div>   
+		   
+                         <div class=" row form-group" >
+                           <div class="col-sm-3">{{ form_label(form.image.file1, 'photo 1') }}</div>
+                            <div class="col-sm-9"> <span class="ast"> {{ form_errors(form.image.file1) }} </span>{{ form_widget(form.image.file1, {'help': 'Merci d \'optimiser vos images(taille,largeur, hauteur).  Extensions acceptees (.jpg , .jpeg , .png )'}) }}</div>
+                             
+                       </div>
+                         <div class=" row form-group" >
+                            <div class="col-sm-3">{{ form_label(form.image.url, 'titre ', { 'label_attr': {'required': 'true' } }) }}</div>
+                            <div class="col-sm-9"><span class="ast"> {{ form_errors(form.image.url) }} </span>
+                                {{ form_widget(form.image.url, {'help': ' '}) }}</div>
+                            
+                      </div>
+                         <div class=" row form-group" >
+                            <div class="col-sm-3">{{ form_label(form.image.alt, 'description ') }}</div>
+                            <div class="col-sm-9"> <span class="ast"> {{ form_errors(form.image.alt) }} </span>
+                                {{ form_widget(form.image.alt, {'help': ' '}) }}</div>
+                             
+                       </div>
+                         
                        
                     </div>
             </div><br>
+            <div class="row">
+             <div class="col-sm-6">   
             <div class="panel panel-default">
             
                 <div class="panel-heading"> <h3>Photo 2 </h3>  </div>
                 <div class="panel-body"> 
-		   <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.image.file2, 'photo 2') }}</div>
-                            <div class="col-sm-5">{{ form_widget(form.image.file2, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.image.file2) }} </span></div>
-                        </div>
-			    <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.image.url2, 'titre ') }}</div>
-                            <div class="col-sm-5">{{ form_widget(form.image.url2, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.image.url2) }} </span></div>
-                        </div>                    
-                          <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.image.alt2, 'description succint') }}</div>
-                            <div class="col-sm-5">{{ form_widget(form.image.alt2, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.image.alt2) }} </span></div>
-                        </div>   
+		     
+                         <div class=" row form-group" >
+                           <div class="col-sm-3">{{ form_label(form.image.file2, 'photo 2') }}</div>
+                            <div class="col-sm-9"><span class="ast"> {{ form_errors(form.image.file2) }} </span>
+                                {{ form_widget(form.image.file2, {'help': 'Merci d \'optimiser vos images(taille,largeur, hauteur).  Extensions acceptees (.jpg , .jpeg , .png )'}) }}</div>
+                     
+                       </div>
+                         <div class=" row form-group" >
+                        <div class="col-sm-3">{{ form_label(form.image.url2, 'titre ') }}</div>
+                            <div class="col-sm-9"><span class="ast"> {{ form_errors(form.image.url2) }} </span>
+                                {{ form_widget(form.image.url2) }}</div>
+                           
+                      </div>
+                         <div class=" row form-group" >
+                          <div class="col-sm-3">{{ form_label(form.image.alt2, 'description ') }}</div>
+                            <div class="col-sm-9"><span class="ast"> {{ form_errors(form.image.alt2) }} </span>{{ form_widget(form.image.alt2) }}</div>
+                            
+                      </div>
+                         
                        
                     </div>
             </div><br>
+            </div>
+            <div class="col-sm-6">
              <div class="panel panel-default">
             
                 <div class="panel-heading"> <h3>Photo 3 </h3>  </div>
                 <div class="panel-body"> 
-		   <div class="row form-group">
+		   
+                         <div class=" row form-group" >
                             <div class="col-sm-3">{{ form_label(form.image.file3, 'photo 3') }}</div>
-                            <div class="col-sm-5">{{ form_widget(form.image.file3, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.image.file3) }} </span></div>
+                            <div class="col-sm-9"><span class="ast"> {{ form_errors(form.image.file3) }} </span>{{ form_widget(form.image.file3, {'help': 'Merci d \'optimiser vos images(taille,largeur, hauteur).  Extensions acceptees (.jpg , .jpeg , .png )'}) }}</div>
+                             
                         </div>
-			    <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.image.url3, 'titre ') }}</div>
-                            <div class="col-sm-5">{{ form_widget(form.image.url3, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.image.url3) }} </span></div>
-                        </div>                    
-                          <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.image.alt3, 'description succint' ) }} </div>
-                            <div class="col-sm-5">{{ form_widget(form.image.alt3, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.image.alt3) }} </span></div>
-                        </div>   
+                         <div class=" row form-group" >
+                           <div class="col-sm-3">{{ form_label(form.image.url3, 'titre ') }}</div>
+                            <div class="col-sm-9"><span class="ast"> {{ form_errors(form.image.url3) }} </span>
+                                {{ form_widget(form.image.url3)}}</div>
+                           
+                      </div>
+                         <div class=" row form-group" >
+                        <div class="col-sm-3">{{ form_label(form.image.alt3, 'des. succint' ) }} </div>
+                            <div class="col-sm-9"><span class="ast"> {{ form_errors(form.image.alt3) }} </span>{{ form_widget(form.image.alt3) }}</div>
+                            
+                        </div>
+                          
                        
                     </div>
+            </div>
             </div><br>
+        </div> 
+                           
+         <div class="info">    
          <div class="panel panel-default">
-                <div class="panel-heading"> <h3>Votre profil</h3>  </div>
+                <div class="panel-heading"> <h3>Profil proprietaire</h3>  </div>
                 <div class="panel-body"> 
-                      <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.propriete.proprietaire.personne.typeEntite) }}<span class="ast">*</span></div>
-                            <div class="col-sm-5">{{ form_widget(form.propriete.proprietaire.personne.typeEntite, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.propriete.proprietaire.personne.typeEntite) }} </span></div>
-                        </div> 
-                            <div class="row form-group">
-                                <div class="col-sm-3">{{ form_label(form.propriete.proprietaire.personne.lastname, 'Nom') }}<span class="ast">*</span></div>
-                            <div class="col-sm-5">{{ form_widget(form.propriete.proprietaire.personne.lastname, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.propriete.proprietaire.personne.lastname) }} </span></div>
+                    
+                         <div class=" row form-group" >
+                        <div class="col-sm-3">{{ form_label(form.propriete.proprietaire.personne.typeEntite) }}</div>
+                            <div class="col-sm-9"><span class="ast"> {{ form_errors(form.propriete.proprietaire.personne.typeEntite) }} </span>{{ form_widget(form.propriete.proprietaire.personne.typeEntite) }}</div>
+                            
+                      </div>
+                         <div class=" row form-group" >
+                        <div class="col-sm-3">{{ form_label(form.propriete.proprietaire.personne.lastname, 'Nom') }}</div>
+                            <div class="col-sm-9"><span class="ast"> {{ form_errors(form.propriete.proprietaire.personne.lastname) }} </span>{{ form_widget(form.propriete.proprietaire.personne.lastname) }}</div>
+                             
+                       </div>
+                         <div class=" row form-group" >
+                           <div class="col-sm-3">{{ form_label(form.propriete.proprietaire.personne.firstname, 'Prénom') }}</div>
+                            <div class="col-sm-9"><span class="ast"> {{ form_errors(form.propriete.proprietaire.personne.firstname) }} </span>{{ form_widget(form.propriete.proprietaire.personne.firstname) }}</div>
+                           
                         </div>
                         
-		    <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.propriete.proprietaire.personne.firstname, 'Prénom') }}<span class="ast">*</span></div>
-                            <div class="col-sm-5">{{ form_widget(form.propriete.proprietaire.personne.firstname, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.propriete.proprietaire.personne.firstname) }} </span></div>
-                        </div>
+                         <div class=" row form-group" >
+                        <div class="col-sm-3">{{ form_label(form.propriete.proprietaire.personne.fax) }}</div>
+                            <div class="col-sm-9"><span class="ast"> {{ form_errors(form.propriete.proprietaire.personne.fax) }} {{ form_widget(form.propriete.proprietaire.personne.fax) }}</div>
+                        
+                         
+                         </div>
                                 
                         
                     </div>
@@ -232,50 +245,38 @@
                  
                            
 		<div class="panel panel-default">
-                <div class="panel-heading"> <h3 >Adresse</h3>  </div>
+                <div class="panel-heading"> <h3 >Adresse propriétaire </h3>  </div>
                 <div class="panel-body"> 
-                       <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.propriete.proprietaire.personne.adresse.numeroVoie) }}</div>
-                            <div class="col-sm-3">{{ form_widget(form.propriete.proprietaire.personne.adresse.numeroVoie, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-8"> <span class="text-warning"> {{ form_errors(form.propriete.proprietaire.personne.adresse.numeroVoie) }} </span></div>
-                        </div>
-                                
-                            <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.propriete.proprietaire.personne.adresse.libelleAdd) }}</div>
-                            <div class="col-sm-5">{{ form_widget(form.propriete.proprietaire.personne.adresse.libelleAdd, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-3"> <span class="text-warning"> {{ form_errors(form.propriete.proprietaire.personne.adresse.libelleAdd) }} </span></div>
-                        </div>
-                                
-                           <div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.propriete.proprietaire.personne.adresse.codePostal) }}</div>
-                            <div class="col-sm-3">{{ form_widget(form.propriete.proprietaire.personne.adresse.codePostal, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-8"> <span class="text-warning"> {{ form_errors(form.propriete.proprietaire.personne.adresse.codePostal) }} </span></div>
-                        </div>       
-                                 
-			<div class="row form-group">
-                            <div class="col-sm-3">{{ form_label(form.propriete.proprietaire.personne.adresse.ville.nomVille,'Ville') }}<span class="ast">*</span></div>
-                            <div class="col-sm-5">{{ form_widget(form.propriete.proprietaire.personne.adresse.ville.nomVille, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.propriete.proprietaire.personne.adresse.ville.nomVille) }} </span></div>
-                        </div>
-                                
-                           <div class="row form-group">
-                            <div class="col-sm-3 ">{{ form_label(form.propriete.proprietaire.personne.adresse.ville.libelle,'Pays') }}<span class="ast">*</span></div>
-                            <div class="col-sm-5">{{ form_widget(form.propriete.proprietaire.personne.adresse.ville.libelle, { 'attr': {'class': 'form-control' } }) }}</div>
-                            <div class="col-sm-4"> <span class="text-warning"> {{ form_errors(form.propriete.proprietaire.personne.adresse.ville.libelle) }} </span></div>
-                        </div> 	 
+                    
+                         <div class=" row form-group" >
+                    
+                    <div class="col-sm-3">{{ form_label( form.propriete.proprietaire.personne.adresse.numeroVoie,'N° ' ) }}  
+                                                   {{ form_label( form.propriete.proprietaire.personne.adresse.libelleAdd, ' et libellé de la voie' ) }}
+                            </div>
+                            <div class="col-sm-3"><span class="ast"> 
+                                    {{ form_errors(form.propriete.proprietaire.personne.adresse.numeroVoie) }}</span>{{ form_widget(form.propriete.proprietaire.personne.adresse.numeroVoie, {'help': ' '}) }}</div>
+                            <div class="col-sm-6"> <span class="ast"> {{ form_errors(form.propriete.proprietaire.personne.adresse.libelleAdd) }}  </span>{{ form_widget(form.propriete.proprietaire.personne.adresse.libelleAdd, {'help': ' '}) }}</div>
+                            
+                         
+                       </div>
+                         <div class=" row form-group" >
+                             <div class="col-sm-3">{{ form_label(form.propriete.proprietaire.personne.adresse.codePostal,'codePostal ' ) }}  
+                                  {{ form_label(form.propriete.proprietaire.personne.adresse.ville.nomVille,' et Ville') }}<span class="ast">* </span>
+                            </div>
+                            <div class="col-sm-3"><span class="ast"> 
+                                    {{ form_errors(form.propriete.proprietaire.personne.adresse.codePostal) }}</span>{{form_widget(form.propriete.proprietaire.personne.adresse.codePostal, {'help': ' '}) }}</div>
+                            <div class="col-sm-6"><span class="ast"> {{ form_errors(form.propriete.proprietaire.personne.adresse.ville.nomVille) }}  </span>{{ form_widget(form.propriete.proprietaire.personne.adresse.ville.nomVille, {'help': ' '}) }}</div>
+                            
+                            </div>
+                         <div class=" row form-group" >
+                             <div class="col-sm-3 ">{{ form_label(form.propriete.proprietaire.personne.adresse.ville.libelle,'Pays') }}<span class="ast">* </span></div>
+                            <div class="col-sm-9"><span class="ast"> {{ form_errors(form.propriete.proprietaire.personne.adresse.ville.libelle) }} </span>{{ form_widget(form.propriete.proprietaire.personne.adresse.ville.libelle, {'help': ' '}) }}</div>
+                             
+                        </div>	 
                   </div>
-                </div> 
-                                 
-		  <br/>
-                  <br/><br>
+           </div> 
+     </div>                 
+		  <br/> <br/> 
 		 
               {{ form_rest(form) }} <br>
-		  <div class="row form-group">
-			<div class="col-sm-offset-2 col-sm-7">
-                            <input type="submit" value="Create" /> 
-		      </div>	   
-		 </div>
-	</form>
-</div>
-</div>
-
+		   

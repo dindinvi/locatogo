@@ -13,7 +13,7 @@ class VilleGMapType extends AbstractType
         $builder
                 
           ->add('nomVille','text', array('required' => true, 'label' => 'Ville'))
-          ->add('codeDepartement','integer', array('required' => false, 'label' => 'code Departement'))
+         // ->add('codeDepartement','integer', array('required' => false, 'label' => 'code Departement'))
          ->add('libelle','country', array('required' =>true, 'label' => 'Pays'))
          ->add('lat','hidden', array('required' => false))
          ->add('lng','hidden', array('required' => false ))

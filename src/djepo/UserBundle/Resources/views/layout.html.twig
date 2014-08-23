@@ -19,15 +19,17 @@
             </div>
         {% endfor %}
 {% endfor %}
-
-         {% block fos_user_content %}  {% endblock fos_user_content %} 
-         {% block djepo_content %}  {% endblock djepo_content %} 
+         <div class="row"> 
+            <div class="col-sm-12"> 
+                    {% block fos_user_content %}  {% endblock fos_user_content %}  
+            </div>
+             <div class="col-sm-12">
+                     {% block djepo_content %}  {% endblock djepo_content %} 
+             </div>
+        </div>
+          
     
-{% endblock %}
-    
-{% block droite %} {% include "djepoMainBundle::menuDroite.html.twig" %} {% endblock %} 							
-{% block pied %} 
- {{ parent() }} 		
-{% endblock %}
+{% endblock %} 							
+{% block pied %}  {{ parent() }} {% endblock %}
 
 {% block javascripts %} {{ parent() }} {% endblock %}

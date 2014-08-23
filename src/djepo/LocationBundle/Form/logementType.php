@@ -13,29 +13,18 @@ class logementType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-             ->add('propriete', new proprieteType)
-            ->add('montantloyer','text',   array( 'max_length' => 6,  'label' => 'montant loyer', 'required' => true) )   
+            ->add('propriete', new proprieteType)
+            ->add('montantloyer','text', array( 'max_length' => 6,  'label' => 'montant loyer', 'required' => true) )   
             ->add('libelle','text', array('required' => true, 'label' => 'titre '))
             ->add('nombrePiece','text',   array( 'max_length' => 2,  'label' => 'Nombre de pieces', 'required' => true) )
             ->add('typeImmeuble', new typeLogementType(), array( 'empty_value' => 'Choisir...', 'required'  => true, 'label' => 'type de bien', )  )
-            ->add('surface','text', array( 'max_length' => 4, 'label' => 'surface',  'required' => false)  )
-            ->add('sejour','text',   array( 'max_length' => 2, 'label' => 'Nombre de sejour',   'required' => false) )
-            ->add('sbb','text',  array( 'max_length' => 2,  'label' => 'Nombre de salle de bain',   'required' => false)  )
+            ->add('surface','text', array( 'max_length' => 4, 'label' => 'surface',  'required' => true)  )
+            ->add('sejour','text',   array( 'max_length' => 2, 'label' => 'Nombre de sejour',   'required' => true) )
+            ->add('sbb','text',  array( 'max_length' => 2,  'label' => 'Nombre de salle de bain',   'required' => true)  )
             ->add('chambre','text',   array( 'max_length' => 2,  'label' => 'Nombre de chambre',  'required' => true) )
             ->add('cuisine','text',  array( 'max_length' => 2, 'label' => 'Nombre de cuisine',  'required' => true)  )
-            ->add('transport','text', array('required' => false, 'label' => 'transport '))
-           ->add('dateAnnonce','date')
-           ->add('image', new imageType)
-           ->add('dateFinAnnonce','date')
-           ->add('dateUpdateAnnonce','date')
-           ->add('nbEvaluations','text',  array( 'max_length' => 2, 'label' => 'Nombre de d evaluation',  'required' => false)  )
-           /*->add('evaluations','entity', array(
-                                        'class' => 'djepoLocationBundle:evaluation',
-                                        'property' => 'libelle',
-                                        'multiple' => false,
-                                        'query_builder' => function(\djepo\LocationBundle\Entity\evaluationRepository $er) {
-                                            return null;
-                                        },  ))   */
+            ->add('image', new imageType)
+           
         ;
     }
 

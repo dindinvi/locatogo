@@ -6,8 +6,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use djepo\UserBundle\Entity\User;
-use djepo\UserBundle\Form\UserType;
 
+use djepo\UserBundle\Form\UserType;
+//use djepo\UserBundle\Form\Type\UserType;
 /**
  * User controller.
  *

@@ -6,7 +6,7 @@
     <table class="records_list">
         <thead>
             <tr>
-                <th>Id</th>
+                {% if is_granted('ROLE_ADMIN') %}<th>Id</th> {% endif %}
                 <th>Libelle</th>
                 <th>Nombrepiece</th>
                 <th>Typeimmeuble</th>
@@ -18,7 +18,9 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('logement_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                 {% if is_granted('ROLE_ADMIN') %}
+                        <td><a href="{{ path('logement_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                {% endif %}
                 <td>{{ entity.libelle }}</td>
                 <td>{{ entity.nombrePiece }}</td>
                 <td>{{ entity.typeImmeuble }}</td>
@@ -32,6 +34,7 @@
                     <li>
                         <a href="{{ path('logement_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
+                    
                 </ul>
                 </td>
             </tr>

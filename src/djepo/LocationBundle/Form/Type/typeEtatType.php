@@ -11,10 +11,10 @@ class typeEtatType extends AbstractType
     {
         $resolver->setDefaults(array(
             'choices' => array(
-                'B' => 'Bien', 
-                'M' => 'moyen',
-                'D' => 'Dégradé', 
-                'S' => 'Sale',
+                'Bien' => 'Bien', 
+                'Moyen' => 'Moyen',
+                'Dégradé' => 'Dégradé', 
+                'Sale' => 'Sale',
                 
             )
         ));

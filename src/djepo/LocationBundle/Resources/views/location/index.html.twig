@@ -1,47 +1,134 @@
-{% extends '::base.html.twig' %}
+{% extends "djepoMainBundle::layout.html.twig" %}
+ 
+{% block meta %} 
+            <meta name="description" content="Mes locations et Reservation"> 
+                 <meta name="keywords" content="Mes locations et Reservation"> 
+     <meta name='ROBOTS' content='NOINDEX, NOFOLLOW'> 
+         {% endblock %}
+ 
 
-{% block body -%}
-    <h1>location list</h1>
+{% block title %} Mes locations   {% endblock %}
+{% block stylesheets %}   {{ parent() }}  {% endblock %}
 
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Datelocation</th>
-                <th>Montantloyer</th>
-                <th>Typeloyer</th>
-                <th>Montantcharges</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('location_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{% if entity.dateLocation %}{{ entity.dateLocation|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.montantLoyer }}</td>
-                <td>{{ entity.typeLoyer }}</td>
-                <td>{{ entity.montantCharges }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('location_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('location_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+{% block navigsite %}
+          <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <li><a  href="{{ path('djepoUser_profile') }}"> Admin </a></li>
+            <li class="active"> Mes locations et Réservation </li>
+        </ol>
+ {% endblock %}
 
-        <ul>
-        <li>
-            <a href="{{ path('location_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+{% block my_content %}
+    
+  {% if  entitiesNbr is defined %}
+    
+        {% if  entitiesNbr > 0 %}
+           <table class="table table-condensed table-bordered">
+               <thead>
+                   <tr>
+                     {% if is_granted('ROLE_ADMIN') %}  <th>Id</th> {% endif %}
+                       <th>Reservation </th>
+                       <th>Date début</th>
+                       <th>Date fin</th>
+                        <th>Montant</th>
+                       <th>Type location</th>
+                       {% if is_granted('ROLE_PROPRIO') %} <th>Actions</th> {% endif %} {# ROLE_ADMIN #}
+                   </tr>
+               </thead>
+               <tbody>
+               {% for entity in entities %}
+                   <tr>
+                       {% if is_granted('ROLE_ADMIN') %}
+                           <td><a href="{{ path('location_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                       {% endif %}
+                       <td>{{ entity.logement.libelle }}</td>
+                       <td>{% if entity.dateLocation %}{{ entity.dateLocation|date('d-m-Y') }}{% endif %}</td>
+                       <td>{% if entity.dateFinLocation %}{{ entity.dateFinLocation|date('d-m-Y') }}{% endif %}</td>
+                       <td>{{ entity.logement.montantLoyer }}</td>
+                       <td>{{ entity.logement.typeImmeuble }}</td>
+                       {% if is_granted('ROLE_PROPRIO') %} {# ROLE_ADMIN #}
+                       <td>
+
+                       <ul class="record_actions">
+                           {% if entity.valide %}
+                               <li> <a href="{{ path('location_show', { 'id': entity.id }) }}">show</a> </li>
+                           {% else %}
+                                <li> <a href="{{ path('location_show', { 'id': entity.id }) }}"><span class="ast">confirmer</span></a> </li>
+                               <li> <a href="{{ path('location_edit', { 'id': entity.id }) }}">edit</a>  </li>
+                           {% endif %}   
+                           </ul>
+
+                           </td>
+                       {% endif %} 
+                       </tr>
+                   {% endfor %}
+                   </tbody>
+               </table>
+             {% else %}
+               <div class="alert alert-warning">Vous n avez aucunes locations .</div>
+         {% endif %}
+
+      {% endif %}
+    
+   {% if  entitiesNbr2 is defined %}
+          
+        {% if  entitiesNbr2 > 0 %}
+           <table class="table table-condensed table-bordered">
+               <thead>
+                   <tr>
+                     {% if is_granted('ROLE_ADMIN') %}  <th>Id</th> {% endif %}
+                       <th>Reservation </th>
+                       <th>Date début</th>
+                       <th>Date fin</th>
+                       <th>Montant</th>
+                       <th>Type location</th> 
+                       {% if is_granted('ROLE_PROPRIO') %} <th>Actions</th> {% endif %} {# ROLE_ADMIN #}
+                   </tr>
+               </thead>
+               <tbody>
+               {% for entity in entities2 %}
+                   <tr>
+                       {% if is_granted('ROLE_ADMIN') %}
+                           <td><a href="{{ path('location_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                       {% endif %}
+                       <td>{{ entity.logement.libelle }}</td>
+                       <td>{% if entity.dateLocation %}{{ entity.dateLocation|date('d-m-Y') }}{% endif %}</td>
+                       <td>{% if entity.dateFinLocation %}{{ entity.dateFinLocation|date('d-m-Y') }}{% endif %}</td>
+                       <td>{{ entity.logement.montantLoyer }}</td>
+                       <td>{{ entity.logement.typeImmeuble }}</td>
+                       {% if is_granted('ROLE_PROPRIO') %} {# ROLE_ADMIN #}
+                       <td>
+
+                       <ul class="record_actions">
+                           {% if entity.valide %}
+                               <li>
+                                   <a href="{{ path('location_show', { 'id': entity.id }) }}">show</a>
+                               </li>
+                           {% else %}
+                                <li>
+                                    <a href="{{ path('location_show', { 'id': entity.id }) }}"><span class="ast">confirmer</span></a>
+                               </li>
+                               <li>
+                                   <a href="{{ path('location_edit', { 'id': entity.id }) }}">edit</a>
+                               </li>
+                           {% endif %} 
+                       </ul>
+
+                           </td>
+                       {% endif %} 
+                       </tr>
+                   {% endfor %}
+                   </tbody>
+               </table>
+             {% else %}
+                 <br />  <br />  <br />
+               <div class="alert alert-warning">Vous n avez aucunes locations .</div>
+         {% endif %}
+{% endif %}
+         <ul> <li><a  href="{{ path('djepoUser_profile') }}"> retour au menu principal </a></li>
+        </ul>
+     
+ {% endblock %}
+ {% block javascripts %} {{ parent() }}
+
+ {% endblock %}

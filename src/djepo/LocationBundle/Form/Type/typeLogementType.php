@@ -11,9 +11,9 @@ class typeLogementType extends AbstractType
     {
         $resolver->setDefaults(array(
             'choices' => array(
-                'Pe' => 'logement entier', 
-                'Cp' => 'Chambre Privée',
-                'Ca' => 'Chambre Partagée',
+                'logement entier' => 'logement entier', 
+                'Chambre Privée' => 'Chambre Privée',
+                'Chambre Partagée' => 'Chambre Partagée',
                 
             )
         ));

@@ -1,0 +1,70 @@
+<?php
+
+namespace djepo\LocationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * proprietaire
+ *
+ * @ORM\Table(name="loca_proprietaire")
+ * @ORM\Entity(repositoryClass="djepo\LocationBundle\Entity\proprietaireRepository")
+ */
+class proprietaire
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    /**
+* @ORM\OneToOne(targetEntity="djepo\UserBundle\Entity\User", cascade={"Persist"})
+* @ORM\JoinColumn(nullable=false)
+*/
+private $user;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="typeProprietaire", type="string", length=50, nullable=false)
+     */
+    private $typeProprietaire;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set typeProprietaire
+     *
+     * @param string $typeProprietaire
+     * @return proprietaire
+     */
+    public function setTypeProprietaire($typeProprietaire)
+    {
+        $this->typeProprietaire = $typeProprietaire;
+
+        return $this;
+    }
+
+    /**
+     * Get typeProprietaire
+     *
+     * @return string 
+     */
+    public function getTypeProprietaire()
+    {
+        return $this->typeProprietaire;
+    }
+}

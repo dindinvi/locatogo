@@ -11,10 +11,10 @@ class typeProprieteType extends AbstractType
     {
         $resolver->setDefaults(array(
             'choices' => array(
-                'Pe' => 'Appartement', 
-                'Cp' => 'Maison',
-                'Va' => 'Villa',
-                'Ca' => 'Chambre d\' hôtes',
+                'Appartement' => 'Appartement', 
+                'Maison' => 'Maison',
+                'Villa' => 'Villa',
+                'Chambre d\' hôtes' => 'Chambre d\' hôtes',
                 
             )
         ));

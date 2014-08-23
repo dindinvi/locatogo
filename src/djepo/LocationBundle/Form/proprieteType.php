@@ -22,7 +22,7 @@ class proprieteType extends AbstractType
                         ))
             ->add('adresse', new AdresseType())
             ->add('description','textarea', array('required' => true,'label' => 'description: ', 'attr' => array('rows' => '10','cols' => '30')) )
-            ->add('nomPropriete','text', array( 'required' => false,'label' => 'Titre: '))
+            //->add('nomPropriete','text', array( 'required' => false,'label' => 'Titre: '))
            
         ;
     }

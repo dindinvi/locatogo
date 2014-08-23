@@ -2,10 +2,12 @@
 
 namespace djepo\LocationBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
+use djepo\MainBundle\Utils\OutilsImage as OutilsImage;
 
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert; 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 /**
  * image
  *
@@ -24,35 +26,30 @@ class image
      */
     private $id;
      /**
+      
+     */
+    /**
      * @Assert\Image(
      *     minWidth = 200,
-     *     minWidthMessage="Largeur de fichier trop faible({{ width }}px). Largeur minimun acceptée: {{ minWidth }}px",
-     *     maxWidth = 400,
-     *     maxWidthMessage="Largeur de fichier trop important({{ width }}px). Largeur maximun acceptée: {{ minWidth }}px",
+     *     minWidthMessage="Largeur de fichier trop faible({{ width }}px). Largeur minimun acceptée: {{ minWidth }}px",     
      *     minHeight = 200,
-     *     minHeightMessage="hauteur de fichier trop faible({{ heigh }}px). hauteur minimun acceptée: {{ minHeight }}px",
-     *     maxHeight = 400,
-     *     maxHeightMessage="hauteur de fichier trop important({{ heigh}}px). hauteur maximun acceptée: {{ maxHeight}}px",
+     *     minHeightMessage="hauteur de fichier trop faible({{ heigh }}px). hauteur minimun acceptée: {{ minHeight }}px",   
      *     maxSize = "1024k",
-     *    maxSizeMessage ="Taille de fichier trop important({{ }}px). taille maximun acceptée: {{ maxSize}}px",
+     *     maxSizeMessage ="Taille de fichier trop important({{size}}px). taille maximun acceptée: {{ maxSize}}px",
      *     mimeTypes = {"image/jpg", "image/jpeg","image/png"},
      *     mimeTypesMessage = "Choisissez un fichier image valide. Extensions acceptees : .jpg , .jpeg , .png "
      * )
      */
-    private $file1;     
+   private $file1;     
     private $tempFilename1;
     /**
      * @Assert\Image(
-     *     minWidth = 200,
-     *     minWidthMessage="Largeur de fichier trop faible({{ width }}px). Largeur minimun acceptée: {{ minWidth }}px",
-     *     maxWidth = 400,
-     *     maxWidthMessage="Largeur de fichier trop important({{ width }}px). Largeur maximun acceptée: {{ minWidth }}px",
+      *     minWidth = 200,
+     *     minWidthMessage="Largeur de fichier trop faible( {{ width }} px). Largeur minimun acceptée: {{ minWidth }}px",      
      *     minHeight = 200,
-     *     minHeightMessage="hauteur de fichier trop faible({{ heigh }}px). hauteur minimun acceptée: {{ minHeight }}px",
-     *     maxHeight = 400,
-     *     maxHeightMessage="hauteur de fichier trop important({{ heigh}}px). hauteur maximun acceptée: {{ maxHeight}}px",
+     *     minHeightMessage="hauteur de fichier trop faible( {{ heigh }} px). hauteur minimun acceptée: {{ minHeight }}px",   
      *     maxSize = "1024k",
-     *    maxSizeMessage ="Taille de fichier trop important({{ }}px). taille maximun acceptée: {{ maxSize}}px",
+     *     maxSizeMessage ="Taille de fichier trop important ( {{size}} px). taille maximun acceptée: {{ maxSize}}px",
      *     mimeTypes = {"image/jpg", "image/jpeg","image/png"},
      *     mimeTypesMessage = "Choisissez un fichier image valide. Extensions acceptees : .jpg , .jpeg , .png "
      * )
@@ -62,24 +59,21 @@ class image
     /**
      * @Assert\Image(
      *     minWidth = 200,
-     *     minWidthMessage="Largeur de fichier trop faible({{ width }}px). Largeur minimun acceptée: {{ minWidth }}px",
-     *     maxWidth = 400,
-     *     maxWidthMessage="Largeur de fichier trop important({{ width }}px). Largeur maximun acceptée: {{ minWidth }}px",
+     *     minWidthMessage="Largeur de fichier trop faible({{ width }}px). Largeur minimun acceptée: {{ minWidth }}px",     *     
      *     minHeight = 200,
-     *     minHeightMessage="hauteur de fichier trop faible({{ heigh }}px). hauteur minimun acceptée: {{ minHeight }}px",
-     *     maxHeight = 400,
-     *     maxHeightMessage="hauteur de fichier trop important({{ heigh}}px). hauteur maximun acceptée: {{ maxHeight}}px",
+     *     minHeightMessage="hauteur de fichier trop faible({{ heigh }}px). hauteur minimun acceptée: {{ minHeight }}px",   
      *     maxSize = "1024k",
-     *    maxSizeMessage ="Taille de fichier trop important({{ }}px). taille maximun acceptée: {{ maxSize}}px",
+     *     maxSizeMessage ="Taille de fichier trop important({{size}}px). taille maximun acceptée: {{ maxSize}}px",
      *     mimeTypes = {"image/jpg", "image/jpeg","image/png"},
      *     mimeTypesMessage = "Choisissez un fichier image valide. Extensions acceptees : .jpg , .jpeg , .png "
      * )
      */
+     
     private $file3;    
     private $tempFilename3;
     /**
      * @var string
-     * @Assert\NotBlank(message="Veuillez entrer l url")
+     * 
      * @ORM\Column(name="url", type="string", length=255)
      * 
      */
@@ -87,7 +81,7 @@ class image
 
     /**
      * @var string
-     * @Assert\NotBlank(message="Veuillez entrer une description")
+     * 
      * @ORM\Column(name="alt", type="string", length=255, nullable=false)
      */
     private $alt;
@@ -248,8 +242,7 @@ class image
      *
      * @return string 
      */
-    public function getAlt2()
-    {
+    public function getAlt2() {
         return $this->alt2;
     }
     
@@ -295,28 +288,44 @@ class image
         $this->file3 = $file;
        
     }
+    public function getFile1( )
+    {
+         return  $this->file1;
+     }
     
+    
+     public function getFile2( )
+    {
+         return  $this->file2 ;
+       
+    }
+   
+    public function getFile3()
+    {
+        return $this->file3 ;
+       
+    }
     /**
 * @ORM\PrePersist()
 * @ORM\PreUpdate()
 */
-public function preUpload()
-{
+    public function preUpload()
+    {
     // Si jamais il n'y a pas de fichier (champ facultatif)
-    $outils = $this->contairer->get('djepo_main.outils');
-    
-    if (null !== $this->file1) { $this->url = $outils->ComparateurString($this->getId().'_'.$this->getUrl()).".".$this->file->guessExtension(); }
-    if (null !== $this->file2) { $this->url2 = $outils->ComparateurString($this->getId().'_'.$this->getUrl2()).".".$this->file->guessExtension(); }
-    if (null !== $this->file3) { $this->url3 = $outils->ComparateurString($this->getId().'_'.$this->getUrl3()).".".$this->file->guessExtension(); }
+    // $outils = $this->container->get('djepo_main.outils');  $this->id.'_'.
+
+     if (null !== $this->file1) { $this->url = str_replace(' ', '_', $this->getUrl().".".$this->file1->guessExtension()); }
+     if (null !== $this->file2) { $this->url2 = str_replace(' ', '_', $this->getUrl2().".".$this->file2->guessExtension()); }
+     if (null !== $this->file3) { $this->url3 = str_replace(' ', '_', $this->getUrl3().".".$this->file3->guessExtension()); }
   }
   
    function traiterUpload($file, $tempFilename, $url ){
        
      if (null === $file) { return; } // Si on avait un ancien fichier, on le supprime
-        if (null !==  tempFilename) {
-               $oldFile = $this->getUploadRootDir(). tempFilename;
+        if (null !==  $tempFilename) {
+               $oldFile = $this->getUploadRootDir().$this->id.'_'.$tempFilename;
                 if (file_exists($oldFile)) { unlink($oldFile); }
-           }
+        }
              // On déplace le fichier envoyé dans le répertoire de notre choix  
              $file->move(
               $this->getUploadRootDir(), // Le répertoire de destination
@@ -324,15 +333,23 @@ public function preUpload()
              );
             // --------------------
 	// REDIMENSIONNEMENT et SAUVEGARDE de la PHOTO (si necessaire)
-              $outilsImg = $this->container->get('djepo_main.outilsImage');
-             $redimPHOTOOK = $outilsImg->fctredimimage(
-                             $this->container->getParameter('djepo_Wimg'),
-                             $this->container->getParameter('djepo_Himg'),
-                              '',
+         // $outilsImg = $this->container->get('djepo_main.outilsImage');
+           $redimPHOTOOK = OutilsImage::fctredimimage(
+                             150,                           //pictos
+                             150,                         // 
+                              $this->getResizeDir(),
                               '',
                              $this->getUploadRootDir(),
                              $url); 
-                     
+             
+             $redimPHOT = OutilsImage::fctredimimage(
+                             450,                           //Resize
+                             300,                         // 
+                             $this->getUploadLocationDir(),
+                              '',
+                             $this->getUploadRootDir(),
+                             $url); 
+                   
                      
           unset($file);
                
@@ -345,16 +362,16 @@ public function preUpload()
         */
         public function upload()
         {
-            $this->traiterUpload($this->file1, $this->tempFilename1, $this->url );
-            $this->traiterUpload($this->file2, $this->tempFilename2, $this->url2 );
-            $this->traiterUpload($this->file3, $this->tempFilename3, $this->url3 );
+            $this->traiterUpload($this->file1, $this->tempFilename1,  $this->id.'_'.$this->url );
+            $this->traiterUpload($this->file2, $this->tempFilename2,  $this->id.'_'.$this->url2 );
+            $this->traiterUpload($this->file3, $this->tempFilename3,  $this->id.'_'.$this->url3 );
              
         }
         
            /**
             * @ORM\PreRemove()
             */
-            public function preRemoveUpload1() { $this->traiterPreRemoveU($this->tempFilename1, $this->url );  }
+            public function preRemoveUpload1() { $this->traiterPreRemoveU($this->tempFilename1,  $this->id.'_'.$this->url );  }
             
             /**
             * @ORM\PostRemove()
@@ -364,7 +381,7 @@ public function preUpload()
            /**
             * @ORM\PreRemove()
             */
-            public function preRemoveUpload2() { $this->traiterPreRemoveU($this->tempFilename2, $this->url2 );  }
+            public function preRemoveUpload2() { $this->traiterPreRemoveU($this->tempFilename2,  $this->id.'_'.$this->url2 );  }
             
             /**
             * @ORM\PostRemove()
@@ -374,37 +391,64 @@ public function preUpload()
             /**
             * @ORM\PreRemove()
             */
-            public function preRemoveUpload3() { $this->traiterPreRemoveU($this->tempFilename3, $this->url3 );  }
+            public function preRemoveUpload3() { $this->traiterPreRemoveU($this->tempFilename3,  $this->id.'_'.$this->url3 );  }
             
             /**
             * @ORM\PostRemove()
             */
             public function removeUpload3() { $this->traiterPostRemoveU($this->tempFilename3); }
             
-            
+             public function getResizeDir(){
+                // On retourne le chemin relatif vers l'image pour un navigateur media/cache/cga/
+                    return 'media/images/pictos/';// EN FAIRE UNE CONSTANTE 
+                    
+            }
             
             public function getUploadDir(){
-                // On retourne le chemin relatif vers l'image pour un navigateur
-                    return 'bundles/djepoLocation/images/pictos/';// EN FAIRE UNE CONSTANTE 
+                // On retourne le chemin relatif vers l'image pour un navigateur media/cache/cga/
+                    return 'media/images/upload/';// EN FAIRE UNE CONSTANTE 
+                    
+            }
+            public function getUploadLocationDir(){
+                // On retourne le chemin relatif vers l'image pour un navigateur media/cache/cga/
+                    return 'media/images/location/';// EN FAIRE UNE CONSTANTE 
+                    
             }
             
             protected function getUploadRootDir(){
-                // On retourne le chemin relatif vers l'image pour notre code PHP
+                // On retourne le chemin relatif vers l'image pour notre code PHP media/cache/cga/
                      return __DIR__.'/../../../../web/'.$this->getUploadDir();
             }
+            // NORMAL
+            public function getWebPath(){ return $this->getUploadDir().$this->id.'_'.$this->getUrl();  }
+            public function getWebPath2() { return $this->getUploadDir().$this->id.'_'.$this->getUrl2();  }
+            public function getWebPath3()  { return $this->getUploadDir().$this->id.'_'.$this->getUrl3();  }
+            //150
+             public function getResizePath(){ return $this->getResizeDir().$this->id.'_'.$this->getUrl();  }
+            public function getResizePath2() { return $this->getResizeDir().$this->id.'_'.$this->getUrl2();  }
+            public function getResizePath3()  { return $this->getResizeDir().$this->id.'_'.$this->getUrl3();  }
+            //450
+             public function getLocationPath(){ return $this->getUploadLocationDir().$this->id.'_'.$this->getUrl();  }
+            public function getLocationPath2() { return $this->getUploadLocationDir().$this->id.'_'.$this->getUrl2();  }
+            public function getLocationPath3()  { return $this->getUploadLocationDir().$this->id.'_'.$this->getUrl3();  }
             
-            public function getWebPath(){ return $this->getUploadDir().$this->getUrl();  }
-            public function getWebPath2() { return $this->getUploadDir().$this->getUrl2();  }
-            public function getWebPath3()  { return $this->getUploadDir().$this->getUrl3();  }
             
              function traiterPreRemoveU($tempFilename, $url ){
                      // On sauvegarde temporairement le nom du fichier, car il dépend de l'id
                  $tempFilename = $this->getUploadRootDir().$url;
         }
+        
         function traiterPostRemoveU($tempFilename){
            // En PostRemove, on n'a pas accès à l'id, on utilise notre nom sauvegardé
-                      if (file_exists($tempFilename)) {
-                      // On supprime le fichier
+                      if (file_exists($tempFilename)) {// On supprime le fichier
+                      unlink($tempFilename);
+                      }
+                    $tempFilename = str_replace('upload', 'location', $tempFilename);
+                     if (file_exists($tempFilename)) {// On supprime le fichier
+                      unlink($tempFilename);
+                      }
+                  $tempFilename = str_replace('location', 'pictos', $tempFilename);
+                     if (file_exists($tempFilename)) {// On supprime le fichier
                       unlink($tempFilename);
                       }
         }

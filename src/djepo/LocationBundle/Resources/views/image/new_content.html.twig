@@ -1,0 +1,90 @@
+{% if is_granted('ROLE_USER') %} 
+ <div class="row">
+     <div class="panel panel-default">
+            
+                <div class="panel-heading"> <h3>Photo 1 </h3>  </div>
+                <div class="panel-body"> 
+		   
+                         <div class="row form-group">
+                           <div class="col-sm-3">{{ form_label(form.file1, 'photo 1') }}</div>
+                            <div class="col-sm-9"> <span class="ast"> {{ form_errors(form.file1) }} </span>{{ form_widget(form.file1, {'help': 'Merci d \'optimiser vos images(taille,largeur, hauteur).  Extensions acceptees (.jpg , .jpeg , .png )'}) }}</div>
+                             
+                       </div>
+                         <div class="row form-group">
+                            <div class="col-sm-3">{{ form_label(form.url, 'titre ', { 'label_attr': {'required': 'true' } }) }}</div>
+                            <div class="col-sm-9"><span class="ast"> {{ form_errors(form.url) }} </span>
+                                {{ form_widget(form.url, {'help': ' '}) }}</div>
+                            
+                      </div>
+                         <div class="row form-group">
+                            <div class="col-sm-3">{{ form_label(form .alt, 'description ') }}</div>
+                            <div class="col-sm-9"> <span class="ast"> {{ form_errors(form.alt) }} </span>
+                                {{ form_widget(form.alt, {'help': ' '}) }}</div>
+                             
+                       </div>
+                         
+                       
+                    </div>
+            </div>
+         </div>                       <br>
+            <div class="row">
+             <div class="col-sm-6">   
+            <div class="panel panel-default">
+            
+                <div class="panel-heading"> <h3>Photo 2 </h3>  </div>
+                <div class="panel-body"> 
+		     
+                         <div class=" row form-group" >
+                           <div class="col-sm-3">{{ form_label(form.file2, 'photo 2') }}</div>
+                            <div class="col-sm-9"><span class="ast"> {{ form_errors(form.file2) }} </span>
+                                {{ form_widget(form.file2, {'help': 'Merci d \'optimiser vos images(taille,largeur, hauteur).  Extensions acceptees (.jpg , .jpeg , .png )'}) }}</div>
+                     
+                       </div>
+                         <div class=" row form-group" >
+                        <div class="col-sm-3">{{ form_label(form.url2, 'titre ') }}</div>
+                            <div class="col-sm-9"><span class="ast"> {{ form_errors(form.url2) }} </span>
+                                {{ form_widget(form.url2) }}</div>
+                           
+                      </div>
+                         <div class=" row form-group" >
+                          <div class="col-sm-3">{{ form_label(form.alt2, 'description ') }}</div>
+                            <div class="col-sm-9"><span class="ast"> {{ form_errors(form.alt2) }} </span>{{ form_widget(form.alt2) }}</div>
+                            
+                      </div>
+                         
+                       
+                    </div>
+            </div><br>
+            </div>
+            <div class="col-sm-6">
+             <div class="panel panel-default">
+            
+                <div class="panel-heading"> <h3>Photo 3 </h3>  </div>
+                <div class="panel-body"> 
+		   
+                         <div class=" row form-group" >
+                            <div class="col-sm-3">{{ form_label(form.file3, 'photo 3') }}</div>
+                            <div class="col-sm-9"><span class="ast"> {{ form_errors(form.file3) }} </span>{{ form_widget(form.file3, {'help': 'Merci d \'optimiser vos images(taille,largeur, hauteur).  Extensions acceptees (.jpg , .jpeg , .png )'}) }}</div>
+                             
+                        </div>
+                         <div class=" row form-group" >
+                           <div class="col-sm-3">{{ form_label(form.url3, 'titre ') }}</div>
+                            <div class="col-sm-9"><span class="ast"> {{ form_errors(form.url3) }} </span>
+                                {{ form_widget(form.url3)}}</div>
+                           
+                      </div>
+                         <div class=" row form-group" >
+                        <div class="col-sm-3">{{ form_label(form.alt3, 'des. succint' ) }} </div>
+                            <div class="col-sm-9"><span class="ast"> {{ form_errors(form.alt3) }} </span>{{ form_widget(form.alt3) }}</div>
+                            
+                        </div>
+                          
+                       
+                    </div>
+            </div>
+            </div><br>
+        </div> 
+{%else %}
+    merci de vous <a href="{{ path('fos_user_connexion') }}"  rel="nofollow"> connecter pour utiliser cette fonction.</a>  
+{%endif %}
+

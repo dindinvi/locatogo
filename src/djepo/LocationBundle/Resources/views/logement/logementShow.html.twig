@@ -1,52 +1,76 @@
 {# page detail logement  #}
 {% extends "djepoMainBundle::layout.html.twig" %}
- 
+ {% if form is defined %}  
+  {% form_theme form "djepoLocationBundle:Form:fields.html.twig" %} 
+ {% endif %}
 {% block meta %} 
             <meta name="description" content="{{ entity.propriete.nomPropriete }}"> 
                  <meta name="keywords" content="{{ 'location de vacance '~ entity.propriete.adresse.ville.nomVille ~ ', louer ' ~ entity.typeImmeuble ~ ' à '~ entity.propriete.adresse.ville.nomVille 
                  ~' , ' ~ entity.typeImmeuble ~ ' à louer au togo , location de vacance ' ~ entity.typeImmeuble ~ ' à louer au togo , annonce location '~entity.libelle }}"> 
-     <meta name='ROBOTS' content='INDEX, FOLLOW'> 
-         {% endblock %}
+                
+                 
+                 {% if entity.isActivated is not null  %}
+                     
+                     {% if espClient_show is defined %} 
+                         <meta name='ROBOTS' content='NOINDEX, NOFOLLOW'>  
+                     {% else %}
+                        <meta name='ROBOTS' content='INDEX, FOLLOW'> 
+                     {% endif %} 
+                {% else %} 
+                         <meta name='ROBOTS' content='NOINDEX, NOFOLLOW'>  
+                {% endif %} 
+ {% endblock %}
  
+{% block title %}  
+    {% if entity.isActivated is not null %}
+        {{ "Détail de l annonce " ~ entity.libelle }}
+    {% else %} 
+        {{ "prévisualisation de l'annonce " ~ entity.libelle }}
+    {% endif %} 
+{% endblock %}
 
-{% block title %} {{ 'Détail de l annonce' ~ entity.libelle }}   {% endblock %}
 {% block stylesheets %}   {{ parent() }} {% endblock %}
 {% block header_javascripts %} {{ parent() }} {% endblock %}
 
 {% block navigsite %}
           <ol class="breadcrumb">
-            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
-            <li> <a href="{{ path('logement') }}"> Listes des annonces </a> </li> 
+            <li> <a href="{{ path('djepoMain_accueil') }} "  rel="nofollow"> {{ djepo_home }} </a> </li>
+            {# 'SI AFFICHAGE A PARTIR D UNE RECHERCHE' #}
+             {% if espClient_show is defined %}
+            <li> <a href="{{ path('logement_mes_annonces') }}"  rel="nofollow"> Listes des annonces </a> </li> 
+            {% else %} 
+                        <li> <a href="{{ path('logementSearch', { 'page': app.session.get('search_actuel') }) }}"  rel="nofollow"> Listes des annonces </a> </li>  
+            {% endif %}
+            
             <li class="active"> Détail de l'annonce </li>
         </ol>
  {% endblock %}
-
+        
 {% block my_content %}
+    
+        {% if entity.isActivated is  null %}
+            <div class="well col-sm-12">
+                    {% include "djepoLocationBundle:logement:menuPreview.html.twig" %} 
+            </div>
+     {%endif%}
+   
   <div class="row"> 
   <div class="col-sm-12">
-      <ul class="nav nav-pills">
-        <li><a href="#DESCRIPTION" rel="nofollow"><span class="glyphicon glyphicon-star"></span> DESCRIPTION</a>  </li>
-        <li><a href="#EQUIPEMENTS" rel="nofollow"><span class="glyphicon glyphicon-star"></span> EQUIPEMENTS</a>  </li> 
-        <li><a href="#DISPONIBILITES" rel="nofollow"><span class="glyphicon glyphicon-list-alt"></span> DISPONIBILITES</a>  </li> 
-       {# <li><a href="#SITUATION" rel="nofollow"><span class="glyphicon glyphicon-star"></span> SITUATION</a>  </li> #}
-        <li><a href="#TARIFS" rel="nofollow"><span class="glyphicon glyphicon-euro"></span> TARIFS </a>  </li> 
-        <li><a href="#proprio" rel="nofollow"> <span class="glyphicon glyphicon-envelope"></span> PROPRIETAIRE</a>  </li>
-      </ul>
-           
+         {% include "djepoLocationBundle:logement:menuMove.html.twig" %}            
  </div> 
   <div class="col-sm-12">   <h1 class="header"> {{entity.libelle}}</h1></div>
   </div>
 
      <div class="row espace">
+         {% if entity.image is defined   %} 
         <div class="col-sm-12">
             <div class="row">    
                <div class="col-sm-4">
                  {% if entity.image.url is not null  %}
-                    {# twig_fcttexteimage('copyright : MOI','','','',entity.image.webPath,'BG') #}
-                     {# set liste = twig_affichimage(entity.image.webPath) #}
+                   
                      <button class="btn btn-primary" data-toggle="modal" data-target="#image-1">
-                     <img src="{{ asset( entity.image.webPath | apply_filter('cga')) }}"  alt="{{ entity.image.alt }}" class="img-responsive"  />
-                
+                       <img src="{{ asset(entity.image.locationPath) }}" alt="{{ entity.image.alt }} " class="img-responsive"  />
+                     
                      </button>
                          <div class="modal fade"  id="image-1">
                             <div class="modal-dialog">
@@ -57,8 +81,8 @@
                                 </div>
                                 <div class="modal-body">
                                  <div class=" well">
-                                     <img src="{{ asset(entity.image.webPath | apply_filter('paste')) }}" alt="{{ entity.image.alt }}" class="img-responsive" />
-                                </div></div>
+                                        <img src="{{ asset(entity.image.webPath) }}" alt="{{ entity.image.alt }}" class="img-responsive" />
+                                 </div></div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
                                 </div>
@@ -69,11 +93,11 @@
                   </div>
                      <div class="col-sm-4">
                         {% if entity.image.url2 is not null  %} 
-                            {# set liste = twig_affichimage(entity.image.webPath2) #}
+                                
                                    <!-- Large modal -->
                           <button class="btn btn-primary" data-toggle="modal" data-target="#image-2">
-                               <img src="{{ asset(entity.image.webPath2 | apply_filter('cga')) }}"  alt="{{ entity.image.alt2 }}" class="img-responsive"  />
-                          </button>
+                             <img src="{{ asset(entity.image.locationPath2) }}"  alt="{{ entity.image.alt2 }}" class="img-responsive" />
+                           </button>
                              <div class="modal fade"  id="image-2">
                                 <div class="modal-dialog">
                                   <div class="modal-content">
@@ -82,8 +106,7 @@
                                       <h4 class="modal-title">{{ entity.image.alt2 }}</h4>
                                     </div>
                                     <div class="modal-body">
-                                      <img src="{{ asset(entity.image.webPath2 | apply_filter('paste')) }}" alt="{{ entity.image.alt2 }}" class="img-responsive" />
-                                    </div>
+                                    <img src="{{ asset(entity.image.webPath2) }}" alt="{{ entity.image.alt2 }}" class="img-responsive" />  </div>
                                     <div class="modal-footer">
                                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
                                     </div>
@@ -95,11 +118,11 @@
                              </div>
             <div class="col-sm-4">
                     {% if entity.image.url3 is not null  %}
-                        {# set liste = twig_affichimage(entity.image.webPath3) #}
+                         
                              <!-- Large modal -->
            <button class="btn btn-primary" data-toggle="modal" data-target="#image-3">
-             <img src="{{ asset(entity.image.webPath3 | apply_filter('cga')) }}"  alt="{{ entity.image.alt3 }}" class="img-responsive"  />
-           </button>
+              <img src="{{ asset(entity.image.locationPath3) }}"  alt="{{ entity.image.alt3 }}" class="img-responsive" />
+             </button>
                 <div class="modal fade"  id="image-3">
                        <div class="modal-dialog">
                          <div class="modal-content">
@@ -108,8 +131,8 @@
                              <h4 class="modal-title">{{ entity.image.alt3 }}</h4>
                            </div>
                            <div class="modal-body">
-                             <img src="{{ asset( entity.image.webPath3 | apply_filter('paste')) }}" alt="{{ entity.image.alt3 }}" class="img-responsive" />
-                           </div>
+                              <img src="{{ asset(entity.image.webPath3) }}" alt="{{ entity.image.alt3 }}" class="img-responsive" />
+                          </div>
                            <div class="modal-footer">
                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
                            </div>
@@ -121,7 +144,7 @@
                          </div>
                     
       </div>
-        
+     {% endif %}   
      </div> 
    
 <div class="row">
@@ -150,11 +173,11 @@
          <div class="col-sm-12"> 
            <div class="panel panel-default">
                <div class="panel-heading">
-                       {% set nbr = entity.nbEvaluations %}
-                        {%  if nbr < 2 %} <h2 class="panel-title">  <b> Appréciation  </b> </h2>
-                        {%  else %}   <h2 class="panel-title"> {{ entity.nbEvaluations~' '  }} <b> AppréciationS  </b> </h2>
-                        {%  endif %}   
-                        </div>
+                    {% set nbr = entity.nbEvaluations %}
+                     {%  if nbr < 2 %} <h2 class="panel-title">  <b> Appréciation  </b> </h2>
+                     {%  else %}   <h2 class="panel-title"> {{ entity.nbEvaluations~' '  }} <b> Appréciations  </b> </h2>
+                     {%  endif %}   
+                 </div>
                <div class="panel-body">
                     {{ render(controller("djepoLocationBundle:evaluation:showAppreciation", {'id': entity.id })) }}
                </div>
@@ -220,16 +243,13 @@
              </div>
              <div class="panel-body">
               <div class="well"> 
-                  <h3><b>Montant location:{{ entity.sejour }} cfa </b></h3><br>
+                  <h3><b>Montant location:{{ entity.montantloyer }} cfa </b></h3><br>
                   <small> Le paiement est accepté dans la monnaie indiquée ci-dessous à moins d'un accord préalable entre propriétaire et vacancier.</small>
               
               </div>   
               
              <b>Un acompte non restituable de 30 pour cent du montant total de la location est demandé à la réservation.</b>
-               
-               
-               
-             </div>
+           </div>
          </div>
        </div>
        
@@ -278,21 +298,24 @@
         </div>
   </div>
   <div class="row"> 
-        <div class="col-sm-12">
-            <ul class="nav nav-pills  pull-right">
-              <li><a href="#DESCRIPTION" rel="nofollow"><span class="glyphicon glyphicon-star"></span> DESCRIPTION</a>  </li>
-              <li><a href="#EQUIPEMENTS" rel="nofollow"><span class="glyphicon glyphicon-star"></span> EQUIPEMENTS</a>  </li> 
-              <li><a href="#DISPONIBILITES" rel="nofollow"><span class="glyphicon glyphicon-list-alt"></span> DISPONIBILITES</a>  </li> 
-              <li><a href="#SITUATION" rel="nofollow"><span class="glyphicon glyphicon-star"></span> SITUATION</a>  </li> 
-              <li><a href="{{ path('logement') }}" rel="nofollow">retour aux résultats </a>  </li> 
-
-            </ul>
-
-       </div>  
+        <div class="col-sm-12">  {% include "djepoLocationBundle:logement:menuMove.html.twig" %} <br /> <br />  </div>  
   </div>
-   
-{% endblock %}
-{% block  javascripts %}
+  {% if entity.isActivated is  null %}
+        <div class="well col-sm-12">
+                {% include "djepoLocationBundle:logement:menuPreview.html.twig" %} 
+        </div>
+     {%endif%}
+
+    {% endblock %} 
+    {% if entity.isActivated is not null %}
+        {% block droite %} 
+             {{ parent() }}
+             {% if is_granted('ROLE_USER') %}
+              {{ render(controller("djepoLocationBundle:location:new", {'id': entity.id })) }}
+             {% endif %} 
+         {% endblock %} 
+    {% endif  %}
+    {% block  javascripts %}
        {{ parent() }}
        
       <script type="text/javascript" src="{{ asset('bundles/djepocalendrier/js/calendrierJS.js') }}"></script>

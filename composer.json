@@ -27,8 +27,10 @@
         "friendsofsymfony/jsrouting-bundle": "@stable",
         "adesigns/calendar-bundle": "dev-master",
         "friendsofsymfony/jsrouting-bundle": "@stable",
-        "adesigns/calendar-bundle": "dev-master",
-        "avalanche123/imagine-bundle": "v2.1"
+        "avalanche123/imagine-bundle": "v2.1",
+        "pagerfanta/pagerfanta": "dev-master",
+        "white-october/pagerfanta-bundle": "dev-master",
+        "winzou/console-bundle": "dev-master"
         
     },
     "require-dev": {

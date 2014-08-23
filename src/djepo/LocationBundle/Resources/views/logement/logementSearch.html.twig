@@ -1,0 +1,101 @@
+{% extends "djepoMainBundle::layout.html.twig" %}
+ {# #}
+  
+{% block meta %} 
+    <meta name="description" content="Consulter les annonces"> 
+    <meta name="keywords" content="Consulter les annonces"> 
+    <meta name='ROBOTS' content='NOINDEX, NOFOLLOW'> 
+{% endblock %}
+ 
+{% block title %} Consulter les annonces   {% endblock %}
+{% block stylesheets %}   {{ parent() }}  {% endblock %}
+
+{% block navigsite %}
+    <ol class="breadcrumb">
+      <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+       <li><a href="{{ path('search_new') }}"  rel="nofollow" ><b>Trouver une location</b></a></li>
+      <li class="active"> Resultats de la recherche </li>
+  </ol>
+ {% endblock %}
+
+{% block my_content %}  
+    
+   <h1> Resultats de la recherche</h1>
+         {% if  app.session  %}
+                   {% set info = app.session.get('search_ville') %}  
+         {%else %}
+                   {% set info = 'togo'|upper %}   
+         {%endif %}
+    <!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><a href="#selectionL" role="tab" data-toggle="tab"><h3>Annonces </h3></a></li>
+  <li><a href="#infoPays" role="tab" data-toggle="tab"> <h3>Informations {{ info }} </h3> </a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane active" id="selectionL"> 
+       {% if (total_jobs > 0) %}
+           <div class="row">   
+               <div class="text-center">
+                    <b>{{ total_jobs }}</b> Annonces actuellement en ligne.
+                    {% if last_page > 1 %} - page <b>{{ current_page }}/{{ last_page }}</b> {% endif %}
+                 </div>
+        </div>
+       {% else %}
+             <div class="row text-center">   
+                    <div class="marginInter">
+                        <b>Aucunes Annonces ne correspond à votre recherche.</b>
+                    </div>
+                      <div class="marginInter">
+                       <a href="{{ path('search_new') }}"  rel="nofollow" ><b>Effectuer une autre recherche</b></a> <br />
+                        <a href="{{ path('logement') }}"  rel="nofollow" ><b>Consulter toutes nos locations</b></a>
+                         </div>
+             </div>
+       {% endif %}
+           
+       {% include "djepoLocationBundle:logement:selection_content.html.twig" %}       
+                       
+            <div class="row">      
+                                
+                  {% if last_page > 1 %}
+                    <ul class="pagination pagination-sm">
+                        <a class="btn btn-default" href="{{ path('logementSearch', {   'page': 1 }) }}"> <b><<</b>  </a>  
+
+                              <a class="btn btn-default" href="{{ path('logementSearch', { 'page': previous_page }) }}"> <b><</b> </a>
+
+                            {% for page in 1..last_page %}
+                                  {% if page == current_page %}
+                                       {{ page }}  
+                                  {% else %}
+                                            <a class="btn btn-default" href="{{ path('logementSearch', { 'page': page }) }}">{{ page }}</a>  
+                                  {% endif %}
+                            {% endfor %}
+
+                            <a class="btn btn-default" href="{{ path('logementSearch', { 'page': next_page }) }}">  <b>></b></a> 
+                            <a class="btn btn-default" href="{{ path('logementSearch', { 'page': last_page }) }}"> <b>>></b> </a>  
+                    </ul>
+                  {% endif %}
+
+                  {% if (total_jobs > 0) %}
+                         <div class="text-center">
+                            <b>{{ total_jobs }}</b> Annonces actuellement en ligne.
+                            {% if last_page > 1 %} - page <b>{{ current_page }}/{{ last_page }}</b> {% endif %}
+                        </div>
+
+              {% endif %}
+            </div>
+
+          </div>
+      <div class="tab-pane" id="infoPays">
+          les new du pays
+      </div>
+</div>
+    
+{% endblock %}
+
+
+   {% block javascripts %}	
+             {{ parent() }}             
+    
+{% endblock %}

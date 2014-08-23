@@ -1,6 +1,7 @@
 <?php
 
 namespace djepo\MainBundle\Utils;
+use Symfony\Component\HttpFoundation\Request;
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -12,12 +13,24 @@ namespace djepo\MainBundle\Utils;
  * @author HOME
  */
 class Outils extends \Twig_Extension {
-    //put your code here
+      
+     /**
+     *
+     * @var \Twig_Environment
+     */
+     protected $environment;
+     protected $session; 
+       protected $request;
        
-            protected $session; 
-        public function __construct($session)
+        public function __construct($session )
         {
-            $this->session = $session; 
+            $this->session = $session;  
+            
+        }
+        
+        public function initRuntime(\Twig_Environment $environment)
+        {
+            $this->environment = $environment;
         }
         /*
         * Twig va exécuter cette méthode pour savoir quelle(s) fonction(s)ajoute notre service
@@ -26,8 +39,10 @@ class Outils extends \Twig_Extension {
             return array(
                     'urlFormat' => new \Twig_Function_Method($this, 'url_format'),
                     'comparateurString' => new \Twig_Function_Method($this, 'ComparateurString'),
-                    'mailExpression' => new \Twig_Function_Method($this, 'mailExpression')
-            );
+                    'mailExpression' => new \Twig_Function_Method($this, 'mailExpression'),
+                    'getControllerName' => new \Twig_Function_Method($this, 'getControllerName'),
+                     'getActionName' => new \Twig_Function_Method($this, 'getActionName'),
+                     );
         }
         /*
         * La méthode getName() identifie votre extension Twig, elle est obligatoire
@@ -36,6 +51,26 @@ class Outils extends \Twig_Extension {
         {
         return 'Outils';
         }
+         /**
+        * Get controller name
+        */
+        public function getControllerName()
+        {
+            $regexp = "#Controller\\\([a-zA-Z]*)Controller#";
+            $results = array();
+            preg_match($regexp, $this->request->get('_controller'), $results);
+           return strtolower($results[1]);
+        }
+        /**
+         * Get action name
+         */
+         public function getActionName()
+         {
+            $regexp = "#::([a-zA-Z]*)Action#";
+            $results = array();
+            preg_match($regexp, $this->request->get('_controller'), $results);
+           return $results[1];
+         }
          
         function mailExpression($mail, $annonce,$proprio){
         

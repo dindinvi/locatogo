@@ -1,0 +1,34 @@
+ {% for entity in entities %}
+                <div class="row marginInter">  
+                          <div class="col-sm-12">
+                              <div class="row">   
+                                  <div class="col-sm-4"> 
+                                       <a href="{{ path('logement_logementShow',  { 
+                                                                        'ville': comparateurString(entity.propriete.adresse.ville.nomVille),
+                                                                        'tLogement': comparateurString(entity.typeImmeuble),
+                                                                        'id': entity.id ,
+                                                                        'libelle': comparateurString(entity.libelle)
+                                                                     }) }}"> 
+                                      <img src="{{ asset(entity.image.locationPath) }}" alt="{{ entity.image.alt }}" class="img-responsive" /> </a>
+                                       
+                                       
+                                  </div>
+                                   <div class="col-sm-7"> 
+                                       
+                                        <div class="col-sm-12 well well-sm text-center"><b>{{ entity.libelle }}</b> </div>
+                                        <div class="col-sm-12 well well-sm"> {{ entity.typeImmeuble }}  {{ entity.surface }} {{ entity.transport }}</div>
+                                        <div class="col-sm-12 well well-sm"><a href="{{ path('logement_logementShow',  { 
+                                                                        'ville': comparateurString(entity.propriete.adresse.ville.nomVille),
+                                                                        'tLogement': comparateurString(entity.typeImmeuble),
+                                                                        'id': entity.id ,
+                                                                        'libelle': comparateurString(entity.libelle)
+                                                                     }) }}"><span class="pull-right">détail de l'Annonce</span> </a> 
+                                            
+                                            </div>
+                                   </div>
+                              </div>
+                           </div>
+                               <div class="col-sm-11 well well-sm marginHB">  <span class="pull-left">Ville: {{ entity.propriete.adresse.ville.nomVille }}</span><span class="pull-right"> Montant location:<b> {{ entity.montantloyer }} cfa  </b> </span>  </div>
+                </div>
+            {% endfor %}  
+            

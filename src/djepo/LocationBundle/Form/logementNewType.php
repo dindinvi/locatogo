@@ -11,20 +11,11 @@ class logementNewType extends logementType
     {
        parent::buildForm($builder, $options);
        $builder
-           ->remove('dateAnnonce')
-           ->remove('transport')
-           ->remove('dateFinAnnonce')
-           ->remove('dateUpdateAnnonce')
-           ->remove('nbEvaluations')
-          // ->remove('evaluations')
            ->remove('propriete')
            ->add('propriete', new proprieteNewType)
                ;
     }
 
     
-    public function getName()
-    {
-        return 'djepo_locationbundle_newlogementtype';
-    }
+   
 }

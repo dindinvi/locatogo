@@ -1,20 +1,41 @@
-{% extends '::base.html.twig' %}
+{% extends "djepoMainBundle::layout.html.twig" %}
+  
+{% block meta %} 
+    <meta name="description" content="Déposer  une location"> 
+    <meta name="keywords" content="Déposer  une location"> 
+    <meta name='ROBOTS' content='NOINDEX, NOFOLLOW'> 
+{% endblock %}
+ 
 
-{% block body -%}
+{% block title %} Déposer  une location   {% endblock %}
+{% block stylesheets %} {{ parent() }}  {% endblock %}
+
+{% block navigsite %}
+          <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+             {% if app.session.get('selecteur') == 'Pro' %}
+                 <li> <a href="{{ path('reservation_pro') }}"> Mes locations </a> </li>
+             {% else %}
+                 <li> <a href="{{ path('reservation_van') }}"> Mes locations </a> </li>
+             {% endif %}
+            <li class="active"> Déposer  une location </li>
+        </ol>
+ {% endblock %}
+
+{% block my_content %}
+    
     <h1>location creation</h1>
-
-    <form action="{{ path('location_create') }}" method="post" {{ form_enctype(form) }}>
-        {{ form_widget(form) }}
-        <p>
-            <button type="submit">Create</button>
-        </p>
-    </form>
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('location') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+   <div class="row">
+       <div class="col-sm-offset-2 col-sm-8">
+        {% include "djepoLocationBundle:location:new_content.html.twig" %}
+      </div>
+            <ul class="record_actions">
+               {% if app.session.get('selecteur') == 'Pro' %}
+                    <a href="{{ path('reservation_pro') }}"> Back to the list </a>
+            {% else %}
+                    <a href="{{ path('reservation_van') }}"> Back to the list </a>
+            {% endif %}
+           </ul>
+   </div>
+ 
 {% endblock %}

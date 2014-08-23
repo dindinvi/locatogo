@@ -1,18 +1,33 @@
+#djepoMain_accueil:
+#    pattern:   /Acceuil/{page}
+#    defaults: { _controller: "djepoLocationBundle:logement:logementIndex" , page: 1 }
+    
 logement:
-    pattern:   /location/
+    pattern:   /toutes-les-Annonces/
     defaults: { _controller: "djepoLocationBundle:logement:index" }
+ 
+    
+logementSearch:
+    pattern:   /trouver-une-location/{page}
+    defaults: { _controller: "djepoLocationBundle:logement:logementSearch" , page: 1 } 
+    
+selectionIndex:
+    pattern:   /Annonces/
+    defaults: { _controller: "djepoLocationBundle:logement:selectionIndex" }
 
 logement_gmap:
     pattern:   /location/localisation
     defaults: { _controller: "djepoLocationBundle:logement:gMap" }
     
-logement_show:
-    pattern:   /location/{id}/show
-    defaults: { _controller: "djepoLocationBundle:logement:show" }
 
 logement_logementShow:
     pattern:   /location/{tLogement}/{ville}/{id}/détail-de-l-Annonce-{libelle}
     defaults: { _controller: "djepoLocationBundle:logement:logementShow" }
+
+logement_show:
+    pattern:   /espace-client/location/{id}/show
+    defaults: { _controller: "djepoLocationBundle:logement:show" }
+    
     
 logement_new:
     pattern:  /espace-client/location/déposer-une-annonce
@@ -36,5 +51,19 @@ logement_delete:
     pattern:   /espace-client/location/{id}/delete
     defaults: { _controller: "djepoLocationBundle:logement:delete" }
     requirements: { _method: post|delete }
+    
+logement_preview:
+    pattern:   /espace-client/preview/{id}/show
+    defaults: { _controller: "djepoLocationBundle:logement:preview" }
+    
+logement_publish:
+    pattern:   /espace-client/publication/annonce/{id}
+    defaults: { _controller: "djepoLocationBundle:logement:publish" }
+    requirements: { _method: post }
+    
+    
+logement_mes_annonces:
+    pattern:   /espace-client/Mes-Annonces-en-cours
+    defaults: { _controller: "djepoLocationBundle:logement:mesAnnonces" }
 
  

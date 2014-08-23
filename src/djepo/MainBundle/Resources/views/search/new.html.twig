@@ -1,0 +1,61 @@
+ {% extends "djepoMainBundle::layout.html.twig" %}
+ {# #}
+ {% if form is defined %}  
+  {% form_theme form "djepoMainBundle:Form:fields.html.twig" %} 
+ {% endif %}  
+{% block meta %} 
+            <meta name="description" content="Consulter les annonces"> 
+                 <meta name="keywords" content="Consulter les annonces"> 
+     <meta name='ROBOTS' content='NOINDEX, NOFOLLOW'> 
+         {% endblock %}
+ 
+
+{% block title %} Consulter les annonces   {% endblock %}
+{% block stylesheets %}   {{ parent() }}  {% endblock %}
+
+{% block navigsite %}
+          <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <li class="active">Rechercher</li>
+        </ol>
+ {% endblock %}
+
+{% block my_content %} 
+    <h1 class="text-center"> Trouver une location pour ses vacances</h1>
+    <div class="panel panel-success">
+                        <div class="panel-heading text-center"> <b>{{ 'Top 5 d\'une recherche réussie.'| upper }}</b> </div>
+                            <div class="panel-body">
+                                <table class="table table-bordered table-borderless">
+                                    <tr><td>1.  Optimiser vos images(taille,largeur, hauteur). Extensions acceptées (.jpg , .jpeg , .png ).</td></tr>
+                                    <tr><td>2.  Prenez le temps de rédiger votre titre et votre description. Inspirez-vous de nos modèles. </td></tr>
+                                    <tr><td>3.  Fixer votre prix en fonction de votre bien et des tarifs habituellement pratiques dans votre secteur .  </td></tr>
+                                    <tr><td>4.  Avoir un bon relationnel et Être disponible pour le suivi de votre annonce</td></tr>
+                                    <tr><td>5.  Paiement sécurisé </td></tr>
+                                </table> 
+                            </div>
+
+                        <div class="panel-footer text-center">  
+                              <a  href="{{ path('djepoMain_guideProprietaire') }}"><b>Guide du Propriétaire</b></a> .
+                        </div>
+                  </div>
+    <div class="row">   
+        <div class=" col-sm-2"></div>
+        <div class="col-sm-8 well well-sm">
+            <form class="form-horizontal marginInter" role="form" action="{{ path('search_create') }}" method="post" {{ form_enctype(form) }}>
+
+                {{ form_row(form.dateLocation) }}
+                {{ form_row(form.dateFinLocation) }}
+                {{ form_row(form.montantLoyer, {'help':' Entrez votre budget maximun'})}}
+                {{ form_row(form.nomVille) }}
+                {{ form_rest(form) }} <br>
+                   <div class="row form-group">
+                        <div class="col-sm-offset-2 col-sm-3">
+                               <input type="submit" class=" btn btn-primary" value="Chercher" /> 
+                        </div>
+                    </div>
+                </form>
+         </div>
+        <div class=" col-sm-2"></div>
+</div>
+      
+{% endblock %}

@@ -4,6 +4,8 @@ namespace djepo\LocationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+
+use Symfony\Component\Validator\ExecutionContextInterface;
 //use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
@@ -11,6 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table(name="loca_location")
  * @ORM\Entity(repositoryClass="djepo\LocationBundle\Entity\locationRepository") 
+ * @Assert\Callback(methods={"dateLocationValide"})
  * @ORM\HasLifecycleCallbacks()
  */
 
@@ -25,12 +28,18 @@ class location
      */
     private $id;
     /**
-* @ORM\ManyToOne(targetEntity="djepo\LocationBundle\Entity\logement", cascade={"Persist"})
-* @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="djepo\LocationBundle\Entity\logement", inversedBy="locations")
+    * @ORM\JoinColumn(nullable=false)
      * @Assert\Valid()
 */
     private $logement;
-    
+    /**
+* @ORM\OneToOne(targetEntity="djepo\LocationBundle\Entity\evaluation", mappedBy="location")
+*@ORM\JoinColumn(nullable=true)
+* @Assert\Valid()
+*/
+private $evaluation;
+
      //Le client peut disparaitre mais pas ses selections ou locations le contraire aussi est vrai
     
    /**
@@ -44,18 +53,19 @@ private $user;
     /**
      *
      * @ORM\OneToOne(targetEntity="djepo\UserBundle\Entity\facture", mappedBy="location", cascade={"Persist"})
+     * @ORM\JoinColumn(nullable=true)
      * @Assert\Valid()
      */
     protected $facture;
     /**
      * @var \DateTime
-     *@Assert\Date()
+     *@Assert\DateTime()
      * @ORM\Column(name="dateLocation", type="date", nullable=false)
      */
     private $dateLocation;
   /**
      * @var \DateTime
-     *@Assert\Date()
+     *@Assert\DateTime()
      * @ORM\Column(name="dateFinLocation", type="date", nullable=true)
      */
     private $dateFinLocation;
@@ -63,7 +73,7 @@ private $user;
     
     /**
      * @var \DateTime
-     *@Assert\Date()
+     *@Assert\DateTime()
      * @ORM\Column(name="dateUpdateLocation", type="date", nullable=true)
      */
     private $dateUpdateLocation;
@@ -83,24 +93,29 @@ private $user;
     /**
      * @var integer
      *@Assert\Regex(pattern="/\d/", message="Votre montant  n'est pas valide.")
-     * @ORM\Column(name="montantLoyer", type="integer", nullable=false)
+     * @ORM\Column(name="montantLoyer", type="integer", nullable=true)
      */
     private $montantLoyer;
 
     /**
      * @var string
-     * @Assert\Regex(pattern="/\D/", message="Votre sélection n'est pas valide.")
-     * @ORM\Column(name="typeLoyer", type="string", length=255, nullable=false)
+     * @ORM\Column(name="typeLoyer", type="string", length=255, nullable=true)
      */
     private $typeLoyer;
 
     /**
      * @var integer
-     *@Assert\Regex(pattern="/\d/", message="Votre montant  n'est pas valide.")
-     * @ORM\Column(name="montantCharges", type="integer", nullable=false)
+     * @ORM\Column(name="montantCharges", type="integer", nullable=true)
      */
     private $montantCharges;
+    private $now;
 
+public function __construct(){
+     $this->valide = false;
+     $this->now = new \DateTime();
+     $this->dateFinLocation = new \DateTime();
+     $this->dateLocation = new \DateTime();
+}
 
     /**
      * Get id
@@ -134,7 +149,10 @@ private $user;
     {
         return $this->dateLocation;
     }
-
+    
+    
+    
+    
 
     /**
      * Set montantLoyer
@@ -323,7 +341,26 @@ private $user;
     {
         return $this->dateFinLocation;
     }
-
+ 
+    public function dateLocationValide(ExecutionContextInterface $context)
+    {
+        
+         if ($this->dateLocation <= $this->now) {  
+             $context->addViolationAt('dateLocation', 'La date de début doit être supérieur à la date du jour.', array(), null);}
+       if ($this->dateFinLocation <= $this->now) {  
+           $context->addViolationAt('dateFinLocation', 'La date de fin doit être supérieur à la date du jour.', array(), null);}
+       
+         if( !empty($this->dateFinLocation) && !empty($this->dateLocation)) {
+               if ($this->dateFinLocation < $this->dateLocation) { 
+                   $context->addViolationAt('dateLocation', 'La date de début doit être inférieur à la date de fin.', array(), null);}
+            
+        } else
+            { // 2e argument : le message d'erreur
+                $context->addViolationAt('dateLocation', 'Entrer une La date de début et une date de fin.', array(), null);
+                
+            }
+    }
+    
     /**
      * Set dateUpdateLocation
      *
@@ -370,40 +407,15 @@ private $user;
         return $this->token;
     }
     
-    
-     
-    
-    /**
-     * @ORM\PrePersist
-     */
-    
-    public function setDateLocationValue()
+    public function getEvaluation()
     {
-        if(!$this->getDateLocation())
-        {
-            $this->dateLocation = new \DateTime();
-        }
+        return $this->evaluation;
     }
-
-    /**
-     * @ORM\PreUpdate
-     */
-    public function setDateUpdateLocationValue()
+    
+    public function setEvaluation(\djepo\LocationBundle\Entity\evaluation $evaluation)
     {
-        $this->dateUpdateLocation = new \DateTime();
+        $this->evaluation = $evaluation; 
+        return $this;
     }
-
-    /**
-     * @ORM\PrePersist
-     */
-    public function setDateFinLocationtValue()
-        {
-            if(!$this->getDateFinLocation())
-            {
-                $now = $this->getDateFinLocation() ? $this->getDateFinLocation()->format('U') : time();
-                $this->dateFinLocation = new \DateTime(date('Y-m-d H:i:s', $now + 86400 * 30));
-            }
-        }
-
        
 }

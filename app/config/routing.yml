@@ -56,9 +56,6 @@ fos_user_group:
 
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
-    
-adesigns_calendar:
-    resource: "@ADesignsCalendarBundle/Resources/config/routing.xml"
 
     
 _imagine:

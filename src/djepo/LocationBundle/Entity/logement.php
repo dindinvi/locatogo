@@ -29,6 +29,26 @@ class logement
 */
 private $propriete;
 
+   /**
+* @ORM\OneToMany(targetEntity="djepo\LocationBundle\Entity\location", mappedBy="logement")
+*@ORM\JoinColumn(nullable=true)
+* @Assert\Valid()
+*/
+private $locations;
+  
+  
+/**
+* @ORM\OneToMany(targetEntity="djepo\LocationBundle\Entity\evaluation", mappedBy="logement")
+* @Assert\Valid()
+*/
+private $evaluations;  
+    
+    
+/**
+* @ORM\Column(name="isActivated", type="boolean", nullable=true)
+*/
+private $isActivated;
+
     /**
 * @ORM\ManyToOne(targetEntity="djepo\LocationBundle\Entity\image", cascade={"Persist","remove"})
 * @ORM\JoinColumn(nullable=true)
@@ -36,11 +56,6 @@ private $propriete;
 */
 private $image;
 
-/**
-* @ORM\OneToMany(targetEntity="djepo\LocationBundle\Entity\evaluation", mappedBy="logement")
-* @Assert\Valid()
-*/
-private $evaluations;
 
     /**
      * @var string
@@ -101,7 +116,7 @@ private $evaluations;
     /**
      * @var integer
      * @Assert\NotBlank(message="Veuillez entrer un montant pour la location")
-     * @ORM\Column(name="montantloyer", type="integer", nullable=true)
+     * @ORM\Column(name="montantloyer", type="integer", nullable=false)
      */
     private $montantloyer;
     
@@ -584,5 +599,65 @@ public function setMontantloyer($montantloyer)
     public function getNbEvaluations()
     {
         return $this->nbEvaluations;
+    }
+    
+    
+    
+    /**
+     * Set isActivated
+     *
+     * @param \DateTime $isActivated
+     * @return logement
+     */
+    public function setIsActivated($isActivated)
+    {
+        $this->isActivated = $isActivated;
+
+        return $this;
+    }
+
+    /**
+     * Get isActivated
+     *
+     * @return \DateTime 
+     */
+    public function getIsActivated()
+    {
+        return $this->isActivated;
+    }
+    
+
+    /**
+     * Add location
+     *
+     * @param \djepo\LocationBundle\Entity\location $location
+     * @return logement
+     */
+    public function addLocation(\djepo\LocationBundle\Entity\location $location)
+    {
+        $this->locations[] = $location;
+       $locations->setLogement($this);
+        return $this;
+    }
+
+    /**
+     * Remove location
+     *
+     * @param \djepo\LocationBundle\Entity\location $location
+     */
+    public function removeLocation(\djepo\LocationBundle\Entity\location $location)
+    {
+        $this->locations->removeElement($location);
+         $location->setLogement(null);
+    }
+
+    /**
+     * Get locations
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLocations()
+    {
+        return $this->locations;
     }
 }

@@ -12,7 +12,7 @@ class AdresseNewType extends AdresseType
        parent::buildForm($builder, $options);
         $builder 
             ->remove('ville')
-             ->add('ville', new VilleGMapType)
+             ->add('ville', new VilleType)
             
               ;
          

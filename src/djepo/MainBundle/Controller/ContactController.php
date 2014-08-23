@@ -29,7 +29,7 @@ class ContactController extends Controller
         if( $formHandler->process()){
         	                
 		       $message = \Swift_Message::newInstance()
-				->setSubject('Contact enquiry from symblog')
+				->setSubject('Demande d information ')
 				->setFrom($this->container->getParameter('mailer_user'))
                                ->setTo($this->container->getParameter('mailer_user_sender'));
                        
@@ -69,7 +69,7 @@ class ContactController extends Controller
         if( $formHandler->process()){
         	                
             $message = \Swift_Message::newInstance()
-                     ->setSubject('Contact enquiry from symblog')
+                     ->setSubject('Démande d information ')
                      ->setFrom($this->container->getParameter('mailer_user'))
                     ->setTo($aQui);
             $message->setBody($this->renderView('djepoMainBundle:Contact:contactMail.txt.twig',  array('enquiry' => $formContact)));

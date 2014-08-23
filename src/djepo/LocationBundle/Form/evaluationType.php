@@ -13,7 +13,7 @@ class evaluationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('user', new UserType)
+            //->add('user', new UserType)
             ->add('logement','entity', array(
                                         'class' => 'djepoLocationBundle:logement',
                                         'property' => 'libelle',
@@ -22,22 +22,13 @@ class evaluationType extends AbstractType
                                             return null;
                                         },  )) 
               
-            ->add('note','text', array( 'max_length' => 2, 'label' => 'note',   'required' => true)
-                    )
-            ->add('commentaire','text',array('required' => false, 'label' => 'commentaire'))
-            ->add('etatDuBien','text', array('required' => false))
-            ->add('situation','text', array('required' => false))   
+            ->add('note','text', array( 'max_length' => 2, 'label' => 'note',   'required' => true) )
+            ->add('commentaire','text',array('required' => true, 'label' => 'commentaire'))
+            ->add('etatDuBien','text', array('required' => true, 'label' => 'etat du Bien'))
+            ->add('situation','text', array('required' => true, 'label' => 'situation'))   
           
             
-              /* 
-            //->add('dateEvaluation','date')
-               * ->add('user','entity', array(
-                                        'class' => 'djepoUserBundle:User',
-                                        'property' => 'username',
-                                        'query_builder' => function(EntityRepository $er) {
-                                            return null;
-                                        }, ))
-                */
+              
         ;
     }
 

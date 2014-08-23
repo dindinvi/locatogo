@@ -12,9 +12,7 @@ class proprieteNewType extends  proprieteType
     {
         parent::buildForm( $builder,$options);
         $builder
-            ->remove('proprietaire')
-            ->remove('nomPropriete')
-            ->remove('typepropriete')    
+            ->remove('proprietaire')    
             ->add('proprietaire', new proprietaireNewType())
            
         ;

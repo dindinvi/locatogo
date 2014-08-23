@@ -15,9 +15,9 @@ public function load(ObjectManager $manager)
         $proprio = new proprietaire();
         $proprio2 = new proprietaire();
 
-        $proprio->setToken('appament');
+        /*$proprio->setToken('appament');
         $proprio2->setToken('villedelome');
-        
+        */
          /*GESTION DES CLES */
         $proprio->setPersonne($this->getReference('user_pers'));
          $proprio2->setPersonne($this->getReference('user_pers2'));

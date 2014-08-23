@@ -40,6 +40,12 @@ twig:
         djepo_Himg:             %Width_img%
         djepo_Wimg:             %Heigh_img%
         djepo_userSender:       %mailer_user_sender%
+        djepo_max_pager:        %max_pager%
+        min_Width:              %minWidth%
+        max_Width:              %maxWidth%
+        min_Height:             %minHeight%
+        max_Height:             %maxHeight%
+        max_Size:               %maxSize% 
     #form:
         #resources:
             #- '::form_div_layout.html.twig'          

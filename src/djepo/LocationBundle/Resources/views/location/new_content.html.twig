@@ -1,0 +1,24 @@
+{% if is_granted('ROLE_USER') %} 
+  <div class="row">
+     <div class="panel panel-info">
+        <div class="panel-heading"> Réservation </div>
+              <div class="panel-body">
+                        <form action="{{ path('location_create') }}" method="post" {{ form_enctype(form) }}>
+                              {{ form_errors(form) }}
+                             {{ form_row(form.dateLocation) }}<br /> 
+                             {{ form_row(form.dateFinLocation) }}
+                              {{ form_rest(form) }} <br /> 
+                                <div class=" row form-group">
+                                   <div class="col-sm-9"> 
+                                       <input type="submit" class="btn btn-primary btn-block" value="Réservation" /> 
+                                   </div>
+                                </div>
+                         </form>
+                  </div>
+
+       </div>	   
+  </div>
+{%else %}
+    merci de vous <a href="{{ path('fos_user_connexion') }}"  rel="nofollow"> connecter pour utiliser cette fonction.</a>  
+{%endif %}
+

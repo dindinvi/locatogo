@@ -1,0 +1,196 @@
+<?php
+
+namespace djepo\LocationBundle\Entity;
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * evaluation
+ *
+ * @ORM\Table(name="loca_evaluation")
+ * @ORM\Entity(repositoryClass="djepo\LocationBundle\Entity\evaluationRepository")
+ */
+class evaluation
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    /**
+* @ORM\OneToOne(targetEntity="djepo\UserBundle\Entity\User", cascade={"Persist"})
+* @ORM\JoinColumn(nullable=false)
+* @Assert\Valid()   
+*/
+private $user;
+    /**
+* @ORM\ManyToOne(targetEntity="djepo\LocationBundle\Entity\logement", cascade={"Persist"})
+* @ORM\JoinColumn(nullable=false)
+* @Assert\Valid()
+*/
+private $logement;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="note", type="integer")
+     */
+    private $note;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="commentaire", type="text")
+     */
+    private $commentaire;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateEvaluation", type="datetime")
+     */
+    private $dateEvaluation;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="etatDuBien", type="integer")
+     */
+    private $etatDuBien;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="situation", type="integer")
+     */
+    private $situation;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set note
+     *
+     * @param integer $note
+     * @return evaluation
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
+
+        return $this;
+    }
+
+    /**
+     * Get note
+     *
+     * @return integer 
+     */
+    public function getNote()
+    {
+        return $this->note;
+    }
+
+    /**
+     * Set commentaire
+     *
+     * @param string $commentaire
+     * @return evaluation
+     */
+    public function setCommentaire($commentaire)
+    {
+        $this->commentaire = $commentaire;
+
+        return $this;
+    }
+
+    /**
+     * Get commentaire
+     *
+     * @return string 
+     */
+    public function getCommentaire()
+    {
+        return $this->commentaire;
+    }
+
+    /**
+     * Set dateEvaluation
+     *
+     * @param \DateTime $dateEvaluation
+     * @return evaluation
+     */
+    public function setDateEvaluation($dateEvaluation)
+    {
+        $this->dateEvaluation = $dateEvaluation;
+
+        return $this;
+    }
+
+    /**
+     * Get dateEvaluation
+     *
+     * @return \DateTime 
+     */
+    public function getDateEvaluation()
+    {
+        return $this->dateEvaluation;
+    }
+
+    /**
+     * Set etatDuBien
+     *
+     * @param integer $etatDuBien
+     * @return evaluation
+     */
+    public function setEtatDuBien($etatDuBien)
+    {
+        $this->etatDuBien = $etatDuBien;
+
+        return $this;
+    }
+
+    /**
+     * Get etatDuBien
+     *
+     * @return integer 
+     */
+    public function getEtatDuBien()
+    {
+        return $this->etatDuBien;
+    }
+
+    /**
+     * Set situation
+     *
+     * @param integer $situation
+     * @return evaluation
+     */
+    public function setSituation($situation)
+    {
+        $this->situation = $situation;
+
+        return $this;
+    }
+
+    /**
+     * Get situation
+     *
+     * @return integer 
+     */
+    public function getSituation()
+    {
+        return $this->situation;
+    }
+}

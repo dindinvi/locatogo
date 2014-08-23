@@ -26,7 +26,7 @@ class AppKernel extends Kernel
             new djepo\UserBundle\djepoUserBundle(),
             new djepo\MainBundle\djepoMainBundle(),
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
-            new ADesigns\CalendarBundle\ADesignsCalendarBundle(),
+            new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new djepo\KickStartBundle\djepoKickStartBundle(),
             new djepo\BootStrapBundle\djepoBootStrapBundle(),
             new djepo\LocationBundle\djepoLocationBundle(),
@@ -39,6 +39,7 @@ class AppKernel extends Kernel
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
             $bundles[] = new JMS\DebuggingBundle\JMSDebuggingBundle($this);
+            $bundles[] = new CoreSphere\ConsoleBundle\CoreSphereConsoleBundle();
             
         }
 

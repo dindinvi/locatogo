@@ -1,28 +1,53 @@
-{% extends '::base.html.twig' %}
+{% extends "djepoUserBundle::layout.html.twig" %}
+ {% if form is defined %}
+ {% form_theme form "djepoMainBundle:Form:fields.html.twig" %} 
+ {% endif %}
+ 
+{% block meta %} 
+ <meta name="description" content="Modifier mon évaluation">
+ <meta name='ROBOTS' content="noindex,nofollow">
+  {% endblock %} 
+{% block title %} {{ parent() ~ ' -  Modifier mon évaluation'  }}  {% endblock %}
+ 
+{% block navigsite %} 
+ 
+<ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <li><a  href="{{ path('djepoUser_profile') }}"> Admin </a></li>
+           <li><a href="{{ path('logement_mes_annonces') }}"> Mes annonces </a> </li> 
+            <li class="active">Modifier </li>
+        </ol>
+ 
+{% endblock %}
 
-{% block body -%}
-    <h1>evaluation edit</h1>
+{% block fos_user_content %}	
 
-    <form action="{{ path('no_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
-        <input type="hidden" name="_method" value="PUT" />
-        {{ form_widget(edit_form) }}
-        <p>
-            <button type="submit">Edit</button>
-        </p>
-    </form>
+<h1>{{ app.user.username }} :  <h1>evaluation edit</h1>
+    
+ {% if is_granted('ROLE_ADMIN') %}
+            <form action="{{ path('eval_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }}>
+                <input type="hidden" name="_method" value="PUT" />
+                {{ form_widget(form) }}
+                <p>
+                    <button type="submit">Modifier </button>
+                </p>
+            </form>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('no') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <form action="{{ path('no_delete', { 'id': entity.id }) }}" method="post">
-            <input type="hidden" name="_method" value="DELETE" />
-            {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
-        </form>
-    </li>
-</ul>
+                <ul class="record_actions">
+            <li>
+                <a href="{{ path('eval') }}">
+                    Back to the list
+                </a>
+            </li>
+            <li>
+                <form action="{{ path('eval_delete', { 'id': entity.id }) }}" method="post">
+                    <input type="hidden" name="_method" value="DELETE" />
+                    {{ form_widget(delete_form) }}
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        </ul>
+  {% else %}
+      <div class="alert alert-warning">Vous ne disposez pas des droits necessaires pour afficher cette page.</div>
+    {% endif %}   
 {% endblock %}

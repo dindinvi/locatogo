@@ -1,0 +1,46 @@
+{{ "{% extends 'djepoMainBundle::layout.html.twig' %}" }}
+
+{{ "{% block meta %} "}}
+	 <meta name="description" content="{{ entity }}">
+	 <meta name='ROBOTS' content="noindex,nofollow">
+{{' {% endblock %} ' }} 
+
+{{' {% block navigsite %} '}}
+          <ol class="breadcrumb">
+            <li> <a href="#"> # </a> </li>
+            <li><a  href="#"> Admin </a></li>
+            <li class="active">{{ entity }} list </li>
+        </ol>
+{{' {% endblock %} ' }}
+ 
+ {{'{% block my_content %}' }}
+    <h1>{{ entity }}</h1>
+
+    <div class="table-responsive">
+     <table class="table table-bordered table-striped table-condensed">
+        <tbody>
+        {%- for field, metadata in fields %}
+
+            <tr>
+                <th>{{ field|capitalize }}</th>
+
+            {%- if metadata.type in ['date', 'datetime'] %}
+
+                <td>{{ '{{ entity.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}' }}</td>
+
+            {%- else %}
+
+                <td>{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</td>
+
+            {%- endif %}
+
+            </tr>
+
+        {%- endfor %}
+
+        </tbody>
+    </table>
+    </div>
+    {% set hide_edit, hide_delete = false, false %}
+    {% include 'views/others/record_actions.html.twig.twig' %}
+{{ "{% endblock %}" }}

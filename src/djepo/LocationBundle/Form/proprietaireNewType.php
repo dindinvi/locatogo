@@ -12,7 +12,7 @@ class proprietaireNewType extends proprietaireType
         parent::buildForm( $builder, $options);
         $builder
                 ->remove('typeProprietaire') 
-                ->remove('token') 
+                //->remove('token') 
                 ->remove('personne')
                 ->add('personne', new PersonneNewType())
                /* ->add('personne','entity', array(

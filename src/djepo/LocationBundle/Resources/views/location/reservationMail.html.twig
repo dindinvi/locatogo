@@ -1,0 +1,20 @@
+
+{# src/Sdk/MainBundle/Resources/views/Contact/contactEmail.txt.twig #}
+ 
+Object:  réservation
+Merci de répondre à:  {{ entity.user.email }}
+Message:
+Une demande de réservation à été posée sur le site {{ websiteName }}.
+Vous trouverez ci-apres un résume. 
+merci de la valider rapidement dans la l'espace client du site {{ websiteName }}.
+
+               
+{% if entity.user.personne.firstname!= ""  %}  Prenom : {{ entity.user.personne.firstname }} {% endif %}
+{% if entity.user.personne.lastname!= ""  %} Nom : {{ entity.user.personne.lastname }} {% endif %}
+{% if entity.user.email!= ""  %} Email : {{ entity.user.email }} {% endif %}
+{% if entity.dateLocation!= ""  %} Date début location : {{ entity.dateLocation|date('d-m-Y')  }}{% endif %}
+{% if entity.dateFinLocation!= ""  %} Date fin location : {{ entity.dateFinLocation|date('d-m-Y') }}{% endif %}
+{% if entity.logement.montantLoyer  != ""  %} Montant : {{ entity.logement.montantLoyer }} {% endif %}
+{% if  entity.logement.typeImmeuble  != ""  %} Type de location :{{ entity.logement.typeImmeuble }} {% endif %}
+
+Cordialement. l équipe de {{ websiteName }}

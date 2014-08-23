@@ -1,45 +1,69 @@
-{% extends '::base.html.twig' %}
+{% extends "djepoMainBundle::layout.html.twig" %}
+ 
+{% block meta %} 
+            <meta name="description" content="Mes evaluations"> 
+                 <meta name="keywords" content="Mes evaluations"> 
+     <meta name='ROBOTS' content='NOINDEX, NOFOLLOW'> 
+         {% endblock %}
+ 
 
-{% block body -%}
+{% block title %} Mes evaluations   {% endblock %}
+{% block stylesheets %}   {{ parent() }}  {% endblock %}
+
+{% block navigsite %}
+          <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <li class="active"> Mes evaluations </li>
+        </ol>
+ {% endblock %}
+
+{% block my_content %}
+    
     <h1>evaluation list</h1>
-
-    <table class="records_list">
+ {% if  entitiesNbr > 0 %}
+    <table class="table table-condensed table-bordered">
         <thead>
             <tr>
-                <th>Id</th>
+                 {% if is_granted('ROLE_ADMIN') %} <th>Id</th>{% endif %}
                 <th>Note</th>
                 <th>Commentaire</th>
-                <th>Dateevaluation</th>
+                <th>DateEvaluation</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('no_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                {% if is_granted('ROLE_ADMIN') %}
+                <td><a href="{{ path('eval_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                {% endif %}
                 <td>{{ entity.note }}</td>
                 <td>{{ entity.commentaire }}</td>
                 <td>{% if entity.dateEvaluation %}{{ entity.dateEvaluation|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('no_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('eval_show', { 'id': entity.id }) }}">Afficher</a>
                     </li>
+                    {% if is_granted('ROLE_ADMIN') %}
                     <li>
-                        <a href="{{ path('no_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('eval_edit', { 'id': entity.id }) }}">Modifier</a>
                     </li>
+                    {% endif %}
                 </ul>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-        <ul>
+    {% else %}
+        <div class="alert alert-warning">Vous n avez aucunes évaluations .</div>
+  {% endif %}
+{% if is_granted('ROLE_ADMIN') %}
+    <ul>
         <li>
-            <a href="{{ path('no_new') }}">
-                Create a new entry
-            </a>
+            <a href="{{ path('eval_new') }}"> Create a new entry </a>
         </li>
     </ul>
+     {% endif %}
     {% endblock %}

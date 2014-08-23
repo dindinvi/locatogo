@@ -1,8 +1,8 @@
 {# src/djepo/MainBundle/Resources/views/layout.html.twig #}
 {% extends "::base.html.twig" %}
-
-{# {% block meta %} {{ parent() }} {% endblock %}#}
+ 
 {% block title %} {{ parent() }} {% endblock %}
+{% block stylesheets %} {{ parent() }}  {% endblock %}
  {% block header %}    {{ parent() }} {% endblock %}
 
 
@@ -17,11 +17,16 @@
                 </div>
         {% endfor %}
      {% endfor %}
- 
-         {% block my_content %}  {% endblock my_content %} 
-         {% block my_djepo_content %}  {% endblock my_djepo_content %} 
-{% endblock %}
-{% block droite %} {% include "djepoMainBundle::menuDroite.html.twig" %} {% endblock %} 
+        <div class="row"> 
+            <div class="col-sm-12"> 
+                    {% block my_content %}  {% endblock my_content %} 
+            </div>
+             <div class="col-sm-12">
+                     {% block my_djepo_content %}  {% endblock my_djepo_content %} 
+             </div>
+        </div>
+{% endblock %} 
 							
 {% block pied %}   {{ parent() }} 	{% endblock %}
+{% block javascripts %} {{ parent() }} {% endblock %}
  

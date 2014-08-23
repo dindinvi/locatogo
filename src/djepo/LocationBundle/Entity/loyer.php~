@@ -1,0 +1,160 @@
+<?php
+
+namespace djepo\LocationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * loyer
+ *
+ * @ORM\Table(name="loca_loyer")
+ * @ORM\Entity(repositoryClass="djepo\LocationBundle\Entity\loyerRepository")
+ */
+class loyer
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    /**
+* @ORM\ManyToOne(targetEntity="djepo\LocationBundle\Entity\location", cascade={"Persist"})
+* @ORM\JoinColumn(nullable=false)
+*/
+private $location;
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="datePerception", type="date", nullable=false)
+     */
+    private $datePerception;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="montantPercu", type="integer", nullable=false)
+     */
+    private $montantPercu;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="montantVerse", type="integer", nullable=false)
+     */
+    private $montantVerse;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateVersement", type="date")
+     */
+    private $dateVersement;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set datePerception
+     *
+     * @param \DateTime $datePerception
+     * @return loyer
+     */
+    public function setDatePerception($datePerception)
+    {
+        $this->datePerception = $datePerception;
+
+        return $this;
+    }
+
+    /**
+     * Get datePerception
+     *
+     * @return \DateTime 
+     */
+    public function getDatePerception()
+    {
+        return $this->datePerception;
+    }
+
+    /**
+     * Set montantPercu
+     *
+     * @param integer $montantPercu
+     * @return loyer
+     */
+    public function setMontantPercu($montantPercu)
+    {
+        $this->montantPercu = $montantPercu;
+
+        return $this;
+    }
+
+    /**
+     * Get montantPercu
+     *
+     * @return integer 
+     */
+    public function getMontantPercu()
+    {
+        return $this->montantPercu;
+    }
+
+    /**
+     * Set montantVerse
+     *
+     * @param integer $montantVerse
+     * @return loyer
+     */
+    public function setMontantVerse($montantVerse)
+    {
+        $this->montantVerse = $montantVerse;
+
+        return $this;
+    }
+
+    /**
+     * Get montantVerse
+     *
+     * @return integer 
+     */
+    public function getMontantVerse()
+    {
+        return $this->montantVerse;
+    }
+
+    /**
+     * Set dateVersement
+     *
+     * @param \DateTime $dateVersement
+     * @return loyer
+     */
+    public function setDateVersement($dateVersement)
+    {
+        $this->dateVersement = $dateVersement;
+
+        return $this;
+    }
+
+    /**
+     * Get dateVersement
+     *
+     * @return \DateTime 
+     */
+    public function getDateVersement()
+    {
+        return $this->dateVersement;
+    }
+
+}

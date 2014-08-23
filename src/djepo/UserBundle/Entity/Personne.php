@@ -34,6 +34,12 @@ class Personne
      */
     private $user;
     
+       /**
+        * @ORM\OneToOne(targetEntity="djepo\LocationBundle\Entity\proprietaire",mappedBy="personne", cascade={"Persist","Remove"})
+        * @Assert\Valid()
+        */
+        private $proprietaire;
+        
     /**
      * @var string
      * @ORM\Column(name="firstname",type="string", nullable=true)
@@ -301,5 +307,28 @@ class Personne
     public function getMailSender()
     {
         return $this->getUser()->getEmail();
+    }
+    
+    /**
+     * Set proprietaire
+     *
+     * @param \djepo\LocationBundle\Entity\proprietaire $proprietaire
+     * @return propriete
+     */
+    public function setProprietaire(\djepo\LocationBundle\Entity\proprietaire $proprietaire=null)
+    {
+        $this->proprietaire = $proprietaire;
+
+        return $this;
+    }
+
+    /**
+     * Get proprietaire
+     *
+     * @return \djepo\LocationBundle\Entity\proprietaire 
+     */
+    public function getProprietaire()
+    {
+        return $this->proprietaire;
     }
 }

@@ -13,7 +13,7 @@ class AdresseType extends AbstractType
         $builder
             ->add('numeroVoie','text', array( 'max_length' => 5, 'label' => 'numero Voie', 'required' => false, 'read_only' => false))
             ->add('libelleAdd','text', array('required' => false,'label' => 'lib. Addresse ', 'read_only' => false))
-            ->add('codePostal','text', array('max_length' => 5,'required' => false,'max_length' => 5,'label' => 'code Postal', 'required' => false, 'read_only' => false))
+            ->add('codePostal','text', array('max_length' => 5,'required' => false,'label' => 'code Postal', 'read_only' => false))
             ->add('ville', new VilleType) 
         ;
     }

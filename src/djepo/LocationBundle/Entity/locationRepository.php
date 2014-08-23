@@ -3,6 +3,9 @@
 namespace djepo\LocationBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use djepo\UserBundle\Entity\User;
+
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * locationRepository
@@ -12,33 +15,235 @@ use Doctrine\ORM\EntityRepository;
  */
 class locationRepository extends EntityRepository
 {
-    public function calandar($startDate, $id ) {
-            $qb=$this->createQueryBuilder('l');
-            $qb->where('l.logement = :logement')->setParameter('logement', $id);
-            $qb = $this->whereCalandarValide( $qb);
-            $qb = $this->whereCalandarDate( $qb, $startDate  );
-           // $qb = $this->whereCalandarOrder( $qb);
-            $qb->getQuery()->getResult();
-            return $qb;
+  
+     public function getShowReservation($id) {//id de location
+        $qb = $this
+               ->createQueryBuilder('l')         
+               ->leftJoin('l.user', 'u')
+               ->addSelect('u') 
+               ->leftJoin('u.personne', 'p')
+               ->addSelect('p') 
+                ;
+               $qb->where('l.id = :myReservation')->setParameter('myReservation', $id); 
+               return $qb->getQuery()->getSingleResult();
+            
+     }
+   
+    public function getReservation($id = null) {
+          $qb = $this
+            ->createQueryBuilder('l')
+            ->leftJoin('l.logement', 'log')
+            ->addSelect('log')  
+            ->leftJoin('l.user', 'u')
+            ->addSelect('u') ;
+          if ( $id ){
+                // si utilisateur sans annonce
+                   $qb->where('l.valide = :valide')->setParameter('valide', '1') ;
+                   $qb->andWhere('u.id = :auteur')->setParameter('auteur', $id); 
+          }
+         
+          return $qb->getQuery()->getResult(); 
+    }
+        
+        
+         public function getProprioReservation($id) {
+            $qb2 = $this
+                    ->createQueryBuilder('l')
+                    ->leftJoin('l.logement', 'log')
+                    ->addSelect('log')  
+                    ->leftJoin('log.propriete', 'pro')
+                    ->addSelect('pro') 
+                     ->leftJoin('pro.proprietaire', 'proprio')
+                    ->addSelect('proprio') 
+                     ->leftJoin('proprio.personne', 'pers')
+                     ->addSelect('pers') 
+                     ->leftJoin('pers.user', 'u')
+                     ->addSelect('u') ;
+             $qb2->where('u.id = :propri')->setParameter('propri', $id); 
+            return $qb2->getQuery()->getResult(); 
         }
-        public function whereCalandarValide(\Doctrine\ORM\QueryBuilder $qb )
+        
+         public function whereId(\Doctrine\ORM\QueryBuilder $qb, $id )
         {
-                $qb->andWhere('l.valide = :valide')->setParameter('valide', '1') ;
+                $qb->where('l.user = :user')->setParameter('user',  $id) ;
                  return $qb;
         }
         
-        public function whereCalandarDate(\Doctrine\ORM\QueryBuilder $qb, $startDate)
-        { 
-                $qb->andWhere('l.dateLocation < :startDate')
-                //->orWhere('l.dateFinLocation < :startDate')
-                ->setParameter('startDate', $startDate); //->format('Y-m-d')
-                 return $qb;
-        }
+               
+         
         
-        public function whereCalandarOrder(\Doctrine\ORM\QueryBuilder $qb )
+        public function whereOrder(\Doctrine\ORM\QueryBuilder $qb )
         {
                 $qb->orderBy('l.dateLocation','DESC');
               
                  return $qb;
         }
+   
+        public function getSearchLocation($page=1, $maxperpage=10, $dateD=null, $dateF=null, $Ville=null, $Budget=null)
+        {
+             if ( $page < 1 ) { throw new \InvalidArgumentException('L\'argument $page ne peut être inférieur à 1 (valeur : "'.$page.'").'); } 
+             
+            if( $Ville && $Budget ){
+                $query = $this->_em->createQuery('SELECT log, pro, a, v, i  FROM djepoLocationBundle:logement log 
+                            JOIN log.propriete pro JOIN pro.adresse a JOIN a.ville v JOIN log.image i
+                             WHERE log.isActivated = :Activate and   v.nomVille = :Ville and log.montantloyer <= :Budget and
+                             NOT EXISTS (SELECT loc FROM djepoLocationBundle:location loc                       
+                            WHERE
+                            loc.logement = log.id and loc.valide = :valide and
+                             ( loc.dateLocation BETWEEN :startDate AND :endDate OR  loc.dateFinLocation BETWEEN :startDate AND :endDate )
+                             )');
+                         $query->setParameter('Activate', '1')
+                                ->setParameter('Ville', $Ville) 
+                                ->setParameter('Budget', $Budget)
+                                 ->setParameter('valide', '1') 
+                                 ->setParameter('startDate', $dateD) 
+                                ->setParameter('endDate', $dateF) ;
+            } elseif ( $Ville == null && $Budget)  {
+                $query = $this->_em->createQuery('SELECT log, pro, a, v, i  FROM djepoLocationBundle:logement log 
+                            JOIN log.propriete pro JOIN pro.adresse a JOIN a.ville v JOIN log.image i
+                             WHERE log.isActivated = :Activate and log.montantloyer <= :Budget and
+                             NOT EXISTS (SELECT loc FROM djepoLocationBundle:location loc                       
+                            WHERE
+                            loc.logement = log.id and loc.valide = :valide and
+                             ( loc.dateLocation BETWEEN :startDate AND :endDate OR  loc.dateFinLocation BETWEEN :startDate AND :endDate )
+                             )');
+                         $query->setParameter('Activate', '1') 
+                                ->setParameter('Budget', $Budget)
+                                 ->setParameter('valide', '1') 
+                                 ->setParameter('startDate', $dateD) 
+                                ->setParameter('endDate', $dateF) ;
+        }elseif ( $Ville && $Budget == null)  {
+            $query = $this->_em->createQuery('SELECT log, pro, a, v, i  FROM djepoLocationBundle:logement log 
+                            JOIN log.propriete pro JOIN pro.adresse a JOIN a.ville v JOIN log.image i
+                             WHERE log.isActivated = :Activate and   v.nomVille = :Ville and
+                             NOT EXISTS (SELECT loc FROM djepoLocationBundle:location loc                       
+                            WHERE
+                            loc.logement = log.id and loc.valide = :valide and
+                             ( loc.dateLocation BETWEEN :startDate AND :endDate OR  loc.dateFinLocation BETWEEN :startDate AND :endDate )
+                             )');
+                         $query->setParameter('Activate', '1')
+                                ->setParameter('Ville', $Ville) 
+                                ->setParameter('Budget', $Budget)
+                                 ->setParameter('valide', '1')  
+                                 ->setParameter('startDate', $dateD) 
+                                ->setParameter('endDate', $dateF) ;
+        }else  {//( $Ville  == null&& $Budget == null) 
+                 $query = $this->_em->createQuery('SELECT log, pro, a, v, i  FROM djepoLocationBundle:logement log 
+                            JOIN log.propriete pro JOIN pro.adresse a JOIN a.ville v JOIN log.image i
+                             WHERE log.isActivated = :Activate and
+                             NOT EXISTS (SELECT loc FROM djepoLocationBundle:location loc                       
+                            WHERE
+                            loc.logement = log.id and loc.valide = :valide and
+                             ( loc.dateLocation BETWEEN :startDate AND :endDate OR  loc.dateFinLocation BETWEEN :startDate AND :endDate )
+                             )');
+                         $query->setParameter('Activate', '1') 
+                                 ->setParameter('valide', '1')  
+                                 ->setParameter('startDate', $dateD) 
+                                ->setParameter('endDate', $dateF) ;  
+        }
+        $query->setFirstResult(($page-1) * $maxperpage)->setMaxResults($maxperpage);
+                         return new Paginator($query);
+           /*  
+            
+                    $query = $this->_em->createQuery('SELECT log, pro, a, v, i  FROM djepoLocationBundle:logement log 
+                            JOIN log.propriete pro JOIN pro.adresse a JOIN a.ville v JOIN log.image i
+                             WHERE log.isActivated = :Activate and   v.nomVille = :Ville and log.montantloyer <= :Budget and
+                             NOT EXISTS (SELECT loc FROM djepoLocationBundle:location loc                       
+                            WHERE
+                            loc.logement = log.id and loc.valide = :valide and
+                             ( loc.dateLocation BETWEEN :startDate AND :endDate OR  loc.dateFinLocation BETWEEN :startDate AND :endDate )
+                             )');
+                         $query->setParameter('Activate', '1')
+                                ->setParameter('Ville', $Ville) 
+                                ->setParameter('Budget', $Budget)
+                                 ->setParameter('valide', '1')
+                                 ->setParameter('startDate', $dateD) 
+                                ->setParameter('endDate', $dateF) 
+                                 ->setParameter('startDate', $dateD) 
+                                ->setParameter('endDate', $dateF) ;
+
+                        $query->setFirstResult(($page-1) * $maxperpage)->setMaxResults($maxperpage);
+                         return new Paginator($query); */
+        }
+        
+        /*  
+         * whereValide porte sur les location valides a utilise pour les whereDate
+         */
+        public function whereValide(\Doctrine\ORM\QueryBuilder $qb )
+        {
+                $qb->andWhere('loc.valide = :valide')->setParameter('valide', '1') ;
+                 return $qb;
+        }
+        
+        /*  
+         * whereIsActivated porte sur les logement valides 
+         */
+         public function whereIsActivated(\Doctrine\ORM\QueryBuilder $qb )
+        {
+                $qb->where('l.isActivated = :valide')->setParameter('valide', '1') ;
+                 return $qb;
+        }
+        
+          /*
+         * verification de la date dans les reservations
+         */    
+      
+        public function whereDate(\Doctrine\ORM\QueryBuilder $qb, $startDate, $endDate)
+        { 
+               // $qb->andWhere('loc.valide = :valide')->setParameter('valide', '1') ;
+                
+                $qb->andWhere('loc.dateLocation NOT BETWEEN :startDate AND :endDate') 
+                     ->setParameter('startDate', $startDate) //->format('Y-m-d')
+                     ->setParameter('endDate', $endDate) ;//->format('Y-m-d')
+                
+                 $qb->andWhere('loc.dateFinLocation NOT BETWEEN :startDate AND :endDate')
+                     ->setParameter('startDate', $startDate) //->format('Y-m-d')
+                    ->setParameter('endDate', $endDate); 
+                 
+                 return $qb;
+        }
+        
+         public function whereVille(\Doctrine\ORM\QueryBuilder $qb, $Ville )
+        {
+                $qb->andWhere('v.nomVille = :Ville')->setParameter('Ville', $Ville) ;
+                 return $qb;
+        }
+        
+        public function whereBudget(\Doctrine\ORM\QueryBuilder $qb, $Budget )
+        {
+                $qb->andWhere('l.montantloyer <= :Budget')->setParameter('Budget', $Budget) ;
+                 return $qb;
+        }
+        
 }
+
+ /*
+  * public function getSearchLocation($page=1, $maxperpage=10, $dateD=null, $dateF=null, $Ville=null, $Budget=null)
+        {
+             
+            if ( $page < 1 ) { throw new \InvalidArgumentException('L\'argument $page ne peut être inférieur à 1 (valeur : "'.$page.'").'); }   
+                                   
+                    $query = $this->_em->createQuery( 'SELECT log, pro, a, v, i  FROM djepoLocationBundle:logement log 
+                            JOIN log.propriete pro JOIN pro.adresse a JOIN a.ville v JOIN log.image i
+                             WHERE log.isActivated = 1 4');
+                       
+                  if ( $Ville ){ $query->add('and   v.nomVille = :Ville');}
+                  if ( $Budget ){ $query->add('and log.montantloyer <= :Budget ');}
+                             $query->add('and
+                             NOT EXISTS (SELECT loc FROM djepoLocationBundle:location loc                       
+                                            WHERE
+                                            loc.logement = log.id and loc.valide = 1 and
+                                             ( loc.dateLocation BETWEEN :startDate AND :endDate OR  loc.dateFinLocation BETWEEN :startDate AND :endDate )
+                                             )');
+                     
+                            if ( $Ville ){ $query->setParameter('Ville', $Ville);} 
+                            if ( $Budget ){ $query->setParameter('Budget', $Budget);}
+                            $query->setParameter('startDate', $dateD) 
+                                ->setParameter('endDate', $dateF) 
+                                 ->setParameter('startDate', $dateD) 
+                                ->setParameter('endDate', $dateF) ;
+
+                        $query->setFirstResult(($page-1) * $maxperpage)->setMaxResults($maxperpage);
+                         return new Paginator($query);
+        }
+  */

@@ -1,32 +1,53 @@
-{% extends '::base.html.twig' %}
+{% extends "djepoMainBundle::layout.html.twig" %}
+  
+{% block meta %} 
+    <meta name="description" content="Index  photos"> 
+    <meta name="keywords" content="Index  photos"> 
+    <meta name='ROBOTS' content='NOINDEX, NOFOLLOW'> 
+{% endblock %}
+ 
 
-{% block body -%}
+{% block title %} Index  photos   {% endblock %}
+{% block stylesheets %} {{ parent() }}  {% endblock %}
+
+{% block navigsite %}
+          <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <li class="active"> Index  photos </li>
+        </ol>
+ {% endblock %}
+
+{% block my_content %}
     <h1>image list</h1>
 
-    <table class="records_list">
+   <table class="table table-striped  table-condensed table-bordered">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Url</th>
-                <th>Alt</th>
+               {% if is_granted('ROLE_ADMIN') %} <th>N° Image</th>{% endif %}
+                <th>N° Annonce</th>
+                <th>Photo 1</th>
+                <th>Déscription Ph 1</th>
+                
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('no_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.url }}</td>
-                <td>{{ entity.alt }}</td>
+               {% if is_granted('ROLE_ADMIN') %}
+                   <td><a href="{{ path('djepoImg_show', { 'id': entity.image.id }) }}">{{ entity.image.id }}</a></td>
+               {% endif %}
+                <td>{{ entity.id }}</td>
+                <td><img src="{{ asset(entity.image.resizePath) }}" alt="{{ entity.image.alt }} " class="img-responsive"  /></td>
+                <td>{{ entity.image.alt }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('no_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('no_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                    <ul nav nav-pills>
+                        <li> <a href="{{ path('djepoImg_show', { 'id': entity.image.id }) }}">Afficher l'annonce</a> </li><br />
+                        <li> <a href="{{ path('djepoImg_edit', { 'id': entity.image.id }) }}">Modifier l'annonce </a> </li>
+                       {% if is_granted('ROLE_ADMIN') %}
+                       <br /><li> <a href="#">Vérifer  l' annonce</a> </li>
+                        {% endif %}
+                    </ul>
                 </td>
             </tr>
         {% endfor %}
@@ -34,10 +55,8 @@
     </table>
 
         <ul>
-        <li>
-            <a href="{{ path('no_new') }}">
-                Create a new entry
-            </a>
-        </li>
+        {% if is_granted('ROLE_ADMIN') %}
+            <li>  <a href="{{ path('djepoImg_new') }}"> Create a new entry </a> </li>
+         {% endif %}
     </ul>
     {% endblock %}

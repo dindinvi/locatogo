@@ -1,35 +1,93 @@
- <div class="panel panel-default">
-      <div class="panel-heading"> <h3>Votre profil</h3>  </div>
-             <div class="panel-body">  
-                    <ul class="list-unstyled">
-                         <li><a href="{{ path('fos_user_profile_show', { 'id' : app.user.id })  }}">Voir mon profil actuel</a></li> <!-- 'id' : app.user.id-->
-                         {#  <li><a href="{{ path('personne_showDelete', { 'id' : app.user.personne.id}) }}">Supprimer mon compte</a></li> #}
-                    </ul> 
+  <!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><a href="#home" role="tab" data-toggle="tab"><h3>Mes Données Perso</h3></a></li>
+  <li><a href="#profile" role="tab" data-toggle="tab"> <h3>Espace Proprio Vacancier </h3></a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane active" id="home">
+        
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <div class="panel panel-default">
+                              <div class="panel-heading"> <h3>Votre profil</h3>  </div>
+                                     <div class="panel-body">  
+                                            <ul class="list-unstyled">
+                                                 <li><a href="{{ path('fos_user_profile_show', { 'id' : app.user.id })  }}">Voir mon profil actuel</a></li> <!-- 'id' : app.user.id-->
+                                                 <li> </li> 
+                                            </ul> 
+                                        </div>
+                    </div>
+
+
+
+
+                </div> 
+                <div class="col-sm-6">
+                        <div class="panel panel-default">
+                           <div class="panel-heading"> <h3>Identifiants</h3>  </div>
+                                  <div class="panel-body">  
+                                         <ul class="list-unstyled">
+                                             <li><a href="{{ path('djepoUser_changeMail') }}">Modifier mon adresse e-mail</a></li>
+                                             <li><a href="{{ path('fos_user_resetting_request') }}">Modifier mon mot de passe</a></li>
+                                         </ul> 
+
+                                     </div>
+                        </div>
                 </div>
-   </div>
-             <br>
-             
-   <div class="panel panel-default">
-      <div class="panel-heading"> <h3>Identifiants</h3>  </div>
-             <div class="panel-body">  
-                    <ul class="list-unstyled">
-                        <li><a href="{{ path('djepoUser_changeMail') }}">Modifier mon adresse e-mail</a></li>
-                        <li><a href="{{ path('fos_user_resetting_request') }}">Modifier mon mot de passe</a></li>
-                    </ul> 
- 
-                </div>
-   </div>
-             <br>      
-	
-     <div class="panel panel-default">
-           <div class="panel-heading"> <h3>Mes Projets</h3>  </div>
-             <div class="panel-body">  
-                    <ul class="list-unstyled">
-                        <li><a href="#">Mes Annonces en cours</a></li>
-                        <li><a href="#">Passer une Annonces</a></li>
-                    </ul> 
- 
-                </div>
-   </div>
-             <br>
-	
+
+            </div>
+
+          </div>
+      <div class="tab-pane" id="profile">
+            <div class="row">                            
+               <div class="col-sm-4">              
+
+                 <div class="panel panel-default">
+                       <div class="panel-heading"> <h3>Mes Projets</h3>  </div>
+                         <div class="panel-body">  
+                                <ul class="list-unstyled">
+                                   <li><a href="{{ path('logement_new') }}">Passer une Annonce</a></li>
+                                {% if is_granted('ROLE_PROPRIO') %}    
+                                   <li><a href="{{ path('logement_mes_annonces') }}">Mes Annonces en cours</a></li>
+                                {% endif %}    
+                                </ul> 
+
+                            </div>
+               </div>
+
+            </div>                         
+               <div class="col-sm-4">
+                        <div class="panel panel-default">
+                               <div class="panel-heading"> <h3>Mes Réservations / Mes Locations</h3>  </div>
+                                 <div class="panel-body">  
+                                        <ul class="list-unstyled">
+                                        {% if is_granted('ROLE_PROPRIO') %}     
+                                           <li><a href="{{ path('reservation_pro') }}">Réservations à confirmer </a></li>
+                                        {% endif %}     
+                                           <li><a href="{{ path('reservation_van') }}">Mes locations</a></li>
+                                        </ul> 
+
+                                    </div>
+                       </div>
+                </div>                         
+               <div class="col-sm-4">
+
+                      <div class="panel panel-default">
+                            <div class="panel-heading"> <h3>Mes evaluations</h3>  </div>
+                              <div class="panel-body">  
+                                     <ul class="list-unstyled">
+
+                                        <li><a href="{{ path('eval') }}">Mes évaluations</a></li>
+
+                                         <li><a href="">Déposer une évaluation</a></li>
+                                     </ul> 
+
+                                 </div>
+                    </div>
+                </div>  
+             </div> 
+        </div>
+</div>

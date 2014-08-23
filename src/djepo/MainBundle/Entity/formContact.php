@@ -19,6 +19,13 @@ class formContact
      */
     private $id;
 
+       /**
+        * @ORM\ManyToOne(targetEntity="djepo\UserBundle\Entity\User", cascade={"Persist"})
+        * @ORM\JoinColumn(nullable=true)
+        * @Assert\Valid()
+        */
+        private $user;
+    
     /**
      * @var string $nom
      * @ORM\Column(name="nom", type="string", length=255)
@@ -171,4 +178,28 @@ class formContact
     {
         return $this->subject;
     }
+    
+    /**
+     * Set user
+     *
+     * @param \djepo\UserBundle\Entity\User $user
+     * @return 
+     */
+    public function setUser(\djepo\UserBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \djepo\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
 }

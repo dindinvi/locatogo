@@ -1,18 +1,36 @@
-{% extends '::base.html.twig' %}
+{% extends "djepoMainBundle::layout.html.twig" %}
+ {% if form is defined %}  
+  {% form_theme form "djepoMainBundle:Form:fields.html.twig" %} 
+ {% endif %}
+ 
+ 
+{% block meta %} 
+            <meta name="description" content="Déposer  une évaluation"> 
+                 <meta name="keywords" content="Déposer  une évaluation"> 
+     <meta name='ROBOTS' content='NOINDEX, NOFOLLOW'> 
+         {% endblock %}
+ 
 
-{% block body -%}
+{% block title %} Déposer  une évaluation   {% endblock %}
+{% block stylesheets %}   {{ parent() }}  {% endblock %}
+
+{% block navigsite %}
+          <ol class="breadcrumb">
+            <li> <a href="{{ path('djepoMain_accueil') }}"> {{ djepo_home }} </a> </li>
+            <a href="{{ path('eval') }}"> Mes évaluations </a>
+            <li class="active"> Déposer  une évaluation </li>
+        </ol>
+ {% endblock %}
+
+{% block my_content %}
+    
     <h1>evaluation creation</h1>
 
-    <form action="{{ path('no_create') }}" method="post" {{ form_enctype(form) }}>
-        {{ form_widget(form) }}
-        <p>
-            <button type="submit">Create</button>
-        </p>
-    </form>
+      {% include "djepoLocationBundle:evaluation:new_content.html.twig" %}
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('no') }}">
+        <a href="{{ path('eval') }}">
             Back to the list
         </a>
     </li>

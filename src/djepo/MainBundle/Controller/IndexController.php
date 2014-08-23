@@ -2,7 +2,7 @@
 
 namespace djepo\MainBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-//use djepo\MainBundle\Entity\MotsCle;
+use djepo\MainBundle\Entity\MotsCle;
 
 class IndexController extends Controller
 {

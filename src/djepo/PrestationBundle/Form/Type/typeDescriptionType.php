@@ -11,10 +11,10 @@ class typeDescriptionType extends AbstractType
     {
         $resolver->setDefaults(array(
             'choices' => array(
-                'Ch' => 'Chauffeur', 
-                'Cu' => 'Cuisinier',
-                'V' => 'Valet', 
-                'N' => 'Nounou',
+                'Chauffeur' => 'Chauffeur', 
+                'Cuisinier' => 'Cuisinier',
+                'Valet' => 'Valet', 
+                'Nounou' => 'Nounou',
                 
             )
         ));

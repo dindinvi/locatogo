@@ -179,3 +179,40 @@ user:
     flash:
         success: Votre compte a bien ete supprimer.
         warning: Impossible de supprimer votre compte. 
+        
+#modification logement
+logement:
+    flash:
+        success: Votre annonce a bien été enregistre.Vous pouvez la prévisualiser et la modifier avant de la mettre en service.
+        warning: Impossible de supprimer votre compte. 
+        
+supLogement:
+    flash:
+        success: Votre annonce a bien été supprimer.
+        warning: Impossible de supprimer votre annonce.
+ 
+publishLogement:
+    flash:
+        success: Votre annonce a bien été activée et est consultable en ligne dans les 24 heures.
+        warning: Impossible d' activer votre annonce.
+        
+editEvaluation:
+    flash:
+        success: Votre évaluation à été bien prise en compte.
+        warning: Vous ne disposez pas des droits necessaires pour afficher cette page
+        
+editLocation:
+    flash:
+        success: Votre modification à été bien prise en compte.
+        warning: Vous ne disposez pas des droits necessaires pour afficher cette page  
+        
+confirmerLocation:
+    flash:
+        success: La location a bien été activée .
+        warning: Impossible d' activer votre annonce.
+        
+reservationLocation:
+    flash:
+        success: Votre demande de réservation à été bien prise en compte, l équipe du {{ websiteName }} vous remercie.
+        info: un mail a été envoyé au propriétaire pour l'informer de votre demande.
+        warning: Impossible d' activer votre annonce.
